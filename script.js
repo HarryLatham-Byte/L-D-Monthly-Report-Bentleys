@@ -119,12 +119,46 @@ function setupEventListeners() {
     // Export & Action Buttons
     document.getElementById('exportPDF')?.addEventListener('click', () => window.print());
     document.getElementById('copyShareLink')?.addEventListener('click', copyShareLink);
+    document.getElementById('resetFilters')?.addEventListener('click', resetFilters);
 
     // Modal Close
     document.getElementById('closeModal')?.addEventListener('click', closeModal);
     window.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal-overlay')) closeModal();
     });
+}
+
+function resetFilters() {
+    state.filters = {
+        office: 'all',
+        department: 'all',
+        type: 'all',
+        platform: 'all',
+        name: '',
+        startDate: '',
+        endDate: ''
+    };
+
+    // Reset UI elements
+    const filterIds = ['officeFilter', 'departmentFilter', 'trainingTypeFilter', 'platformFilter'];
+    filterIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = 'all';
+    });
+
+    const nameSearch = document.getElementById('nameSearch');
+    if (nameSearch) {
+        nameSearch.value = '';
+        nameSearch.setAttribute('placeholder', 'Type a name...');
+    }
+
+    const dateIds = ['startDate', 'endDate'];
+    dateIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.value = '';
+    });
+
+    applyFilters(true);
 }
 
 // --- Data Loading ---
@@ -520,7 +554,7 @@ function renderLeaderboard() {
         const isTop = index < 3;
 
         html += `
-            <div class="leaderboard-card">
+            <div class="leaderboard-card interactive" onclick="handleChartClick('courseLeaderboard', '${course.replace(/'/g, "\\'")}')">
                 <div class="rank-pill ${isTop ? 'rank-top' : ''}">${index + 1}</div>
                 <div class="course-info">
                     <div class="course-header">
@@ -668,6 +702,9 @@ function handleChartClick(chartId, label) {
     } else if (chartId === 'officeCompletionsChart') {
         drillData = state.filteredData.filter(row => row['Office'] === label);
         title = `Training for Office: ${label}`;
+    } else if (chartId === 'courseLeaderboard') {
+        drillData = state.filteredData.filter(row => row['Training Name'] === label);
+        title = `Transcript: ${label}`;
     }
 
     if (drillData.length > 0) {

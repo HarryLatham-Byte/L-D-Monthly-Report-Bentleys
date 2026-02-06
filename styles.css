@@ -266,6 +266,15 @@ h3 {
     box-shadow: var(--shadow-sm);
 }
 
+.leaderboard-card.interactive {
+    cursor: pointer;
+}
+
+.leaderboard-card.interactive:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px var(--accent-glow);
+}
+
 .rank-pill {
     width: 32px;
     height: 32px;
@@ -436,9 +445,9 @@ h3 {
 
 /* Action Buttons Refined */
 .icon-btn {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -454,12 +463,18 @@ h3 {
     background: var(--bg-color);
 }
 
+.export-tools {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1.5rem;
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
@@ -481,6 +496,35 @@ h3 {
 .btn-accent:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 15px -3px var(--accent-glow);
+}
+
+/* Premium PDF Button */
+.btn-pdf {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+.btn-pdf:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+}
+
+/* Minimal/Reset Button */
+.btn-minimal {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.65rem 1rem;
+    font-size: 0.8rem;
+    border-radius: var(--radius-sm);
+}
+
+.btn-minimal:hover {
+    background: var(--bg-color);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
 }
 
 /* Help UI */
