@@ -447,6 +447,30 @@ body {
     color: var(--text-primary);
 }
 
+.platform-cell {
+    width: 150px;
+}
+
+.badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.platform-365 {
+    background-color: rgba(247, 148, 29, 0.1);
+    color: #f7941d;
+    border: 1px solid rgba(247, 148, 29, 0.2);
+}
+
+.platform-cch {
+    background-color: rgba(54, 179, 126, 0.1);
+    color: #36b37e;
+    border: 1px solid rgba(54, 179, 126, 0.2);
+}
+
 .count-cell {
     width: 120px;
     text-align: right !important;

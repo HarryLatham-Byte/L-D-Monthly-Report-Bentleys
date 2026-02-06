@@ -148,11 +148,23 @@ function populateFilters() {
     const departments = [...new Set(state.rawData.map(row => row.Department))].filter(Boolean).sort();
     const types = [...new Set(state.rawData.map(row => row['Training Type']))].filter(Boolean).sort();
     const platforms = [...new Set(state.rawData.map(row => row.Platform))].filter(Boolean).sort();
+    const names = [...new Set(state.rawData.map(row => row.Name))].filter(Boolean).sort();
 
     updateSelectOptions('officeFilter', offices, 'All Offices');
     updateSelectOptions('departmentFilter', departments, 'All Departments');
     updateSelectOptions('trainingTypeFilter', types, 'All Types');
     updateSelectOptions('platformFilter', platforms, 'All Platforms');
+
+    // Populate name datalist
+    const nameList = document.getElementById('nameOptions');
+    if (nameList) {
+        nameList.innerHTML = '';
+        names.forEach(name => {
+            const opt = document.createElement('option');
+            opt.value = name;
+            nameList.appendChild(opt);
+        });
+    }
 
     initDateRangeInputs();
 }
@@ -354,12 +366,21 @@ function renderLeaderboard() {
         return;
     }
 
+    // Map to find platform for each training name
+    const platformMap = {};
+    state.filteredData.forEach(row => {
+        if (!platformMap[row['Training Name']]) {
+            platformMap[row['Training Name']] = row['Platform'] || 'N/A';
+        }
+    });
+
     let html = `
         <table class="leaderboard-table">
             <thead>
                 <tr>
                     <th class="rank-cell">Rank</th>
                     <th class="course-cell">Course Name</th>
+                    <th class="platform-cell">Platform</th>
                     <th class="count-cell">Completions</th>
                 </tr>
             </thead>
@@ -367,10 +388,14 @@ function renderLeaderboard() {
     `;
 
     courseStats.labels.forEach((course, index) => {
+        const platform = platformMap[course] || 'N/A';
+        const platformClass = platform.toLowerCase().includes('cch') ? 'platform-cch' : 'platform-365';
+
         html += `
             <tr>
                 <td class="rank-cell">#${index + 1}</td>
                 <td class="course-cell">${course}</td>
+                <td class="platform-cell"><span class="badge ${platformClass}">${platform}</span></td>
                 <td class="count-cell">${courseStats.values[index]}</td>
             </tr>
         `;
