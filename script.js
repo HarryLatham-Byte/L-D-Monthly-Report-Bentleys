@@ -508,34 +508,36 @@ function renderLeaderboard() {
         }
     });
 
-    let html = `
-        <table class="leaderboard-table">
-            <thead>
-                <tr>
-                    <th class="rank-cell">Rank</th>
-                    <th class="course-cell">Course Name</th>
-                    <th class="platform-cell">Platform</th>
-                    <th class="count-cell">Completions</th>
-                </tr>
-            </thead>
-            <tbody>
-    `;
+    const maxCompletions = Math.max(...courseStats.values);
+
+    let html = `<div class="leaderboard-modern">`;
 
     courseStats.labels.forEach((course, index) => {
         const platform = platformMap[course] || 'N/A';
         const platformClass = platform.toLowerCase().includes('cch') ? 'platform-cch' : 'platform-365';
+        const completions = courseStats.values[index];
+        const progressWidth = (completions / maxCompletions) * 100;
 
         html += `
-            <tr>
-                <td class="rank-cell">#${index + 1}</td>
-                <td class="course-cell">${course}</td>
-                <td class="platform-cell"><span class="badge ${platformClass}">${platform}</span></td>
-                <td class="count-cell">${courseStats.values[index]}</td>
-            </tr>
+            <div class="leaderboard-item">
+                <div class="leader-rank">${index + 1}</div>
+                <div class="leader-content">
+                    <div class="leader-top">
+                        <span class="leader-name">${course}</span>
+                        <div class="leader-stats">
+                             <span class="badge ${platformClass}">${platform}</span>
+                             <span class="leader-count">${completions}</span>
+                        </div>
+                    </div>
+                    <div class="leader-progress-bg">
+                        <div class="leader-progress-bar" style="width: ${progressWidth}%"></div>
+                    </div>
+                </div>
+            </div>
         `;
     });
 
-    html += '</tbody></table>';
+    html += '</div>';
     container.innerHTML = html;
 }
 
