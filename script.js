@@ -98,9 +98,14 @@ function setupEventListeners() {
     });
 
     // Name Search
-    document.getElementById('nameSearch').addEventListener('input', (e) => {
+    const nameSearch = document.getElementById('nameSearch');
+    nameSearch.addEventListener('input', (e) => {
         state.filters.name = e.target.value.trim().toLowerCase();
         applyFilters();
+    });
+    // Help the dropdown appear on focus
+    nameSearch.addEventListener('focus', () => {
+        nameSearch.setAttribute('placeholder', 'Type to search...');
     });
 
     // Date Filters
@@ -144,11 +149,18 @@ async function loadLocalData() {
 
 // --- Filter Management ---
 function populateFilters() {
+    if (state.rawData.length === 0) return;
+
+    // Detect column name for "Name" (handle BOM or case variations)
+    const sampleRow = state.rawData[0];
+    const nameKey = Object.keys(sampleRow).find(k => k.toLowerCase().includes('name') && !k.toLowerCase().includes('manager')) || 'Name';
+    state.nameKey = nameKey; // Store for later use
+
     const offices = [...new Set(state.rawData.map(row => row.Office))].filter(Boolean).sort();
     const departments = [...new Set(state.rawData.map(row => row.Department))].filter(Boolean).sort();
     const types = [...new Set(state.rawData.map(row => row['Training Type']))].filter(Boolean).sort();
     const platforms = [...new Set(state.rawData.map(row => row.Platform))].filter(Boolean).sort();
-    const names = [...new Set(state.rawData.map(row => row.Name))].filter(Boolean).sort();
+    const names = [...new Set(state.rawData.map(row => row[nameKey]))].filter(Boolean).sort();
 
     updateSelectOptions('officeFilter', offices, 'All Offices');
     updateSelectOptions('departmentFilter', departments, 'All Departments');
@@ -211,6 +223,7 @@ function updateSelectOptions(id, options, defaultLabel) {
 }
 
 function applyFilters() {
+    const nameKey = state.nameKey || 'Name';
     state.filteredData = state.rawData.filter(row => {
         const matchOffice = state.filters.office === 'all' || row.Office === state.filters.office;
         const matchDept = state.filters.department === 'all' || row.Department === state.filters.department;
@@ -218,7 +231,8 @@ function applyFilters() {
         const matchPlatform = state.filters.platform === 'all' || row.Platform === state.filters.platform;
 
         // Name search (case insensitive)
-        const matchName = !state.filters.name || (row.Name && row.Name.toLowerCase().includes(state.filters.name));
+        const rowName = row[nameKey] ? String(row[nameKey]).toLowerCase() : '';
+        const matchName = !state.filters.name || rowName.includes(state.filters.name);
 
         // Date range filtering
         let matchDate = true;
@@ -236,7 +250,6 @@ function applyFilters() {
                     if (rowDate > end) matchDate = false;
                 }
             } else {
-                // If date is missing/invalid and user is filtering by date, exclude
                 matchDate = false;
             }
         }
@@ -284,8 +297,9 @@ function renderKPIs() {
     const totalHours = totalHoursNum.toFixed(1);
     const uniqueTrainings = new Set(state.filteredData.map(row => row['Training Name'])).size;
 
-    // Improved unique learner detection (still approximate given CSV columns)
-    const uniqueLearners = new Set(state.filteredData.map(row => (row['Line Manager Name'] || '') + (row['Learner Job Title'] || ''))).size;
+    // Unique learner detection using "Name" column
+    const nameKey = state.nameKey || 'Name';
+    const uniqueLearners = new Set(state.filteredData.map(row => row[nameKey]).filter(Boolean)).size;
     const avgHours = uniqueLearners > 0 ? (totalHoursNum / uniqueLearners).toFixed(1) : 0;
 
     const kpis = [
