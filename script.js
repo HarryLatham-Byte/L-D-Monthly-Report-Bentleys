@@ -198,7 +198,7 @@ async function loadLocalExcelData() {
         const response = await fetch(fileName, { cache: 'no-cache' });
         if (!response.ok) {
             if (response.status === 404) {
-                throw new Error(`File '${fileName}' not found in the local directory.`);
+                throw new Error(`File '${fileName}' not found. Please ensure the file is named exactly '${fileName}' (case-sensitive) in your repository.`);
             } else {
                 throw new Error(`Failed to load '${fileName}'. Status: ${response.status}`);
             }
@@ -218,7 +218,7 @@ async function loadLocalExcelData() {
             updatePreparedDate();
             hideError();
         } else {
-            showError("Invalid Excel content. Ensure required columns are present.");
+            showError("Invalid Excel content. Ensure required columns (metric_category, metric_name, metric_value) are present.");
         }
     } catch (err) {
         console.error("Auto-load error:", err);
@@ -364,36 +364,6 @@ function createChart(id, type, data, options = {}) {
         data: data,
         options: Object.assign(defaultOptions, options)
     });
-}
-
-// --- Excel Logic ---
-function handleExcelUpload(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        try {
-            const data = new Uint8Array(e.target.result);
-            const workbook = XLSX.read(data, { type: 'array' });
-
-            // Assume first sheet
-            const sheetName = workbook.SheetNames[0];
-            const worksheet = workbook.Sheets[sheetName];
-            const json = XLSX.utils.sheet_to_json(worksheet);
-
-            if (validateData(json)) {
-                processExcelData(json);
-                updatePreparedDate();
-                hideError();
-            } else {
-                showError("Invalid Excel format. Please ensure required columns (metric_category, metric_name, metric_value) are present.");
-            }
-        } catch (err) {
-            showError("Error parsing Excel file: " + err.message);
-        }
-    };
-    reader.readAsArrayBuffer(file);
 }
 
 function updatePreparedDate() {
