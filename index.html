@@ -52,64 +52,78 @@
     </header>
 
     <main class="dashboard-container">
-        <!-- KPI Summary Grid -->
-        <section id="kpi-grid" class="kpi-grid">
-            <!-- Rendered via JS -->
-            <div class="empty-state">Loading dashboard...</div>
+        <!-- Filter Bar -->
+        <section class="filter-bar">
+            <div class="filter-group">
+                <label for="officeFilter">Office</label>
+                <select id="officeFilter">
+                    <option value="all">All Offices</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="departmentFilter">Department</label>
+                <select id="departmentFilter">
+                    <option value="all">All Departments</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="trainingTypeFilter">Training Type</label>
+                <select id="trainingTypeFilter">
+                    <option value="all">All Types</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="platformFilter">Platform</label>
+                <select id="platformFilter">
+                    <option value="all">All Platforms</option>
+                </select>
+            </div>
         </section>
 
-        <!-- Learn365 Overview -->
+        <!-- KPI Summary Grid -->
+        <section id="kpi-grid" class="kpi-grid">
+            <div class="empty-state">Loading data insights...</div>
+        </section>
+
+        <!-- Training InsightsSection -->
         <section class="section-group">
-            <h2 class="section-title">Learn365 Overview</h2>
+            <h2 class="section-title">Training Activity Analysis</h2>
+
             <div class="dashboard-row">
                 <div class="card full-width">
-                    <h3>Enrolments and Completions by Office</h3>
+                    <h3>Completions by Office</h3>
                     <div class="chart-container tall">
                         <canvas id="officeCompletionsChart"></canvas>
                     </div>
                 </div>
             </div>
-            <div class="dashboard-row multi-col">
-                <div class="card">
-                    <h3>Completions by Team</h3>
-                    <div class="chart-container">
-                        <canvas id="teamCompletionsChart"></canvas>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>Completions by Position</h3>
-                    <div class="chart-container">
-                        <canvas id="positionCompletionsChart"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="dashboard-row multi-col">
-                <div class="card">
-                    <h3>Training Hours by Team</h3>
-                    <div class="chart-container">
-                        <canvas id="teamHoursChart"></canvas>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>Training Hours by Position</h3>
-                    <div class="chart-container">
-                        <canvas id="positionHoursChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- CCH Learning Section -->
-        <section class="section-group cch-section">
-            <h2 class="section-title">L&D Monthly Report – CCH Learning</h2>
-            <div id="cch-kpi-grid" class="kpi-grid">
-                <!-- CCH KPIs via JS -->
+            <div class="dashboard-row multi-col">
+                <div class="card">
+                    <h3>Training Type Distribution</h3>
+                    <div class="chart-container">
+                        <canvas id="trainingTypeChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Top Job Titles by Training</h3>
+                    <div class="chart-container">
+                        <canvas id="jobTitleChart"></canvas>
+                    </div>
+                </div>
             </div>
-            <div class="dashboard-row full-width">
-                <div class="card full-width">
-                    <h3>CCH Learning Trends</h3>
-                    <div class="chart-container x-tall">
-                        <canvas id="cchTrendsChart"></canvas>
+
+            <div class="dashboard-row multi-col">
+                <div class="card">
+                    <h3>CPD Hours by Department</h3>
+                    <div class="chart-container">
+                        <canvas id="departmentHoursChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Monthly Completion Trend</h3>
+                    <div class="chart-container">
+                        <canvas id="monthlyTrendChart"></canvas>
                     </div>
                 </div>
             </div>

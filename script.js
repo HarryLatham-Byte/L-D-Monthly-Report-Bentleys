@@ -1,126 +1,19 @@
 /**
  * L&D Monthly Summary Report Dashboard
- * Core Logic & State Management
+ * Core Logic & State Management - CSV Enhanced
  */
-
-// --- Default Data (December 2025) ---
-const DEFAULT_DATA = {
-    summary: [
-        { label: "Compliance Training Completion Rate", value: "96%" },
-        { label: "Attendance Rate", value: "35%" },
-        { label: "Overall Satisfaction of Training Provided", value: "90%" },
-        { label: "Overall Engagement", value: "95%" },
-        { label: "Knowledge Before Session", value: "6.75 / 10" },
-        { label: "Knowledge After Session", value: "8.75 / 10" },
-        { label: "Confidence in Applying Learnt Knowledge", value: "84%" },
-        { label: "Satisfaction with Learn365 Platform", value: "81%" }
-    ],
-    preferences: {
-        labels: ["In-Person", "Virtual", "Watch Recording"],
-        data: [25, 50, 0]
-    },
-    insights: [
-        "Positive feedback: engaging videos, examples, trainer insights",
-        "Improvement opportunity: more PA/TA training, handling different client types",
-        "Learning objects summary: 345 Active Users, 12 New Modules"
-    ],
-    snapshot: {
-        uptodate: "99.5%",
-        subtext: "1,240 Total Learning Objects"
-    },
-    officeCompletions: {
-        labels: ["Brisbane", "Manila"],
-        enrolments: [145, 82],
-        completions: [120, 75]
-    },
-    teamCompletions: {
-        labels: ["Affinity Audit", "Team 1", "Team 2", "Team 4", "Team 5", "Team 7", "Other"],
-        enrolments: [24, 18, 12, 15, 20, 10, 30],
-        completions: [20, 15, 10, 12, 18, 8, 25]
-    },
-    positionCompletions: {
-        labels: ["Grads", "Intermediate", "Senior", "Supervisor", "Manager", "AD & Above", "PA/TA", "Other"],
-        enrolments: [40, 35, 30, 20, 15, 10, 25, 12],
-        completions: [38, 32, 28, 18, 14, 9, 22, 10]
-    },
-    teamHours: {
-        labels: ["Affinity Audit", "Team 1", "Team 2", "Team 4", "Team 5", "Team 7", "Other"],
-        data: [15, 12, 8, 10, 14, 11, 17] // Total 87
-    },
-    positionHours: {
-        labels: ["Grads", "Intermediate", "Senior", "Supervisor", "Manager", "AD & Above", "PA/TA", "Other"],
-        data: [25, 20, 15, 10, 6, 4, 4, 3]
-    },
-    cchKpis: [
-        { label: "Time to Completion (Median) - Month", value: "7.74 days" },
-        { label: "Time to Completion (Median) - YTD", value: "14.04 days" },
-        { label: "CPD Hours Earnt - Month", value: "52.5" },
-        { label: "CPD Hours Earnt - YTD", value: "719.25" },
-        { label: "Enrolments - Month", value: "73" },
-        { label: "Enrolments - YTD", value: "1162" },
-        { label: "Completions - Month", value: "51" },
-        { label: "Completions - YTD", value: "663" },
-        { label: "Completion % - Month", value: "69.9%" },
-        { label: "Completion % - YTD", value: "57%" },
-        { label: "Cost per CPD Hour - Month", value: "$54.69" },
-        { label: "Cost per CPD Hour - YTD", value: "$48.13" }
-    ],
-    cchTrends: {
-        months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        timeToCompletion: [10, 12, 15, 11, 14, 13, 12, 11, 10, 9, 8, 7.74],
-        cpdHours: [45, 60, 55, 70, 65, 80, 75, 50, 48, 52, 65, 52.5],
-        enrolments: [80, 95, 110, 105, 90, 120, 115, 100, 98, 85, 92, 73],
-        completions: [50, 70, 65, 80, 60, 90, 85, 75, 60, 55, 58, 51]
-    }
-};
-
-// --- Empty / Zero Data State ---
-const ZERO_DATA = {
-    summary: [
-        { label: "Compliance Training Completion Rate", value: "0%" },
-        { label: "Attendance Rate", value: "0%" },
-        { label: "Overall Satisfaction of Training Provided", value: "0%" },
-        { label: "Overall Engagement", value: "0%" },
-        { label: "Knowledge Before Session", value: "0 / 10" },
-        { label: "Knowledge After Session", value: "0 / 10" },
-        { label: "Confidence in Applying Learnt Knowledge", value: "0%" },
-        { label: "Satisfaction with Learn365 Platform", value: "0%" }
-    ],
-    preferences: { labels: [], data: [] },
-    insights: [],
-    snapshot: { uptodate: "0%", subtext: "0 Total Learning Objects" },
-    officeCompletions: { labels: [], enrolments: [], completions: [] },
-    teamCompletions: { labels: [], enrolments: [], completions: [] },
-    positionCompletions: { labels: [], enrolments: [], completions: [] },
-    teamHours: { labels: [], data: [] },
-    positionHours: { labels: [], data: [] },
-    cchKpis: [
-        { label: "Time to Completion (Median) - Month", value: "0 days" },
-        { label: "Time to Completion (Median) - YTD", value: "0 days" },
-        { label: "CPD Hours Earnt - Month", value: "0" },
-        { label: "CPD Hours Earnt - YTD", value: "0" },
-        { label: "Enrolments - Month", value: "0" },
-        { label: "Enrolments - YTD", value: "0" },
-        { label: "Completions - Month", value: "0" },
-        { label: "Completions - YTD", value: "0" },
-        { label: "Completion % - Month", value: "0%" },
-        { label: "Completion % - YTD", value: "0%" },
-        { label: "Cost per CPD Hour - Month", value: "$0.00" },
-        { label: "Cost per CPD Hour - YTD", value: "$0.00" }
-    ],
-    cchTrends: {
-        months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        timeToCompletion: Array(12).fill(0),
-        cpdHours: Array(12).fill(0),
-        enrolments: Array(12).fill(0),
-        completions: Array(12).fill(0)
-    }
-};
 
 // --- State Management ---
 const state = {
     theme: 'light',
-    data: JSON.parse(JSON.stringify(ZERO_DATA)), // Start with zeroed-out data
+    rawData: [],      // Complete array of rows from CSV
+    filteredData: [], // Filtered subset based on current selections
+    filters: {
+        office: 'all',
+        department: 'all',
+        type: 'all',
+        platform: 'all'
+    },
     charts: {}
 };
 
@@ -132,7 +25,6 @@ function toggleTheme() {
     document.getElementById('moonIcon').style.display = state.theme === 'light' ? 'block' : 'none';
     document.getElementById('sunIcon').style.display = state.theme === 'dark' ? 'block' : 'none';
 
-    // Update charts for theme
     updateChartThemes();
 }
 
@@ -165,8 +57,8 @@ const COLORS = {
     secondary: '#ffad4d', // Light Orange
     accent: '#36b37e',
     backgrounds: [
-        'rgba(247, 148, 29, 0.8)', // Orange
-        'rgba(255, 173, 77, 0.8)', // Light Orange
+        'rgba(247, 148, 29, 0.8)',
+        'rgba(255, 173, 77, 0.8)',
         'rgba(54, 179, 126, 0.8)',
         'rgba(255, 171, 0, 0.8)',
         'rgba(255, 86, 48, 0.8)',
@@ -178,85 +70,120 @@ const COLORS = {
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
     initUI();
-    renderDashboard();
     setupEventListeners();
-    loadLocalExcelData(); // Automatically load the data on startup
+    loadLocalData();
 });
 
 function initUI() {
-    // UI initializations
+    // Theme initialization
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // toggleTheme(); // Uncomment to follow OS preference
+    }
 }
 
 function setupEventListeners() {
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+    // Filter Listeners
+    const filterIds = ['officeFilter', 'departmentFilter', 'trainingTypeFilter', 'platformFilter'];
+    filterIds.forEach(id => {
+        document.getElementById(id).addEventListener('change', (e) => {
+            const filterKey = id.replace('Filter', '').toLowerCase();
+            state.filters[id === 'trainingTypeFilter' ? 'type' : filterKey] = e.target.value;
+            applyFilters();
+        });
+    });
 }
 
-// --- Automated Local Data Fetching ---
-async function loadLocalExcelData() {
-    const fileName = 'report_data.xlsx';
+// --- Data Loading ---
+async function loadLocalData() {
+    const fileName = 'report_data.csv';
     try {
         const response = await fetch(fileName, { cache: 'no-cache' });
         if (!response.ok) {
-            if (response.status === 404) {
-                throw new Error(`File '${fileName}' not found. Please ensure the file is named exactly '${fileName}' (case-sensitive) in your repository.`);
-            } else {
-                throw new Error(`Failed to load '${fileName}'. Status: ${response.status}`);
-            }
+            throw new Error(`Failed to load '${fileName}'. Status: ${response.status}`);
         }
 
-        const arrayBuffer = await response.arrayBuffer();
-        const data = new Uint8Array(arrayBuffer);
-        const workbook = XLSX.read(data, { type: 'array' });
-
-        // Assume first sheet
+        const csvText = await response.text();
+        const workbook = XLSX.read(csvText, { type: 'string' });
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const json = XLSX.utils.sheet_to_json(worksheet);
 
-        if (validateData(json)) {
-            processExcelData(json);
-            updatePreparedDate();
-            hideError();
-        } else {
-            showError("Invalid Excel content. Ensure required columns (metric_category, metric_name, metric_value) are present.");
-        }
+        state.rawData = json;
+        populateFilters();
+        applyFilters();
+        updatePreparedDate();
+        hideError();
     } catch (err) {
-        console.error("Auto-load error:", err);
+        console.error("Data load error:", err);
         let message = err.message;
         if (window.location.protocol === 'file:') {
-            message = "Browser security blocks local file reading. Please view dashboard via a local web server (e.g., Live Server).";
+            message = "Browser security blocks local file reading. Please use a local web server (e.g., Live Server).";
         }
         showError(message);
     }
 }
 
-// --- Render Logic ---
-function renderDashboard() {
-    renderKpis();
-    renderCharts();
-    renderCchKpis();
+// --- Filter Management ---
+function populateFilters() {
+    const offices = [...new Set(state.rawData.map(row => row.Office))].filter(Boolean).sort();
+    const departments = [...new Set(state.rawData.map(row => row.Department))].filter(Boolean).sort();
+    const types = [...new Set(state.rawData.map(row => row['Training Type']))].filter(Boolean).sort();
+    const platforms = [...new Set(state.rawData.map(row => row.Platform))].filter(Boolean).sort();
+
+    updateSelectOptions('officeFilter', offices, 'All Offices');
+    updateSelectOptions('departmentFilter', departments, 'All Departments');
+    updateSelectOptions('trainingTypeFilter', types, 'All Types');
+    updateSelectOptions('platformFilter', platforms, 'All Platforms');
 }
 
-function renderKpis() {
-    const grid = document.getElementById('kpi-grid');
-    grid.innerHTML = '';
-
-    state.data.summary.forEach(kpi => {
-        const card = document.createElement('div');
-        card.className = 'kpi-card';
-        card.innerHTML = `
-            <span class="kpi-value">${kpi.value}</span>
-            <span class="kpi-label">${kpi.label}</span>
-        `;
-        grid.appendChild(card);
+function updateSelectOptions(id, options, defaultLabel) {
+    const select = document.getElementById(id);
+    select.innerHTML = `<option value="all">${defaultLabel}</option>`;
+    options.forEach(opt => {
+        const el = document.createElement('option');
+        el.value = opt;
+        el.textContent = opt;
+        select.appendChild(el);
     });
 }
 
-function renderCchKpis() {
-    const grid = document.getElementById('cch-kpi-grid');
+function applyFilters() {
+    state.filteredData = state.rawData.filter(row => {
+        const matchOffice = state.filters.office === 'all' || row.Office === state.filters.office;
+        const matchDept = state.filters.department === 'all' || row.Department === state.filters.department;
+        const matchType = state.filters.type === 'all' || row['Training Type'] === state.filters.type;
+        const matchPlatform = state.filters.platform === 'all' || row.Platform === state.filters.platform;
+        return matchOffice && matchDept && matchType && matchPlatform;
+    });
+
+    renderDashboard();
+}
+
+// --- Rendering ---
+function renderDashboard() {
+    renderKPIs();
+    renderCharts();
+}
+
+function renderKPIs() {
+    const grid = document.getElementById('kpi-grid');
     grid.innerHTML = '';
 
-    state.data.cchKpis.forEach(kpi => {
+    const totalCompletions = state.filteredData.length;
+    const totalHours = state.filteredData.reduce((sum, row) => sum + (parseFloat(row['CPD Hours']) || 0), 0).toFixed(1);
+    const uniqueTrainings = new Set(state.filteredData.map(row => row['Training Name'])).size;
+    const uniqueLearners = new Set(state.filteredData.map(row => row['Line Manager Name'] + row['Learner Job Title'])).size; // Approximate
+
+    const kpis = [
+        { label: "Total Completions", value: totalCompletions },
+        { label: "Total CPD Hours", value: totalHours },
+        { label: "Unique Courses", value: uniqueTrainings },
+        { label: "Active Learners", value: uniqueLearners }
+    ];
+
+    kpis.forEach(kpi => {
         const card = document.createElement('div');
         card.className = 'kpi-card';
         card.innerHTML = `
@@ -268,74 +195,104 @@ function renderCchKpis() {
 }
 
 function renderCharts() {
-    // 1. Office Completions vs Enrolments
+    // 1. Completions by Office
+    const officeCounts = aggregateData(state.filteredData, 'Office');
     createChart('officeCompletionsChart', 'bar', {
-        labels: state.data.officeCompletions.labels,
-        datasets: [
-            { label: 'Enrolments', data: state.data.officeCompletions.enrolments, backgroundColor: COLORS.primary },
-            { label: 'Completions', data: state.data.officeCompletions.completions, backgroundColor: COLORS.secondary }
-        ]
+        labels: officeCounts.labels,
+        datasets: [{ label: 'Completions', data: officeCounts.values, backgroundColor: COLORS.primary }]
     });
 
-    // 2. Team Completions
-    createChart('teamCompletionsChart', 'bar', {
-        labels: state.data.teamCompletions.labels,
-        datasets: [
-            { label: 'Enrolments', data: state.data.teamCompletions.enrolments, backgroundColor: COLORS.primary },
-            { label: 'Completions', data: state.data.teamCompletions.completions, backgroundColor: COLORS.secondary }
-        ]
+    // 2. Training Type Distribution
+    const typeCounts = aggregateData(state.filteredData, 'Training Type');
+    createChart('trainingTypeChart', 'doughnut', {
+        labels: typeCounts.labels,
+        datasets: [{ data: typeCounts.values, backgroundColor: COLORS.backgrounds }]
+    });
+
+    // 3. Top Job Titles
+    const titleCounts = aggregateData(state.filteredData, 'Learner Job Title', 10);
+    createChart('jobTitleChart', 'bar', {
+        labels: titleCounts.labels,
+        datasets: [{ label: 'Completions', data: titleCounts.values, backgroundColor: COLORS.secondary }]
     }, { indexAxis: 'y' });
 
-    // 3. Position Completions
-    createChart('positionCompletionsChart', 'bar', {
-        labels: state.data.positionCompletions.labels,
-        datasets: [
-            { label: 'Enrolments', data: state.data.positionCompletions.enrolments, backgroundColor: COLORS.primary },
-            { label: 'Completions', data: state.data.positionCompletions.completions, backgroundColor: COLORS.secondary }
-        ]
-    }, { indexAxis: 'y' });
-
-    // 4. Team Hours
-    createChart('teamHoursChart', 'bar', {
-        labels: state.data.teamHours.labels,
-        datasets: [{
-            label: 'Hours',
-            data: state.data.teamHours.data,
-            backgroundColor: COLORS.backgrounds
-        }]
+    // 4. CPD Hours by Department
+    const deptHours = aggregateSum(state.filteredData, 'Department', 'CPD Hours');
+    createChart('departmentHoursChart', 'bar', {
+        labels: deptHours.labels,
+        datasets: [{ label: 'Hours', data: deptHours.values, backgroundColor: COLORS.backgrounds }]
     });
 
-    // 5. Position Hours
-    createChart('positionHoursChart', 'bar', {
-        labels: state.data.positionHours.labels,
+    // 5. Monthly Trend
+    const monthlyTrend = aggregateTrend(state.filteredData);
+    createChart('monthlyTrendChart', 'line', {
+        labels: monthlyTrend.labels,
         datasets: [{
-            label: 'Hours',
-            data: state.data.positionHours.data,
-            backgroundColor: COLORS.backgrounds
+            label: 'Completions',
+            data: monthlyTrend.values,
+            borderColor: COLORS.primary,
+            backgroundColor: 'rgba(247, 148, 29, 0.1)',
+            fill: true,
+            tension: 0.4
         }]
-    });
-
-    // 6. CCH Trends
-    createChart('cchTrendsChart', 'line', {
-        labels: state.data.cchTrends.months,
-        datasets: [
-            { label: 'Enrolments', data: state.data.cchTrends.enrolments, borderColor: COLORS.primary, tension: 0.3 },
-            { label: 'Completions', data: state.data.cchTrends.completions, borderColor: COLORS.secondary, tension: 0.3 },
-            { label: 'CPD Hours', data: state.data.cchTrends.cpdHours, borderColor: COLORS.accent, tension: 0.3, yAxisID: 'y1' }
-        ]
-    }, {
-        scales: {
-            y: { beginAtZero: true, title: { display: true, text: 'Counts' } },
-            y1: { beginAtZero: true, position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Hours' } }
-        }
     });
 
     updateChartThemes();
 }
 
+// --- Utilities ---
+function aggregateData(data, key, limit = 0) {
+    const counts = {};
+    data.forEach(row => {
+        const val = row[key] || 'N/A';
+        counts[val] = (counts[val] || 0) + 1;
+    });
+
+    let sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+    if (limit > 0) sorted = sorted.slice(0, limit);
+
+    return {
+        labels: sorted.map(i => i[0]),
+        values: sorted.map(i => i[1])
+    };
+}
+
+function aggregateSum(data, key, sumKey) {
+    const sums = {};
+    data.forEach(row => {
+        const val = row[key] || 'N/A';
+        const num = parseFloat(row[sumKey]) || 0;
+        sums[val] = (sums[val] || 0) + num;
+    });
+
+    const sorted = Object.entries(sums).sort((a, b) => b[1] - a[1]);
+    return {
+        labels: sorted.map(i => i[0]),
+        values: sorted.map(i => i[1].toFixed(1))
+    };
+}
+
+function aggregateTrend(data) {
+    const trend = {};
+    data.forEach(row => {
+        if (!row['Completion Date']) return;
+        // Parse "19/12/2025 2:45"
+        const parts = row['Completion Date'].split(' ')[0].split('/');
+        if (parts.length < 3) return;
+        const monthYear = `${parts[2]}-${parts[1]}`; // YYYY-MM
+        trend[monthYear] = (trend[monthYear] || 0) + 1;
+    });
+
+    const sortedMonths = Object.keys(trend).sort();
+    return {
+        labels: sortedMonths,
+        values: sortedMonths.map(m => trend[m])
+    };
+}
+
 function createChart(id, type, data, options = {}) {
     const canvas = document.getElementById(id);
-    if (!canvas) return; // For removed charts
+    if (!canvas) return;
 
     if (state.charts[id]) {
         state.charts[id].destroy();
@@ -346,17 +303,15 @@ function createChart(id, type, data, options = {}) {
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                display: true,
+                display: type !== 'bar',
                 position: 'top',
-                labels: { font: { family: 'Inter', size: 12 } }
-            },
-            tooltip: {
-                backgroundColor: 'rgba(26, 31, 54, 0.9)',
-                padding: 12,
-                titleFont: { weight: 'bold' }
+                labels: { font: { family: 'Inter', size: 11 } }
             }
         },
-        animation: { duration: 1000, easing: 'easeOutQuart' }
+        scales: type === 'doughnut' ? {} : {
+            y: { beginAtZero: true, grid: { color: '#e3e8ee' } },
+            x: { grid: { display: false } }
+        }
     };
 
     state.charts[id] = new Chart(ctx, {
@@ -368,97 +323,13 @@ function createChart(id, type, data, options = {}) {
 
 function updatePreparedDate() {
     const now = new Date();
-    const formatted = `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getFullYear()}`;
-    document.getElementById('preparedDate').textContent = formatted;
-}
-
-function validateData(data) {
-    if (!data || data.length === 0) return false;
-    const required = ['metric_category', 'metric_name', 'metric_value'];
-    const headers = Object.keys(data[0]);
-    return required.every(r => headers.includes(r));
-}
-
-function processExcelData(rows) {
-    // Start with fresh zero data
-    const newData = JSON.parse(JSON.stringify(ZERO_DATA));
-    newData.summary = []; // Clear summary to rebuild from Excel
-    newData.cchKpis = []; // Clear CCH KPIs to rebuild from Excel
-
-    rows.forEach(row => {
-        const cat = row.metric_category;
-        const name = row.metric_name;
-        const value = row.metric_value;
-        const group = row.group_name;
-
-        switch (cat) {
-            case 'KPI':
-                newData.summary.push({ label: name, value: value });
-                break;
-            case 'Preference':
-                // Removed section but data might still be in CSV
-                break;
-            case 'Office':
-                if (!newData.officeCompletions.labels.includes(group)) {
-                    newData.officeCompletions.labels.push(group);
-                    newData.officeCompletions.enrolments.push(0);
-                    newData.officeCompletions.completions.push(0);
-                }
-                const oIdx = newData.officeCompletions.labels.indexOf(group);
-                if (name === 'Enrolment') newData.officeCompletions.enrolments[oIdx] = value;
-                else newData.officeCompletions.completions[oIdx] = value;
-                break;
-            case 'TeamCompletion':
-                if (!newData.teamCompletions.labels.includes(group)) {
-                    newData.teamCompletions.labels.push(group);
-                    newData.teamCompletions.enrolments.push(0);
-                    newData.teamCompletions.completions.push(0);
-                }
-                const tIdx = newData.teamCompletions.labels.indexOf(group);
-                if (name === 'Enrolment') newData.teamCompletions.enrolments[tIdx] = value;
-                else newData.teamCompletions.completions[tIdx] = value;
-                break;
-            case 'PositionCompletion':
-                if (!newData.positionCompletions.labels.includes(group)) {
-                    newData.positionCompletions.labels.push(group);
-                    newData.positionCompletions.enrolments.push(0);
-                    newData.positionCompletions.completions.push(0);
-                }
-                const pIdx = newData.positionCompletions.labels.indexOf(group);
-                if (name === 'Enrolment') newData.positionCompletions.enrolments[pIdx] = value;
-                else newData.positionCompletions.completions[pIdx] = value;
-                break;
-            case 'TeamHours':
-                newData.teamHours.labels.push(group);
-                newData.teamHours.data.push(value);
-                break;
-            case 'PositionHours':
-                newData.positionHours.labels.push(group);
-                newData.positionHours.data.push(value);
-                break;
-            case 'CCH_KPI':
-                newData.cchKpis.push({ label: name, value: value });
-                break;
-            case 'CCH_Trend':
-                if (!newData.cchTrends.months.includes(group)) newData.cchTrends.months.push(group);
-                const mIdx = newData.cchTrends.months.indexOf(group);
-                if (name === 'TimeToCompletion') newData.cchTrends.timeToCompletion[mIdx] = value;
-                else if (name === 'CPDHours') newData.cchTrends.cpdHours[mIdx] = value;
-                else if (name === 'Enrolment') newData.cchTrends.enrolments[mIdx] = value;
-                else if (name === 'Completion') newData.cchTrends.completions[mIdx] = value;
-                break;
-        }
-    });
-
-    state.data = newData;
-    renderDashboard();
+    document.getElementById('preparedDate').textContent = now.toLocaleDateString('en-AU');
 }
 
 function showError(msg) {
     const banner = document.getElementById('errorBanner');
     banner.textContent = msg;
     banner.style.display = 'block';
-    setTimeout(hideError, 5000);
 }
 
 function hideError() {
