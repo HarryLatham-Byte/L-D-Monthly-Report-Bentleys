@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L&D Monthly Summary Report | December 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js and SheetJS (XLSX) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="title-area">
+                <h1>L&D Monthly Summary Report</h1>
+                <div class="metadata">
+                    <span><strong>Prepared by:</strong> Harry Latham</span>
+                    <span class="separator">|</span>
+                    <span><strong>Prepared on:</strong> <span id="preparedDate">No data loaded</span></span>
+                </div>
+            </div>
+            <div class="action-area">
+                <div class="controls-group">
+                    <button id="themeToggle" class="btn icon-btn" title="Toggle Theme">
+                        <svg id="moonIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sunIcon" style="display:none" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <!-- KPI Summary Grid -->
+        <section id="kpi-grid" class="kpi-grid">
+            <!-- Rendered via JS -->
+            <div class="empty-state">Loading dashboard...</div>
+        </section>
+
+        <!-- Learn365 Overview -->
+        <section class="section-group">
+            <h2 class="section-title">Learn365 Overview</h2>
+            <div class="dashboard-row">
+                <div class="card full-width">
+                    <h3>Enrolments and Completions by Office</h3>
+                    <div class="chart-container tall">
+                        <canvas id="officeCompletionsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-row multi-col">
+                <div class="card">
+                    <h3>Completions by Team</h3>
+                    <div class="chart-container">
+                        <canvas id="teamCompletionsChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Completions by Position</h3>
+                    <div class="chart-container">
+                        <canvas id="positionCompletionsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-row multi-col">
+                <div class="card">
+                    <h3>Training Hours by Team</h3>
+                    <div class="chart-container">
+                        <canvas id="teamHoursChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Training Hours by Position</h3>
+                    <div class="chart-container">
+                        <canvas id="positionHoursChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CCH Learning Section -->
+        <section class="section-group cch-section">
+            <h2 class="section-title">L&D Monthly Report – CCH Learning</h2>
+            <div id="cch-kpi-grid" class="kpi-grid">
+                <!-- CCH KPIs via JS -->
+            </div>
+            <div class="dashboard-row full-width">
+                <div class="card full-width">
+                    <h3>CCH Learning Trends</h3>
+                    <div class="chart-container x-tall">
+                        <canvas id="cchTrendsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="errorBanner" class="error-banner" style="display: none;"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
