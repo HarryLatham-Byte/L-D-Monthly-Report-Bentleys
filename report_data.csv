@@ -1,160 +1,638 @@
 Name,Learner Job Title,Line Manager Name,Office,Department,Team,Platform,Training Name,Training Type,Completion Date,CPD Hours
-Olivia Parker,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT075 GAAPinar No.12 Reporting and auditing considerations for December year-ends,ClassRoom,19/12/2025 2:45,1
-Mason Grant,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT074 GAAPinar No.11 Latest NFP and ACNC developments and insights,ClassRoom,19/12/2025 1:00,1
-Isabella Chen,Graduate Bookkeeper,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTREC011 Recording 2024-08-02-Xero-Financials,ELearning,17/12/2025 7:30,1
-Liam West,Graduate Accountant,Alex Trim,Brisbane,Audit,N/A,Learn365,BNTREC047 Recording 2025-05-16 GAAPinar Series 1 Session 5 - Audit testing and sampling – getting it right,ELearning,17/12/2025 5:45,1
-Aria Thompson,Partner,,Brisbane,Business Advisory,Team 5,Learn365,BNTCOM003V2 Office Safety Training,ELearning,15/12/2025 4:13,
-Noah Briggs,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT069 GAAPinar No.6 Auditing AASB 15 Revenue from Contracts with Customers,ClassRoom,15/12/2025 0:04,1
-Harper Lane,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT067 GAAPinar No.4 Professional scepticism – how to strengthen judgement and documentation,ClassRoom,15/12/2025 0:03,1
-Ethan Cole,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT066 GAAPinar No.3 Latest insights into audit quality – lessons for your audit team,ClassRoom,15/12/2025 0:03,1
-Mila Rodriguez,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT065 GAAPinar No.2 AASB 16 Leases – post-implementation challenges and lessons,ClassRoom,15/12/2025 0:03,1
-Lucas Bennett,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT064 GAAPinar No.1 What’s New in Audit and Financial Reporting,ClassRoom,15/12/2025 0:03,1
-Savannah Clarke,Corporate Receptionist,Ryan Rostron,Brisbane,Facilities,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,14/12/2025 23:34,
-Oliver Reid,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT064 GAAPinar No.1 What’s New in Audit and Financial Reporting,ClassRoom,14/12/2025 23:17,1
-Chloe Mitchell,Client Services,Nathan Baker,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,14/12/2025 22:56,
-Henry Lawson,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC070 Recording 2025-11-12 Lodgements to ATO,ELearning,11/12/2025 23:55,0
-Zoe Harrington,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC077 Training on the new way of preparing IASs through Business Fitness,ELearning,11/12/2025 23:17,0
-Xavier Brooks,"Director, Bentleys Finance & Lending",Rohan Dunsdon,Brisbane,Bentleys Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,11/12/2025 23:01,
-Layla Summers,Quality & Compliance Specialist,Soham Sen,Brisbane,Operations,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,11/12/2025 22:40,
-Caleb Foster,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM004V1 Office Ergonomics,ELearning,11/12/2025 1:21,
-Ruby Dawson,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM009V1 Introduction to Bentleys,ELearning,10/12/2025 8:40,
-Ashton Miller,"Director, Financial Planning",Ben Cameron,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,10/12/2025 3:42,
-Olivia Parker,Senior Bookkeeper,Caitlin Shaw,Brisbane,Business Advisory,Team 2,Learn365,BNTCOM003V2 Office Safety Training,ELearning,10/12/2025 2:45,
-Mason Grant,Service Analyst,Colin McRae,Brisbane,Technology and Digital Services,TDS,Learn365,BNTCOM003V2 Office Safety Training,ELearning,10/12/2025 2:28,
-Isabella Chen,Investment Risk and Compliance Manager,Heath Shonhan,Brisbane,,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,10/12/2025 1:58,
-Liam West,Senior Client Services & Operations Manager,Soham Sen,Brisbane,Rawlings Bolton,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,10/12/2025 1:58,
-Aria Thompson,Head of Operations,Ashley Honeyman,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,9/12/2025 23:35,
-Noah Briggs,Graduate Accountant,Lee Morrissey,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,9/12/2025 23:31,
-Harper Lane,Team Assistant,Laura Thomas,Brisbane,Business Advisory,<Affinity>,Learn365,BNTCOM003V2 Office Safety Training,ELearning,9/12/2025 23:26,
-Ethan Cole,Analyst,Heath Shonhan,Brisbane,Rawlings Bolton,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,9/12/2025 23:15,
-Mila Rodriguez,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,"BNTCOM007V1 Bullying, Harassment and Discrimination",ELearning,9/12/2025 7:33,
-Lucas Bennett,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM006V1 Breaches and Incidents at Bentleys QLD,ELearning,9/12/2025 6:51,
-Savannah Clarke,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM005V1 Workplace Health and Safety,ELearning,9/12/2025 6:02,
-Oliver Reid,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM002V2 Quality Manual,ELearning,9/12/2025 5:25,
-Chloe Mitchell,Finance Director,Soham Sen,Brisbane,Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,9/12/2025 2:38,
-Henry Lawson,Manager,Jodi Lupton,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,9/12/2025 0:49,
-Zoe Harrington,Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTCOM003V2 Office Safety Training,ELearning,8/12/2025 23:53,
-Xavier Brooks,Partner,Ben Cameron,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,8/12/2025 23:44,
-Layla Summers,Intermediate Accountant,Michael Rica,Brisbane,Taxation Consulting,Team 1,Learn365,BNTCOM003V2 Office Safety Training,ELearning,8/12/2025 4:58,
-Caleb Foster,Bookkeeper,Caitlin Shaw,Brisbane,Business Advisory,Team 2,Learn365,BNTREC062 Recording 2025-07-02 Introduction to Business Fitness and the Active Ledger and Reporting,ELearning,8/12/2025 0:57,0
-Ruby Dawson,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTREC077 Training on the new way of preparing IASs through Business Fitness,ELearning,8/12/2025 0:43,0
-Ashton Miller,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTREC062 Recording 2025-07-02 Introduction to Business Fitness and the Active Ledger and Reporting,ELearning,8/12/2025 0:31,0
-Olivia Parker,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC015 Recording 2024-05-09-ChatGPT-tips-tricks-hacks,ELearning,5/12/2025 4:05,1
-Mason Grant,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC015 Recording 2024-05-09-ChatGPT-tips-tricks-hacks,ELearning,5/12/2025 2:57,1
-Isabella Chen,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC061 Recording 2025-07-03 Introduction to the Business Fitness Active Workpapers,ELearning,5/12/2025 1:49,0
-Liam West,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC045 Recording 2025-05-06-Bob Performance Cycle - Employee Training,ELearning,4/12/2025 23:06,
-Aria Thompson,Senior Accountant,Stewart Douglas,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,4/12/2025 22:47,
-Noah Briggs,Partner,,Brisbane,Business Advisory,Team 5,Learn365,BNTCOM003V2 Office Safety Training,ELearning,4/12/2025 22:47,
-Harper Lane,Finance Manager,Kathy Wu,Brisbane,Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,4/12/2025 22:47,
-Ethan Cole,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,4/12/2025 22:47,
-Mila Rodriguez,Senior Accountant,Stewart Douglas,Brisbane,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Lucas Bennett,Senior Auditor,Ben Pepperell,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Savannah Clarke,Supervisor,Ben Pepperell,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Oliver Reid,Senior Auditor,Abhik Gandhi,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Chloe Mitchell,Senior Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Henry Lawson,Manager,Lauren Welk,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Zoe Harrington,Manager Management Accountant,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Xavier Brooks,Senior Accountant,Michael Rica,Manila,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Layla Summers,Senior Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Caleb Foster,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Ruby Dawson,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Ashton Miller,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Olivia Parker,Senior Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Mason Grant,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Isabella Chen,Senior Accountant,Phoebe Hou,Manila,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Liam West,Technical Lead,Ingrid Swalling,Manila,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Aria Thompson,Senior Accountant,Sarah Phillips,Manila,Business Advisory,Team 7,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Noah Briggs,Senior Accountant,Sarah Phillips,Manila,Business Advisory,Team 7,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 4:00,1
-Harper Lane,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/12/2025 2:00,1
-Ethan Cole,Marketing Coordinator,Shaun Kennedy,Brisbane,Marketing,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,3/12/2025 2:49,
-Mila Rodriguez,Manager Management Accountant,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 6:06,1
-Lucas Bennett,Graduate Accountant,Alex Trim,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,1/12/2025 5:29,
-Savannah Clarke,Supervisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Oliver Reid,Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Chloe Mitchell,Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Henry Lawson,Senior Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Zoe Harrington,Intermediate Accountant,Oswald Doring,Brisbane,Business Advisory,Affinity,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Xavier Brooks,Manager,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Layla Summers,Manager,Lauren Welk,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Caleb Foster,Graduate Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Ruby Dawson,Supervisor,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Ashton Miller,Manager,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Olivia Parker,Undergraduate Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Mason Grant,Senior Accountant,Michael Rica,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Isabella Chen,Bookkeeper Manager,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Liam West,Graduate Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Aria Thompson,Senior Bookkeeper,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Noah Briggs,Senior Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Harper Lane,Graduate Accountant,Nicole Black,Brisbane,Taxation Consulting,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Ethan Cole,Associate Director,Peter Tran,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Mila Rodriguez,Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Lucas Bennett,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Savannah Clarke,Bookkeeper Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Oliver Reid,Manager,Scott Field,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Chloe Mitchell,Graduate Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Henry Lawson,Graduate Accountant,Janet Simpson,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Zoe Harrington,Technical Lead,Nakita Yoshida-Martin,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Xavier Brooks,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Layla Summers,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Caleb Foster,Team Assistant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Ruby Dawson,Intermediate Accountant,Nakita Yoshida-Martin,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Ashton Miller,Senior Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Olivia Parker,Graduate Accountant,Janet Simpson,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Mason Grant,Bookkeeper,Kate Wilson,Brisbane,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Isabella Chen,Senior Accountant,Kate Wilson,Brisbane,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Liam West,Accountant,Rachel Oates,Manila,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Aria Thompson,Bookkeeper,Ben Cameron,Brisbane,Business Advisory,Team 5,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2025 5:15,1
-Noah Briggs,Personal Assistant,Jodi Lupton,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,1/12/2025 4:15,
-Harper Lane,Director,Dean Steer,Brisbane,Taxation Consulting,Team 1,Learn365,BNTCOM003V2 Office Safety Training,ELearning,1/12/2025 2:29,
-Ethan Cole,Accountant,Ingrid Swalling,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,1/12/2025 0:39,
-Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Effect Accounting (2 of 2) - Deferred Taxes,ELearning,31/12/2025 11:44,1.5
-Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Effect Accounting (1 of 2),ELearning,30/12/2025 22:47,1.5
-Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Chat GPT - Using Generative AI as a Business Tool,ELearning,26/12/2025 11:07,1
-Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Major Developments in Tax Administration,ELearning,25/12/2025 21:45,1
-Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Land Subdivisions,ELearning,25/12/2025 20:41,1
-Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Introduction to International Tax - Australians Going Abroad & Structures,ELearning,22/12/2025 11:53,1
-Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,Division 7A - Where are we now?,ELearning,19/12/2025 9:59,1
-Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements,ELearning,19/12/2025 8:04,1
-Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,19/12/2025 8:02,1
-Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,19/12/2025 8:02,1
-Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,19/12/2025 8:01,1
-Ashton Miller,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - September 2025,ELearning,18/12/2025 18:01,1
-Olivia Parker,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - July & August 2025,ELearning,18/12/2025 17:46,1
-Mason Grant,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - June 2025,ELearning,18/12/2025 17:35,1
-Isabella Chen,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - April 2025,ELearning,18/12/2025 17:13,1
-Liam West,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,18/12/2025 8:00,1
-Aria Thompson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,18/12/2025 7:59,1
-Noah Briggs,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,18/12/2025 7:59,1
-Harper Lane,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,18/12/2025 7:59,1
-Ethan Cole,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,18/12/2025 7:59,1
-Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,18/12/2025 7:59,1
-Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,18/12/2025 7:59,1
-Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,18/12/2025 7:59,1
-Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,18/12/2025 7:59,1
-Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Land Subdivisions,ELearning,17/12/2025 17:45,1
-Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Navigating Market Valuations in SMSFs,ELearning,17/12/2025 14:40,1
-Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,FBT 2025 - Festive Fun and Record Keeping,ELearning,16/12/2025 18:23,1.5
-Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - March 2025,ELearning,16/12/2025 18:14,1
-Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,Property and Income Tax,ELearning,15/12/2025 15:02,1
-Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements,ELearning,15/12/2025 12:58,1
-Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Division 7A Advanced - Navigating the Complexities,ELearning,12/12/2025 18:39,1
-Ashton Miller,No Data,No Data,No Data,No Data,No Data,CCH Learning,Changing a Business Structure: Rollovers and Concessions,ELearning,12/12/2025 17:38,1
-Olivia Parker,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements ,ELearning,11/12/2025 13:30,1
-Mason Grant,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,11/12/2025 11:00,1
-Isabella Chen,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,11/12/2025 11:00,1
-Liam West,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,11/12/2025 11:00,1
-Aria Thompson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Ethical Issues in Dealing with Clients,ELearning,11/12/2025 10:20,1
-Noah Briggs,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,11/12/2025 7:59,1
-Harper Lane,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,11/12/2025 7:22,1
-Ethan Cole,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,10/12/2025 11:00,1
-Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,10/12/2025 11:00,1
-Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,10/12/2025 11:00,1
-Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,10/12/2025 11:00,1
-Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,10/12/2025 11:00,1
-Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,10/12/2025 11:00,1
-Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,10/12/2025 11:00,1
-Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,10/12/2025 11:00,1
-Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,10/12/2025 11:00,1
-Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,All things SMSF Investment Strategy!,ELearning,9/12/2025 11:26,1
-Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,3/12/2025 13:30,1
-Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - November 2025,ELearning,3/12/2025 8:00,1
+Olivia Parker,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT075 GAAPinar No.12 Reporting and auditing considerations for December year-ends,ClassRoom,19/10/2025 2:45,1
+Mason Grant,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT074 GAAPinar No.11 Latest NFP and ACNC developments and insights,ClassRoom,20/10/2025 2:45,1
+Isabella Chen,Graduate Bookkeeper,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTREC011 Recording 2024-08-02-Xero-Financials,ELearning,21/10/2025 2:45,1
+Liam West,Graduate Accountant,Alex Trim,Brisbane,Audit,N/A,Learn365,BNTREC047 Recording 2025-05-16 GAAPinar Series 1 Session 5 - Audit testing and sampling – getting it right,ELearning,22/10/2025 2:45,1
+Aria Thompson,Partner,,Brisbane,Business Advisory,Team 5,Learn365,BNTCOM003V2 Office Safety Training,ELearning,23/10/2025 2:45,
+Noah Briggs,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT069 GAAPinar No.6 Auditing AASB 15 Revenue from Contracts with Customers,ClassRoom,24/10/2025 2:45,1
+Harper Lane,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT067 GAAPinar No.4 Professional scepticism – how to strengthen judgement and documentation,ClassRoom,25/10/2025 2:45,1
+Ethan Cole,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT066 GAAPinar No.3 Latest insights into audit quality – lessons for your audit team,ClassRoom,26/10/2025 2:45,1
+Mila Rodriguez,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT065 GAAPinar No.2 AASB 16 Leases – post-implementation challenges and lessons,ClassRoom,27/10/2025 2:45,1
+Lucas Bennett,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT064 GAAPinar No.1 What’s New in Audit and Financial Reporting,ClassRoom,28/10/2025 2:45,1
+Savannah Clarke,Corporate Receptionist,Ryan Rostron,Brisbane,Facilities,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,29/10/2025 2:45,
+Oliver Reid,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT064 GAAPinar No.1 What’s New in Audit and Financial Reporting,ClassRoom,30/10/2025 2:45,1
+Chloe Mitchell,Client Services,Nathan Baker,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,31/10/2025 2:45,
+Henry Lawson,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC070 Recording 2025-11-12 Lodgements to ATO,ELearning,1/11/2025 2:45,0
+Zoe Harrington,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC077 Training on the new way of preparing IASs through Business Fitness,ELearning,2/11/2025 2:45,0
+Xavier Brooks,"Director, Bentleys Finance & Lending",Rohan Dunsdon,Brisbane,Bentleys Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,3/11/2025 2:45,
+Layla Summers,Quality & Compliance Specialist,Soham Sen,Brisbane,Operations,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,4/11/2025 2:45,
+Caleb Foster,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM004V1 Office Ergonomics,ELearning,5/11/2025 2:45,
+Ruby Dawson,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM009V1 Introduction to Bentleys,ELearning,6/11/2025 2:45,
+Ashton Miller,"Director, Financial Planning",Ben Cameron,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,7/11/2025 2:45,
+Olivia Parker,Senior Bookkeeper,Caitlin Shaw,Brisbane,Business Advisory,Team 2,Learn365,BNTCOM003V2 Office Safety Training,ELearning,8/11/2025 2:45,
+Mason Grant,Service Analyst,Colin McRae,Brisbane,Technology and Digital Services,TDS,Learn365,BNTCOM003V2 Office Safety Training,ELearning,9/11/2025 2:45,
+Isabella Chen,Investment Risk and Compliance Manager,Heath Shonhan,Brisbane,,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,10/11/2025 2:45,
+Liam West,Senior Client Services & Operations Manager,Soham Sen,Brisbane,Rawlings Bolton,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,11/11/2025 2:45,
+Aria Thompson,Head of Operations,Ashley Honeyman,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,12/11/2025 2:45,
+Noah Briggs,Graduate Accountant,Lee Morrissey,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,13/11/2025 2:45,
+Harper Lane,Team Assistant,Laura Thomas,Brisbane,Business Advisory,<Affinity>,Learn365,BNTCOM003V2 Office Safety Training,ELearning,14/11/2025 2:45,
+Ethan Cole,Analyst,Heath Shonhan,Brisbane,Rawlings Bolton,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,15/11/2025 2:45,
+Mila Rodriguez,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,"BNTCOM007V1 Bullying, Harassment and Discrimination",ELearning,16/11/2025 2:45,
+Lucas Bennett,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM006V1 Breaches and Incidents at Bentleys QLD,ELearning,17/11/2025 2:45,
+Savannah Clarke,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM005V1 Workplace Health and Safety,ELearning,18/11/2025 2:45,
+Oliver Reid,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM002V2 Quality Manual,ELearning,19/11/2025 2:45,
+Chloe Mitchell,Finance Director,Soham Sen,Brisbane,Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,20/11/2025 2:45,
+Henry Lawson,Manager,Jodi Lupton,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,21/11/2025 2:45,
+Zoe Harrington,Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTCOM003V2 Office Safety Training,ELearning,22/11/2025 2:45,
+Xavier Brooks,Partner,Ben Cameron,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,23/11/2025 2:45,
+Layla Summers,Intermediate Accountant,Michael Rica,Brisbane,Taxation Consulting,Team 1,Learn365,BNTCOM003V2 Office Safety Training,ELearning,24/11/2025 2:45,
+Caleb Foster,Bookkeeper,Caitlin Shaw,Brisbane,Business Advisory,Team 2,Learn365,BNTREC062 Recording 2025-07-02 Introduction to Business Fitness and the Active Ledger and Reporting,ELearning,25/11/2025 2:45,0
+Ruby Dawson,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTREC077 Training on the new way of preparing IASs through Business Fitness,ELearning,26/11/2025 2:45,0
+Ashton Miller,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTREC062 Recording 2025-07-02 Introduction to Business Fitness and the Active Ledger and Reporting,ELearning,27/11/2025 2:45,0
+Olivia Parker,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC015 Recording 2024-05-09-ChatGPT-tips-tricks-hacks,ELearning,28/11/2025 2:45,1
+Mason Grant,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC015 Recording 2024-05-09-ChatGPT-tips-tricks-hacks,ELearning,29/11/2025 2:45,1
+Isabella Chen,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC061 Recording 2025-07-03 Introduction to the Business Fitness Active Workpapers,ELearning,30/11/2025 2:45,0
+Liam West,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC045 Recording 2025-05-06-Bob Performance Cycle - Employee Training,ELearning,1/12/2025 2:45,
+Aria Thompson,Senior Accountant,Stewart Douglas,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,2/12/2025 2:45,
+Noah Briggs,Partner,,Brisbane,Business Advisory,Team 5,Learn365,BNTCOM003V2 Office Safety Training,ELearning,3/12/2025 2:45,
+Harper Lane,Finance Manager,Kathy Wu,Brisbane,Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,4/12/2025 2:45,
+Ethan Cole,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,5/12/2025 2:45,
+Mila Rodriguez,Senior Accountant,Stewart Douglas,Brisbane,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,6/12/2025 2:45,1
+Lucas Bennett,Senior Auditor,Ben Pepperell,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,7/12/2025 2:45,1
+Savannah Clarke,Supervisor,Ben Pepperell,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,8/12/2025 2:45,1
+Oliver Reid,Senior Auditor,Abhik Gandhi,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,9/12/2025 2:45,1
+Chloe Mitchell,Senior Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,10/12/2025 2:45,1
+Henry Lawson,Manager,Lauren Welk,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,11/12/2025 2:45,1
+Zoe Harrington,Manager Management Accountant,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,12/12/2025 2:45,1
+Xavier Brooks,Senior Accountant,Michael Rica,Manila,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,13/12/2025 2:45,1
+Layla Summers,Senior Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,14/12/2025 2:45,1
+Caleb Foster,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,15/12/2025 2:45,1
+Ruby Dawson,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,16/12/2025 2:45,1
+Ashton Miller,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,17/12/2025 2:45,1
+Olivia Parker,Senior Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,18/12/2025 2:45,1
+Mason Grant,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,19/12/2025 2:45,1
+Isabella Chen,Senior Accountant,Phoebe Hou,Manila,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,20/12/2025 2:45,1
+Liam West,Technical Lead,Ingrid Swalling,Manila,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,21/12/2025 2:45,1
+Aria Thompson,Senior Accountant,Sarah Phillips,Manila,Business Advisory,Team 7,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,22/12/2025 2:45,1
+Noah Briggs,Senior Accountant,Sarah Phillips,Manila,Business Advisory,Team 7,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,23/12/2025 2:45,1
+Harper Lane,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,24/12/2025 2:45,1
+Ethan Cole,Marketing Coordinator,Shaun Kennedy,Brisbane,Marketing,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,25/12/2025 2:45,
+Mila Rodriguez,Manager Management Accountant,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,26/12/2025 2:45,1
+Lucas Bennett,Graduate Accountant,Alex Trim,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,27/12/2025 2:45,
+Savannah Clarke,Supervisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,28/12/2025 2:45,1
+Oliver Reid,Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,29/12/2025 2:45,1
+Chloe Mitchell,Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,30/12/2025 2:45,1
+Henry Lawson,Senior Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,31/12/2025 2:45,1
+Zoe Harrington,Intermediate Accountant,Oswald Doring,Brisbane,Business Advisory,Affinity,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/01/2026 2:45,1
+Xavier Brooks,Manager,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,2/01/2026 2:45,1
+Layla Summers,Manager,Lauren Welk,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,3/01/2026 2:45,1
+Caleb Foster,Graduate Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,4/01/2026 2:45,1
+Ruby Dawson,Supervisor,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,5/01/2026 2:45,1
+Ashton Miller,Manager,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,6/01/2026 2:45,1
+Olivia Parker,Undergraduate Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,7/01/2026 2:45,1
+Mason Grant,Senior Accountant,Michael Rica,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,8/01/2026 2:45,1
+Isabella Chen,Bookkeeper Manager,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,9/01/2026 2:45,1
+Liam West,Graduate Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,10/01/2026 2:45,1
+Aria Thompson,Senior Bookkeeper,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,11/01/2026 2:45,1
+Noah Briggs,Senior Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,12/01/2026 2:45,1
+Harper Lane,Graduate Accountant,Nicole Black,Brisbane,Taxation Consulting,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,13/01/2026 2:45,1
+Ethan Cole,Associate Director,Peter Tran,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,14/01/2026 2:45,1
+Mila Rodriguez,Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,15/01/2026 2:45,1
+Lucas Bennett,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,16/01/2026 2:45,1
+Savannah Clarke,Bookkeeper Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,17/01/2026 2:45,1
+Oliver Reid,Manager,Scott Field,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,18/01/2026 2:45,1
+Chloe Mitchell,Graduate Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,19/01/2026 2:45,1
+Henry Lawson,Graduate Accountant,Janet Simpson,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,20/01/2026 2:45,1
+Zoe Harrington,Technical Lead,Nakita Yoshida-Martin,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,21/01/2026 2:45,1
+Xavier Brooks,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,22/01/2026 2:45,1
+Layla Summers,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,23/01/2026 2:45,1
+Caleb Foster,Team Assistant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,24/01/2026 2:45,1
+Ruby Dawson,Intermediate Accountant,Nakita Yoshida-Martin,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,25/01/2026 2:45,1
+Ashton Miller,Senior Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,26/01/2026 2:45,1
+Olivia Parker,Graduate Accountant,Janet Simpson,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,27/01/2026 2:45,1
+Mason Grant,Bookkeeper,Kate Wilson,Brisbane,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,28/01/2026 2:45,1
+Isabella Chen,Senior Accountant,Kate Wilson,Brisbane,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,29/01/2026 2:45,1
+Liam West,Accountant,Rachel Oates,Manila,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,30/01/2026 2:45,1
+Aria Thompson,Bookkeeper,Ben Cameron,Brisbane,Business Advisory,Team 5,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,31/01/2026 2:45,1
+Noah Briggs,Personal Assistant,Jodi Lupton,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,1/02/2026 2:45,
+Harper Lane,Director,Dean Steer,Brisbane,Taxation Consulting,Team 1,Learn365,BNTCOM003V2 Office Safety Training,ELearning,2/02/2026 2:45,
+Ethan Cole,Accountant,Ingrid Swalling,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,3/02/2026 2:45,
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Effect Accounting (2 of 2) - Deferred Taxes,ELearning,4/02/2026 2:45,1.5
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Effect Accounting (1 of 2),ELearning,5/02/2026 2:45,1.5
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Chat GPT - Using Generative AI as a Business Tool,ELearning,6/02/2026 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Major Developments in Tax Administration,ELearning,7/02/2026 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Land Subdivisions,ELearning,8/02/2026 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Introduction to International Tax - Australians Going Abroad & Structures,ELearning,9/02/2026 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,Division 7A - Where are we now?,ELearning,10/02/2026 2:45,1
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements,ELearning,11/02/2026 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,12/02/2026 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,13/02/2026 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,14/02/2026 2:45,1
+Ashton Miller,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - September 2025,ELearning,15/02/2026 2:45,1
+Olivia Parker,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - July & August 2025,ELearning,16/02/2026 2:45,1
+Mason Grant,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - June 2025,ELearning,17/02/2026 2:45,1
+Isabella Chen,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - April 2025,ELearning,18/02/2026 2:45,1
+Liam West,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,19/02/2026 2:45,1
+Aria Thompson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,20/02/2026 2:45,1
+Noah Briggs,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,21/02/2026 2:45,1
+Harper Lane,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,22/02/2026 2:45,1
+Ethan Cole,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,23/02/2026 2:45,1
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,24/02/2026 2:45,1
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,25/02/2026 2:45,1
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,26/02/2026 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,27/02/2026 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Land Subdivisions,ELearning,28/02/2026 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Navigating Market Valuations in SMSFs,ELearning,1/03/2026 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,FBT 2025 - Festive Fun and Record Keeping,ELearning,2/03/2026 2:45,1.5
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - March 2025,ELearning,3/03/2026 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,Property and Income Tax,ELearning,4/03/2026 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements,ELearning,5/03/2026 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Division 7A Advanced - Navigating the Complexities,ELearning,6/03/2026 2:45,1
+Ashton Miller,No Data,No Data,No Data,No Data,No Data,CCH Learning,Changing a Business Structure: Rollovers and Concessions,ELearning,7/03/2026 2:45,1
+Olivia Parker,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements ,ELearning,8/03/2026 2:45,1
+Mason Grant,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,9/03/2026 2:45,1
+Isabella Chen,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,10/03/2026 2:45,1
+Liam West,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,11/03/2026 2:45,1
+Aria Thompson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Ethical Issues in Dealing with Clients,ELearning,12/03/2026 2:45,1
+Noah Briggs,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,13/03/2026 2:45,1
+Harper Lane,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,14/03/2026 2:45,1
+Ethan Cole,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,15/03/2026 2:45,1
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,16/03/2026 2:45,1
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,17/03/2026 2:45,1
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,18/03/2026 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,19/03/2026 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,20/03/2026 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,21/03/2026 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,22/03/2026 2:45,1
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,23/03/2026 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,All things SMSF Investment Strategy!,ELearning,24/03/2026 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,25/03/2026 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - November 2025,ELearning,26/03/2026 2:45,1
+Olivia Parker,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT075 GAAPinar No.12 Reporting and auditing considerations for December year-ends,ClassRoom,27/03/2026 2:45,1
+Mason Grant,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT074 GAAPinar No.11 Latest NFP and ACNC developments and insights,ClassRoom,28/03/2026 2:45,1
+Isabella Chen,Graduate Bookkeeper,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTREC011 Recording 2024-08-02-Xero-Financials,ELearning,29/03/2026 2:45,1
+Liam West,Graduate Accountant,Alex Trim,Brisbane,Audit,N/A,Learn365,BNTREC047 Recording 2025-05-16 GAAPinar Series 1 Session 5 - Audit testing and sampling – getting it right,ELearning,30/03/2026 2:45,1
+Aria Thompson,Partner,,Brisbane,Business Advisory,Team 5,Learn365,BNTCOM003V2 Office Safety Training,ELearning,31/03/2026 2:45,
+Noah Briggs,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT069 GAAPinar No.6 Auditing AASB 15 Revenue from Contracts with Customers,ClassRoom,1/04/2026 2:45,1
+Harper Lane,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT067 GAAPinar No.4 Professional scepticism – how to strengthen judgement and documentation,ClassRoom,2/04/2026 2:45,1
+Ethan Cole,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT066 GAAPinar No.3 Latest insights into audit quality – lessons for your audit team,ClassRoom,3/04/2026 2:45,1
+Mila Rodriguez,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT065 GAAPinar No.2 AASB 16 Leases – post-implementation challenges and lessons,ClassRoom,4/04/2026 2:45,1
+Lucas Bennett,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT064 GAAPinar No.1 What’s New in Audit and Financial Reporting,ClassRoom,5/04/2026 2:45,1
+Savannah Clarke,Corporate Receptionist,Ryan Rostron,Brisbane,Facilities,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,6/04/2026 2:45,
+Oliver Reid,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT064 GAAPinar No.1 What’s New in Audit and Financial Reporting,ClassRoom,7/04/2026 2:45,1
+Chloe Mitchell,Client Services,Nathan Baker,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,8/04/2026 2:45,
+Henry Lawson,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC070 Recording 2025-11-12 Lodgements to ATO,ELearning,9/04/2026 2:45,0
+Zoe Harrington,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC077 Training on the new way of preparing IASs through Business Fitness,ELearning,10/04/2026 2:45,0
+Xavier Brooks,"Director, Bentleys Finance & Lending",Rohan Dunsdon,Brisbane,Bentleys Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,11/04/2026 2:45,
+Layla Summers,Quality & Compliance Specialist,Soham Sen,Brisbane,Operations,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,12/04/2026 2:45,
+Caleb Foster,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM004V1 Office Ergonomics,ELearning,13/04/2026 2:45,
+Ruby Dawson,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM009V1 Introduction to Bentleys,ELearning,14/04/2026 2:45,
+Ashton Miller,"Director, Financial Planning",Ben Cameron,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,15/04/2026 2:45,
+Olivia Parker,Senior Bookkeeper,Caitlin Shaw,Brisbane,Business Advisory,Team 2,Learn365,BNTCOM003V2 Office Safety Training,ELearning,16/04/2026 2:45,
+Mason Grant,Service Analyst,Colin McRae,Brisbane,Technology and Digital Services,TDS,Learn365,BNTCOM003V2 Office Safety Training,ELearning,17/04/2026 2:45,
+Isabella Chen,Investment Risk and Compliance Manager,Heath Shonhan,Brisbane,,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,18/04/2026 2:45,
+Liam West,Senior Client Services & Operations Manager,Soham Sen,Brisbane,Rawlings Bolton,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,19/04/2026 2:45,
+Aria Thompson,Head of Operations,Ashley Honeyman,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,20/04/2026 2:45,
+Noah Briggs,Graduate Accountant,Lee Morrissey,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,21/04/2026 2:45,
+Harper Lane,Team Assistant,Laura Thomas,Brisbane,Business Advisory,<Affinity>,Learn365,BNTCOM003V2 Office Safety Training,ELearning,22/04/2026 2:45,
+Ethan Cole,Analyst,Heath Shonhan,Brisbane,Rawlings Bolton,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,23/04/2026 2:45,
+Mila Rodriguez,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,"BNTCOM007V1 Bullying, Harassment and Discrimination",ELearning,24/04/2026 2:45,
+Lucas Bennett,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM006V1 Breaches and Incidents at Bentleys QLD,ELearning,25/04/2026 2:45,
+Savannah Clarke,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM005V1 Workplace Health and Safety,ELearning,26/04/2026 2:45,
+Oliver Reid,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM002V2 Quality Manual,ELearning,27/04/2026 2:45,
+Chloe Mitchell,Finance Director,Soham Sen,Brisbane,Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,28/04/2026 2:45,
+Henry Lawson,Manager,Jodi Lupton,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,29/04/2026 2:45,
+Zoe Harrington,Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTCOM003V2 Office Safety Training,ELearning,30/04/2026 2:45,
+Xavier Brooks,Partner,Ben Cameron,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,1/05/2026 2:45,
+Layla Summers,Intermediate Accountant,Michael Rica,Brisbane,Taxation Consulting,Team 1,Learn365,BNTCOM003V2 Office Safety Training,ELearning,2/05/2026 2:45,
+Caleb Foster,Bookkeeper,Caitlin Shaw,Brisbane,Business Advisory,Team 2,Learn365,BNTREC062 Recording 2025-07-02 Introduction to Business Fitness and the Active Ledger and Reporting,ELearning,3/05/2026 2:45,0
+Ruby Dawson,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTREC077 Training on the new way of preparing IASs through Business Fitness,ELearning,4/05/2026 2:45,0
+Ashton Miller,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTREC062 Recording 2025-07-02 Introduction to Business Fitness and the Active Ledger and Reporting,ELearning,5/05/2026 2:45,0
+Olivia Parker,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC015 Recording 2024-05-09-ChatGPT-tips-tricks-hacks,ELearning,6/05/2026 2:45,1
+Mason Grant,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC015 Recording 2024-05-09-ChatGPT-tips-tricks-hacks,ELearning,7/05/2026 2:45,1
+Isabella Chen,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC061 Recording 2025-07-03 Introduction to the Business Fitness Active Workpapers,ELearning,8/05/2026 2:45,0
+Liam West,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC045 Recording 2025-05-06-Bob Performance Cycle - Employee Training,ELearning,9/05/2026 2:45,
+Aria Thompson,Senior Accountant,Stewart Douglas,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,10/05/2026 2:45,
+Noah Briggs,Partner,,Brisbane,Business Advisory,Team 5,Learn365,BNTCOM003V2 Office Safety Training,ELearning,11/05/2026 2:45,
+Harper Lane,Finance Manager,Kathy Wu,Brisbane,Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,12/05/2026 2:45,
+Ethan Cole,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,13/05/2026 2:45,
+Mila Rodriguez,Senior Accountant,Stewart Douglas,Brisbane,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,14/05/2026 2:45,1
+Lucas Bennett,Senior Auditor,Ben Pepperell,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,15/05/2026 2:45,1
+Savannah Clarke,Supervisor,Ben Pepperell,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,16/05/2026 2:45,1
+Oliver Reid,Senior Auditor,Abhik Gandhi,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,17/05/2026 2:45,1
+Chloe Mitchell,Senior Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,18/05/2026 2:45,1
+Henry Lawson,Manager,Lauren Welk,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,19/05/2026 2:45,1
+Zoe Harrington,Manager Management Accountant,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,20/05/2026 2:45,1
+Xavier Brooks,Senior Accountant,Michael Rica,Manila,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,21/05/2026 2:45,1
+Layla Summers,Senior Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,22/05/2026 2:45,1
+Caleb Foster,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,23/05/2026 2:45,1
+Ruby Dawson,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,24/05/2026 2:45,1
+Ashton Miller,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,25/05/2026 2:45,1
+Olivia Parker,Senior Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,26/05/2026 2:45,1
+Mason Grant,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,27/05/2026 2:45,1
+Isabella Chen,Senior Accountant,Phoebe Hou,Manila,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,28/05/2026 2:45,1
+Liam West,Technical Lead,Ingrid Swalling,Manila,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,29/05/2026 2:45,1
+Aria Thompson,Senior Accountant,Sarah Phillips,Manila,Business Advisory,Team 7,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,30/05/2026 2:45,1
+Noah Briggs,Senior Accountant,Sarah Phillips,Manila,Business Advisory,Team 7,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,31/05/2026 2:45,1
+Harper Lane,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,1/06/2026 2:45,1
+Ethan Cole,Marketing Coordinator,Shaun Kennedy,Brisbane,Marketing,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,2/06/2026 2:45,
+Mila Rodriguez,Manager Management Accountant,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,3/06/2026 2:45,1
+Lucas Bennett,Graduate Accountant,Alex Trim,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,4/06/2026 2:45,
+Savannah Clarke,Supervisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,5/06/2026 2:45,1
+Oliver Reid,Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,6/06/2026 2:45,1
+Chloe Mitchell,Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,7/06/2026 2:45,1
+Henry Lawson,Senior Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,8/06/2026 2:45,1
+Zoe Harrington,Intermediate Accountant,Oswald Doring,Brisbane,Business Advisory,Affinity,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,9/06/2026 2:45,1
+Xavier Brooks,Manager,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,10/06/2026 2:45,1
+Layla Summers,Manager,Lauren Welk,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,11/06/2026 2:45,1
+Caleb Foster,Graduate Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,12/06/2026 2:45,1
+Ruby Dawson,Supervisor,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,13/06/2026 2:45,1
+Ashton Miller,Manager,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,14/06/2026 2:45,1
+Olivia Parker,Undergraduate Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,15/06/2026 2:45,1
+Mason Grant,Senior Accountant,Michael Rica,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,16/06/2026 2:45,1
+Isabella Chen,Bookkeeper Manager,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,17/06/2026 2:45,1
+Liam West,Graduate Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,18/06/2026 2:45,1
+Aria Thompson,Senior Bookkeeper,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,19/06/2026 2:45,1
+Noah Briggs,Senior Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,20/06/2026 2:45,1
+Harper Lane,Graduate Accountant,Nicole Black,Brisbane,Taxation Consulting,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,21/06/2026 2:45,1
+Ethan Cole,Associate Director,Peter Tran,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,22/06/2026 2:45,1
+Mila Rodriguez,Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,23/06/2026 2:45,1
+Lucas Bennett,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,24/06/2026 2:45,1
+Savannah Clarke,Bookkeeper Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,25/06/2026 2:45,1
+Oliver Reid,Manager,Scott Field,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,26/06/2026 2:45,1
+Chloe Mitchell,Graduate Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,27/06/2026 2:45,1
+Henry Lawson,Graduate Accountant,Janet Simpson,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,28/06/2026 2:45,1
+Zoe Harrington,Technical Lead,Nakita Yoshida-Martin,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,29/06/2026 2:45,1
+Xavier Brooks,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,30/06/2026 2:45,1
+Layla Summers,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/07/2026 2:45,1
+Caleb Foster,Team Assistant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,2/07/2026 2:45,1
+Ruby Dawson,Intermediate Accountant,Nakita Yoshida-Martin,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,3/07/2026 2:45,1
+Ashton Miller,Senior Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,4/07/2026 2:45,1
+Olivia Parker,Graduate Accountant,Janet Simpson,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,5/07/2026 2:45,1
+Mason Grant,Bookkeeper,Kate Wilson,Brisbane,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,6/07/2026 2:45,1
+Isabella Chen,Senior Accountant,Kate Wilson,Brisbane,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,7/07/2026 2:45,1
+Liam West,Accountant,Rachel Oates,Manila,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,8/07/2026 2:45,1
+Aria Thompson,Bookkeeper,Ben Cameron,Brisbane,Business Advisory,Team 5,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,9/07/2026 2:45,1
+Noah Briggs,Personal Assistant,Jodi Lupton,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,10/07/2026 2:45,
+Harper Lane,Director,Dean Steer,Brisbane,Taxation Consulting,Team 1,Learn365,BNTCOM003V2 Office Safety Training,ELearning,11/07/2026 2:45,
+Ethan Cole,Accountant,Ingrid Swalling,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,12/07/2026 2:45,
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Effect Accounting (2 of 2) - Deferred Taxes,ELearning,13/07/2026 2:45,1.5
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Effect Accounting (1 of 2),ELearning,14/07/2026 2:45,1.5
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Chat GPT - Using Generative AI as a Business Tool,ELearning,15/07/2026 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Major Developments in Tax Administration,ELearning,16/07/2026 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Land Subdivisions,ELearning,17/07/2026 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Introduction to International Tax - Australians Going Abroad & Structures,ELearning,18/07/2026 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,Division 7A - Where are we now?,ELearning,19/07/2026 2:45,1
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements,ELearning,20/07/2026 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,21/07/2026 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,22/07/2026 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,23/07/2026 2:45,1
+Ashton Miller,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - September 2025,ELearning,24/07/2026 2:45,1
+Olivia Parker,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - July & August 2025,ELearning,25/07/2026 2:45,1
+Mason Grant,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - June 2025,ELearning,26/07/2026 2:45,1
+Isabella Chen,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - April 2025,ELearning,27/07/2026 2:45,1
+Liam West,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,28/07/2026 2:45,1
+Aria Thompson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,29/07/2026 2:45,1
+Noah Briggs,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,30/07/2026 2:45,1
+Harper Lane,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,31/07/2026 2:45,1
+Ethan Cole,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,1/08/2026 2:45,1
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,2/08/2026 2:45,1
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,3/08/2026 2:45,1
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,4/08/2026 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,5/08/2026 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Land Subdivisions,ELearning,6/08/2026 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Navigating Market Valuations in SMSFs,ELearning,7/08/2026 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,FBT 2025 - Festive Fun and Record Keeping,ELearning,8/08/2026 2:45,1.5
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - March 2025,ELearning,9/08/2026 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,Property and Income Tax,ELearning,10/08/2026 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements,ELearning,11/08/2026 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Division 7A Advanced - Navigating the Complexities,ELearning,12/08/2026 2:45,1
+Ashton Miller,No Data,No Data,No Data,No Data,No Data,CCH Learning,Changing a Business Structure: Rollovers and Concessions,ELearning,13/08/2026 2:45,1
+Olivia Parker,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements ,ELearning,14/08/2026 2:45,1
+Mason Grant,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,15/08/2026 2:45,1
+Isabella Chen,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,16/08/2026 2:45,1
+Liam West,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,17/08/2026 2:45,1
+Aria Thompson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Ethical Issues in Dealing with Clients,ELearning,18/08/2026 2:45,1
+Noah Briggs,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,19/08/2026 2:45,1
+Harper Lane,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,20/08/2026 2:45,1
+Ethan Cole,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,21/08/2026 2:45,1
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,22/08/2026 2:45,1
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,23/08/2026 2:45,1
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,24/08/2026 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,25/08/2026 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,26/08/2026 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,27/08/2026 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,28/08/2026 2:45,1
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,29/08/2026 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,All things SMSF Investment Strategy!,ELearning,30/08/2026 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,31/08/2026 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - November 2025,ELearning,1/09/2026 2:45,1
+Olivia Parker,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT075 GAAPinar No.12 Reporting and auditing considerations for December year-ends,ClassRoom,2/09/2026 2:45,1
+Mason Grant,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT074 GAAPinar No.11 Latest NFP and ACNC developments and insights,ClassRoom,3/09/2026 2:45,1
+Isabella Chen,Graduate Bookkeeper,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTREC011 Recording 2024-08-02-Xero-Financials,ELearning,4/09/2026 2:45,1
+Liam West,Graduate Accountant,Alex Trim,Brisbane,Audit,N/A,Learn365,BNTREC047 Recording 2025-05-16 GAAPinar Series 1 Session 5 - Audit testing and sampling – getting it right,ELearning,5/09/2026 2:45,1
+Aria Thompson,Partner,,Brisbane,Business Advisory,Team 5,Learn365,BNTCOM003V2 Office Safety Training,ELearning,6/09/2026 2:45,
+Noah Briggs,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT069 GAAPinar No.6 Auditing AASB 15 Revenue from Contracts with Customers,ClassRoom,7/09/2026 2:45,1
+Harper Lane,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT067 GAAPinar No.4 Professional scepticism – how to strengthen judgement and documentation,ClassRoom,8/09/2026 2:45,1
+Ethan Cole,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT066 GAAPinar No.3 Latest insights into audit quality – lessons for your audit team,ClassRoom,9/09/2026 2:45,1
+Mila Rodriguez,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT065 GAAPinar No.2 AASB 16 Leases – post-implementation challenges and lessons,ClassRoom,10/09/2026 2:45,1
+Lucas Bennett,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT064 GAAPinar No.1 What’s New in Audit and Financial Reporting,ClassRoom,11/09/2026 2:45,1
+Savannah Clarke,Corporate Receptionist,Ryan Rostron,Brisbane,Facilities,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,12/09/2026 2:45,
+Oliver Reid,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT064 GAAPinar No.1 What’s New in Audit and Financial Reporting,ClassRoom,13/09/2026 2:45,1
+Chloe Mitchell,Client Services,Nathan Baker,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,14/09/2026 2:45,
+Henry Lawson,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC070 Recording 2025-11-12 Lodgements to ATO,ELearning,15/09/2026 2:45,0
+Zoe Harrington,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC077 Training on the new way of preparing IASs through Business Fitness,ELearning,16/09/2026 2:45,0
+Xavier Brooks,"Director, Bentleys Finance & Lending",Rohan Dunsdon,Brisbane,Bentleys Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,17/09/2026 2:45,
+Layla Summers,Quality & Compliance Specialist,Soham Sen,Brisbane,Operations,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,18/09/2026 2:45,
+Caleb Foster,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM004V1 Office Ergonomics,ELearning,19/09/2026 2:45,
+Ruby Dawson,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM009V1 Introduction to Bentleys,ELearning,20/09/2026 2:45,
+Ashton Miller,"Director, Financial Planning",Ben Cameron,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,21/09/2026 2:45,
+Olivia Parker,Senior Bookkeeper,Caitlin Shaw,Brisbane,Business Advisory,Team 2,Learn365,BNTCOM003V2 Office Safety Training,ELearning,22/09/2026 2:45,
+Mason Grant,Service Analyst,Colin McRae,Brisbane,Technology and Digital Services,TDS,Learn365,BNTCOM003V2 Office Safety Training,ELearning,23/09/2026 2:45,
+Isabella Chen,Investment Risk and Compliance Manager,Heath Shonhan,Brisbane,,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,24/09/2026 2:45,
+Liam West,Senior Client Services & Operations Manager,Soham Sen,Brisbane,Rawlings Bolton,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,25/09/2026 2:45,
+Aria Thompson,Head of Operations,Ashley Honeyman,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,26/09/2026 2:45,
+Noah Briggs,Graduate Accountant,Lee Morrissey,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,27/09/2026 2:45,
+Harper Lane,Team Assistant,Laura Thomas,Brisbane,Business Advisory,<Affinity>,Learn365,BNTCOM003V2 Office Safety Training,ELearning,28/09/2026 2:45,
+Ethan Cole,Analyst,Heath Shonhan,Brisbane,Rawlings Bolton,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,29/09/2026 2:45,
+Mila Rodriguez,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,"BNTCOM007V1 Bullying, Harassment and Discrimination",ELearning,30/09/2026 2:45,
+Lucas Bennett,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM006V1 Breaches and Incidents at Bentleys QLD,ELearning,1/10/2026 2:45,
+Savannah Clarke,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM005V1 Workplace Health and Safety,ELearning,2/10/2026 2:45,
+Oliver Reid,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM002V2 Quality Manual,ELearning,3/10/2026 2:45,
+Chloe Mitchell,Finance Director,Soham Sen,Brisbane,Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,4/10/2026 2:45,
+Henry Lawson,Manager,Jodi Lupton,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,5/10/2026 2:45,
+Zoe Harrington,Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTCOM003V2 Office Safety Training,ELearning,6/10/2026 2:45,
+Xavier Brooks,Partner,Ben Cameron,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,7/10/2026 2:45,
+Layla Summers,Intermediate Accountant,Michael Rica,Brisbane,Taxation Consulting,Team 1,Learn365,BNTCOM003V2 Office Safety Training,ELearning,8/10/2026 2:45,
+Caleb Foster,Bookkeeper,Caitlin Shaw,Brisbane,Business Advisory,Team 2,Learn365,BNTREC062 Recording 2025-07-02 Introduction to Business Fitness and the Active Ledger and Reporting,ELearning,9/10/2026 2:45,0
+Ruby Dawson,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTREC077 Training on the new way of preparing IASs through Business Fitness,ELearning,10/10/2026 2:45,0
+Ashton Miller,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTREC062 Recording 2025-07-02 Introduction to Business Fitness and the Active Ledger and Reporting,ELearning,11/10/2026 2:45,0
+Olivia Parker,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC015 Recording 2024-05-09-ChatGPT-tips-tricks-hacks,ELearning,12/10/2026 2:45,1
+Mason Grant,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC015 Recording 2024-05-09-ChatGPT-tips-tricks-hacks,ELearning,13/10/2026 2:45,1
+Isabella Chen,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC061 Recording 2025-07-03 Introduction to the Business Fitness Active Workpapers,ELearning,14/10/2026 2:45,0
+Liam West,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC045 Recording 2025-05-06-Bob Performance Cycle - Employee Training,ELearning,15/10/2026 2:45,
+Aria Thompson,Senior Accountant,Stewart Douglas,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,16/10/2026 2:45,
+Noah Briggs,Partner,,Brisbane,Business Advisory,Team 5,Learn365,BNTCOM003V2 Office Safety Training,ELearning,17/10/2026 2:45,
+Harper Lane,Finance Manager,Kathy Wu,Brisbane,Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,18/10/2026 2:45,
+Ethan Cole,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,19/10/2026 2:45,
+Mila Rodriguez,Senior Accountant,Stewart Douglas,Brisbane,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,20/10/2026 2:45,1
+Lucas Bennett,Senior Auditor,Ben Pepperell,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,21/10/2026 2:45,1
+Savannah Clarke,Supervisor,Ben Pepperell,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,22/10/2026 2:45,1
+Oliver Reid,Senior Auditor,Abhik Gandhi,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,23/10/2026 2:45,1
+Chloe Mitchell,Senior Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,24/10/2026 2:45,1
+Henry Lawson,Manager,Lauren Welk,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,25/10/2026 2:45,1
+Zoe Harrington,Manager Management Accountant,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,26/10/2026 2:45,1
+Xavier Brooks,Senior Accountant,Michael Rica,Manila,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,27/10/2026 2:45,1
+Layla Summers,Senior Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,28/10/2026 2:45,1
+Caleb Foster,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,29/10/2026 2:45,1
+Ruby Dawson,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,30/10/2026 2:45,1
+Ashton Miller,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,31/10/2026 2:45,1
+Olivia Parker,Senior Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,1/11/2026 2:45,1
+Mason Grant,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,2/11/2026 2:45,1
+Isabella Chen,Senior Accountant,Phoebe Hou,Manila,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,3/11/2026 2:45,1
+Liam West,Technical Lead,Ingrid Swalling,Manila,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/11/2026 2:45,1
+Aria Thompson,Senior Accountant,Sarah Phillips,Manila,Business Advisory,Team 7,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,5/11/2026 2:45,1
+Noah Briggs,Senior Accountant,Sarah Phillips,Manila,Business Advisory,Team 7,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,6/11/2026 2:45,1
+Harper Lane,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,7/11/2026 2:45,1
+Ethan Cole,Marketing Coordinator,Shaun Kennedy,Brisbane,Marketing,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,8/11/2026 2:45,
+Mila Rodriguez,Manager Management Accountant,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,9/11/2026 2:45,1
+Lucas Bennett,Graduate Accountant,Alex Trim,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,10/11/2026 2:45,
+Savannah Clarke,Supervisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,11/11/2026 2:45,1
+Oliver Reid,Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,12/11/2026 2:45,1
+Chloe Mitchell,Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,13/11/2026 2:45,1
+Henry Lawson,Senior Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,14/11/2026 2:45,1
+Zoe Harrington,Intermediate Accountant,Oswald Doring,Brisbane,Business Advisory,Affinity,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,15/11/2026 2:45,1
+Xavier Brooks,Manager,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,16/11/2026 2:45,1
+Layla Summers,Manager,Lauren Welk,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,17/11/2026 2:45,1
+Caleb Foster,Graduate Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,18/11/2026 2:45,1
+Ruby Dawson,Supervisor,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,19/11/2026 2:45,1
+Ashton Miller,Manager,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,20/11/2026 2:45,1
+Olivia Parker,Undergraduate Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,21/11/2026 2:45,1
+Mason Grant,Senior Accountant,Michael Rica,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,22/11/2026 2:45,1
+Isabella Chen,Bookkeeper Manager,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,23/11/2026 2:45,1
+Liam West,Graduate Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,24/11/2026 2:45,1
+Aria Thompson,Senior Bookkeeper,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,25/11/2026 2:45,1
+Noah Briggs,Senior Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,26/11/2026 2:45,1
+Harper Lane,Graduate Accountant,Nicole Black,Brisbane,Taxation Consulting,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,27/11/2026 2:45,1
+Ethan Cole,Associate Director,Peter Tran,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,28/11/2026 2:45,1
+Mila Rodriguez,Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,29/11/2026 2:45,1
+Lucas Bennett,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,30/11/2026 2:45,1
+Savannah Clarke,Bookkeeper Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/12/2026 2:45,1
+Oliver Reid,Manager,Scott Field,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,2/12/2026 2:45,1
+Chloe Mitchell,Graduate Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,3/12/2026 2:45,1
+Henry Lawson,Graduate Accountant,Janet Simpson,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,4/12/2026 2:45,1
+Zoe Harrington,Technical Lead,Nakita Yoshida-Martin,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,5/12/2026 2:45,1
+Xavier Brooks,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,6/12/2026 2:45,1
+Layla Summers,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,7/12/2026 2:45,1
+Caleb Foster,Team Assistant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,8/12/2026 2:45,1
+Ruby Dawson,Intermediate Accountant,Nakita Yoshida-Martin,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,9/12/2026 2:45,1
+Ashton Miller,Senior Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,10/12/2026 2:45,1
+Olivia Parker,Graduate Accountant,Janet Simpson,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,11/12/2026 2:45,1
+Mason Grant,Bookkeeper,Kate Wilson,Brisbane,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,12/12/2026 2:45,1
+Isabella Chen,Senior Accountant,Kate Wilson,Brisbane,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,13/12/2026 2:45,1
+Liam West,Accountant,Rachel Oates,Manila,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,14/12/2026 2:45,1
+Aria Thompson,Bookkeeper,Ben Cameron,Brisbane,Business Advisory,Team 5,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,15/12/2026 2:45,1
+Noah Briggs,Personal Assistant,Jodi Lupton,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,16/12/2026 2:45,
+Harper Lane,Director,Dean Steer,Brisbane,Taxation Consulting,Team 1,Learn365,BNTCOM003V2 Office Safety Training,ELearning,17/12/2026 2:45,
+Ethan Cole,Accountant,Ingrid Swalling,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,18/12/2026 2:45,
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Effect Accounting (2 of 2) - Deferred Taxes,ELearning,19/12/2026 2:45,1.5
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Effect Accounting (1 of 2),ELearning,20/12/2026 2:45,1.5
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Chat GPT - Using Generative AI as a Business Tool,ELearning,21/12/2026 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Major Developments in Tax Administration,ELearning,22/12/2026 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Land Subdivisions,ELearning,23/12/2026 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Introduction to International Tax - Australians Going Abroad & Structures,ELearning,24/12/2026 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,Division 7A - Where are we now?,ELearning,25/12/2026 2:45,1
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements,ELearning,26/12/2026 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,27/12/2026 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,28/12/2026 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,29/12/2026 2:45,1
+Ashton Miller,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - September 2025,ELearning,30/12/2026 2:45,1
+Olivia Parker,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - July & August 2025,ELearning,31/12/2026 2:45,1
+Mason Grant,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - June 2025,ELearning,1/01/2027 2:45,1
+Isabella Chen,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - April 2025,ELearning,2/01/2027 2:45,1
+Liam West,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,3/01/2027 2:45,1
+Aria Thompson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,4/01/2027 2:45,1
+Noah Briggs,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,5/01/2027 2:45,1
+Harper Lane,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,6/01/2027 2:45,1
+Ethan Cole,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,7/01/2027 2:45,1
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,8/01/2027 2:45,1
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,9/01/2027 2:45,1
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,10/01/2027 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,11/01/2027 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Land Subdivisions,ELearning,12/01/2027 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Navigating Market Valuations in SMSFs,ELearning,13/01/2027 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,FBT 2025 - Festive Fun and Record Keeping,ELearning,14/01/2027 2:45,1.5
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - March 2025,ELearning,15/01/2027 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,Property and Income Tax,ELearning,16/01/2027 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements,ELearning,17/01/2027 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Division 7A Advanced - Navigating the Complexities,ELearning,18/01/2027 2:45,1
+Ashton Miller,No Data,No Data,No Data,No Data,No Data,CCH Learning,Changing a Business Structure: Rollovers and Concessions,ELearning,19/01/2027 2:45,1
+Olivia Parker,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements ,ELearning,20/01/2027 2:45,1
+Mason Grant,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,21/01/2027 2:45,1
+Isabella Chen,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,22/01/2027 2:45,1
+Liam West,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,23/01/2027 2:45,1
+Aria Thompson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Ethical Issues in Dealing with Clients,ELearning,24/01/2027 2:45,1
+Noah Briggs,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,25/01/2027 2:45,1
+Harper Lane,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,26/01/2027 2:45,1
+Ethan Cole,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,27/01/2027 2:45,1
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,28/01/2027 2:45,1
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,29/01/2027 2:45,1
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,30/01/2027 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,31/01/2027 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,1/02/2027 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,2/02/2027 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,3/02/2027 2:45,1
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,4/02/2027 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,All things SMSF Investment Strategy!,ELearning,5/02/2027 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,6/02/2027 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - November 2025,ELearning,7/02/2027 2:45,1
+Olivia Parker,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT075 GAAPinar No.12 Reporting and auditing considerations for December year-ends,ClassRoom,8/02/2027 2:45,1
+Mason Grant,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT074 GAAPinar No.11 Latest NFP and ACNC developments and insights,ClassRoom,9/02/2027 2:45,1
+Isabella Chen,Graduate Bookkeeper,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTREC011 Recording 2024-08-02-Xero-Financials,ELearning,10/02/2027 2:45,1
+Liam West,Graduate Accountant,Alex Trim,Brisbane,Audit,N/A,Learn365,BNTREC047 Recording 2025-05-16 GAAPinar Series 1 Session 5 - Audit testing and sampling – getting it right,ELearning,11/02/2027 2:45,1
+Aria Thompson,Partner,,Brisbane,Business Advisory,Team 5,Learn365,BNTCOM003V2 Office Safety Training,ELearning,12/02/2027 2:45,
+Noah Briggs,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT069 GAAPinar No.6 Auditing AASB 15 Revenue from Contracts with Customers,ClassRoom,13/02/2027 2:45,1
+Harper Lane,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT067 GAAPinar No.4 Professional scepticism – how to strengthen judgement and documentation,ClassRoom,14/02/2027 2:45,1
+Ethan Cole,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT066 GAAPinar No.3 Latest insights into audit quality – lessons for your audit team,ClassRoom,15/02/2027 2:45,1
+Mila Rodriguez,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT065 GAAPinar No.2 AASB 16 Leases – post-implementation challenges and lessons,ClassRoom,16/02/2027 2:45,1
+Lucas Bennett,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTILT064 GAAPinar No.1 What’s New in Audit and Financial Reporting,ClassRoom,17/02/2027 2:45,1
+Savannah Clarke,Corporate Receptionist,Ryan Rostron,Brisbane,Facilities,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,18/02/2027 2:45,
+Oliver Reid,Intermediate Accountant,Abhik Gandhi,Brisbane,Audit,N/A,Learn365,BNTILT064 GAAPinar No.1 What’s New in Audit and Financial Reporting,ClassRoom,19/02/2027 2:45,1
+Chloe Mitchell,Client Services,Nathan Baker,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,20/02/2027 2:45,
+Henry Lawson,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC070 Recording 2025-11-12 Lodgements to ATO,ELearning,21/02/2027 2:45,0
+Zoe Harrington,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC077 Training on the new way of preparing IASs through Business Fitness,ELearning,22/02/2027 2:45,0
+Xavier Brooks,"Director, Bentleys Finance & Lending",Rohan Dunsdon,Brisbane,Bentleys Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,23/02/2027 2:45,
+Layla Summers,Quality & Compliance Specialist,Soham Sen,Brisbane,Operations,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,24/02/2027 2:45,
+Caleb Foster,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM004V1 Office Ergonomics,ELearning,25/02/2027 2:45,
+Ruby Dawson,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM009V1 Introduction to Bentleys,ELearning,26/02/2027 2:45,
+Ashton Miller,"Director, Financial Planning",Ben Cameron,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,27/02/2027 2:45,
+Olivia Parker,Senior Bookkeeper,Caitlin Shaw,Brisbane,Business Advisory,Team 2,Learn365,BNTCOM003V2 Office Safety Training,ELearning,28/02/2027 2:45,
+Mason Grant,Service Analyst,Colin McRae,Brisbane,Technology and Digital Services,TDS,Learn365,BNTCOM003V2 Office Safety Training,ELearning,1/03/2027 2:45,
+Isabella Chen,Investment Risk and Compliance Manager,Heath Shonhan,Brisbane,,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,2/03/2027 2:45,
+Liam West,Senior Client Services & Operations Manager,Soham Sen,Brisbane,Rawlings Bolton,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,3/03/2027 2:45,
+Aria Thompson,Head of Operations,Ashley Honeyman,Brisbane,Bentleys Wealth,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,4/03/2027 2:45,
+Noah Briggs,Graduate Accountant,Lee Morrissey,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,5/03/2027 2:45,
+Harper Lane,Team Assistant,Laura Thomas,Brisbane,Business Advisory,<Affinity>,Learn365,BNTCOM003V2 Office Safety Training,ELearning,6/03/2027 2:45,
+Ethan Cole,Analyst,Heath Shonhan,Brisbane,Rawlings Bolton,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,7/03/2027 2:45,
+Mila Rodriguez,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,"BNTCOM007V1 Bullying, Harassment and Discrimination",ELearning,8/03/2027 2:45,
+Lucas Bennett,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM006V1 Breaches and Incidents at Bentleys QLD,ELearning,9/03/2027 2:45,
+Savannah Clarke,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM005V1 Workplace Health and Safety,ELearning,10/03/2027 2:45,
+Oliver Reid,Intermediate Bookkeeper,,Manila,Business Advisory,Team 2,Learn365,BNTCOM002V2 Quality Manual,ELearning,11/03/2027 2:45,
+Chloe Mitchell,Finance Director,Soham Sen,Brisbane,Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,12/03/2027 2:45,
+Henry Lawson,Manager,Jodi Lupton,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,13/03/2027 2:45,
+Zoe Harrington,Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTCOM003V2 Office Safety Training,ELearning,14/03/2027 2:45,
+Xavier Brooks,Partner,Ben Cameron,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,15/03/2027 2:45,
+Layla Summers,Intermediate Accountant,Michael Rica,Brisbane,Taxation Consulting,Team 1,Learn365,BNTCOM003V2 Office Safety Training,ELearning,16/03/2027 2:45,
+Caleb Foster,Bookkeeper,Caitlin Shaw,Brisbane,Business Advisory,Team 2,Learn365,BNTREC062 Recording 2025-07-02 Introduction to Business Fitness and the Active Ledger and Reporting,ELearning,17/03/2027 2:45,0
+Ruby Dawson,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTREC077 Training on the new way of preparing IASs through Business Fitness,ELearning,18/03/2027 2:45,0
+Ashton Miller,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTREC062 Recording 2025-07-02 Introduction to Business Fitness and the Active Ledger and Reporting,ELearning,19/03/2027 2:45,0
+Olivia Parker,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC015 Recording 2024-05-09-ChatGPT-tips-tricks-hacks,ELearning,20/03/2027 2:45,1
+Mason Grant,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC015 Recording 2024-05-09-ChatGPT-tips-tricks-hacks,ELearning,21/03/2027 2:45,1
+Isabella Chen,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC061 Recording 2025-07-03 Introduction to the Business Fitness Active Workpapers,ELearning,22/03/2027 2:45,0
+Liam West,Bookkeeper,Anna Smith,Brisbane,Team 1,Team 1,Learn365,BNTREC045 Recording 2025-05-06-Bob Performance Cycle - Employee Training,ELearning,23/03/2027 2:45,
+Aria Thompson,Senior Accountant,Stewart Douglas,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,24/03/2027 2:45,
+Noah Briggs,Partner,,Brisbane,Business Advisory,Team 5,Learn365,BNTCOM003V2 Office Safety Training,ELearning,25/03/2027 2:45,
+Harper Lane,Finance Manager,Kathy Wu,Brisbane,Finance,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,26/03/2027 2:45,
+Ethan Cole,Manager,Ashley Carle,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,27/03/2027 2:45,
+Mila Rodriguez,Senior Accountant,Stewart Douglas,Brisbane,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,28/03/2027 2:45,1
+Lucas Bennett,Senior Auditor,Ben Pepperell,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,29/03/2027 2:45,1
+Savannah Clarke,Supervisor,Ben Pepperell,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,30/03/2027 2:45,1
+Oliver Reid,Senior Auditor,Abhik Gandhi,Manila,Audit,N/A,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,31/03/2027 2:45,1
+Chloe Mitchell,Senior Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,1/04/2027 2:45,1
+Henry Lawson,Manager,Lauren Welk,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,2/04/2027 2:45,1
+Zoe Harrington,Manager Management Accountant,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,3/04/2027 2:45,1
+Xavier Brooks,Senior Accountant,Michael Rica,Manila,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,4/04/2027 2:45,1
+Layla Summers,Senior Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,5/04/2027 2:45,1
+Caleb Foster,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,6/04/2027 2:45,1
+Ruby Dawson,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,7/04/2027 2:45,1
+Ashton Miller,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,8/04/2027 2:45,1
+Olivia Parker,Senior Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,9/04/2027 2:45,1
+Mason Grant,Supervisor,Tina Kiernan,Brisbane,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,10/04/2027 2:45,1
+Isabella Chen,Senior Accountant,Phoebe Hou,Manila,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,11/04/2027 2:45,1
+Liam West,Technical Lead,Ingrid Swalling,Manila,Business Advisory,Team 4,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,12/04/2027 2:45,1
+Aria Thompson,Senior Accountant,Sarah Phillips,Manila,Business Advisory,Team 7,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,13/04/2027 2:45,1
+Noah Briggs,Senior Accountant,Sarah Phillips,Manila,Business Advisory,Team 7,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,14/04/2027 2:45,1
+Harper Lane,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT062 The Director’s View: What Makes a Great Manager? ,ClassRoom,15/04/2027 2:45,1
+Ethan Cole,Marketing Coordinator,Shaun Kennedy,Brisbane,Marketing,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,16/04/2027 2:45,
+Mila Rodriguez,Manager Management Accountant,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,17/04/2027 2:45,1
+Lucas Bennett,Graduate Accountant,Alex Trim,Brisbane,Audit,N/A,Learn365,BNTCOM003V2 Office Safety Training,ELearning,18/04/2027 2:45,
+Savannah Clarke,Supervisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,19/04/2027 2:45,1
+Oliver Reid,Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,20/04/2027 2:45,1
+Chloe Mitchell,Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,21/04/2027 2:45,1
+Henry Lawson,Senior Client Advisor,Rohan Dunsdon,Brisbane,Business Advisory,<Affinity>,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,22/04/2027 2:45,1
+Zoe Harrington,Intermediate Accountant,Oswald Doring,Brisbane,Business Advisory,Affinity,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,23/04/2027 2:45,1
+Xavier Brooks,Manager,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,24/04/2027 2:45,1
+Layla Summers,Manager,Lauren Welk,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,25/04/2027 2:45,1
+Caleb Foster,Graduate Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,26/04/2027 2:45,1
+Ruby Dawson,Supervisor,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,27/04/2027 2:45,1
+Ashton Miller,Manager,Andrew Keily,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,28/04/2027 2:45,1
+Olivia Parker,Undergraduate Accountant,Felicity Lostroh,Brisbane,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,29/04/2027 2:45,1
+Mason Grant,Senior Accountant,Michael Rica,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,30/04/2027 2:45,1
+Isabella Chen,Bookkeeper Manager,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,1/05/2027 2:45,1
+Liam West,Graduate Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,2/05/2027 2:45,1
+Aria Thompson,Senior Bookkeeper,Anna Smith,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,3/05/2027 2:45,1
+Noah Briggs,Senior Accountant,Michelle Etherden,Manila,Business Advisory,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,4/05/2027 2:45,1
+Harper Lane,Graduate Accountant,Nicole Black,Brisbane,Taxation Consulting,Team 1,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,5/05/2027 2:45,1
+Ethan Cole,Associate Director,Peter Tran,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,6/05/2027 2:45,1
+Mila Rodriguez,Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,7/05/2027 2:45,1
+Lucas Bennett,Senior Accountant,Kate Tanner,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,8/05/2027 2:45,1
+Savannah Clarke,Bookkeeper Manager,Lauren Welk,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,9/05/2027 2:45,1
+Oliver Reid,Manager,Scott Field,Brisbane,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,10/05/2027 2:45,1
+Chloe Mitchell,Graduate Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,11/05/2027 2:45,1
+Henry Lawson,Graduate Accountant,Janet Simpson,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,12/05/2027 2:45,1
+Zoe Harrington,Technical Lead,Nakita Yoshida-Martin,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,13/05/2027 2:45,1
+Xavier Brooks,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,14/05/2027 2:45,1
+Layla Summers,Senior Accountant,Arlen Wells-Peris,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,15/05/2027 2:45,1
+Caleb Foster,Team Assistant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,16/05/2027 2:45,1
+Ruby Dawson,Intermediate Accountant,Nakita Yoshida-Martin,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,17/05/2027 2:45,1
+Ashton Miller,Senior Accountant,Kate Tanner,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,18/05/2027 2:45,1
+Olivia Parker,Graduate Accountant,Janet Simpson,Manila,Business Advisory,Team 2,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,19/05/2027 2:45,1
+Mason Grant,Bookkeeper,Kate Wilson,Brisbane,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,20/05/2027 2:45,1
+Isabella Chen,Senior Accountant,Kate Wilson,Brisbane,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,21/05/2027 2:45,1
+Liam West,Accountant,Rachel Oates,Manila,Business Advisory,Team 4,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,22/05/2027 2:45,1
+Aria Thompson,Bookkeeper,Ben Cameron,Brisbane,Business Advisory,Team 5,Learn365,BNTILT079 Training on the new way of preparing IASs through Business Fitness,ClassRoom,23/05/2027 2:45,1
+Noah Briggs,Personal Assistant,Jodi Lupton,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,24/05/2027 2:45,
+Harper Lane,Director,Dean Steer,Brisbane,Taxation Consulting,Team 1,Learn365,BNTCOM003V2 Office Safety Training,ELearning,25/05/2027 2:45,
+Ethan Cole,Accountant,Ingrid Swalling,Brisbane,Business Advisory,Team 4,Learn365,BNTCOM003V2 Office Safety Training,ELearning,26/05/2027 2:45,
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Effect Accounting (2 of 2) - Deferred Taxes,ELearning,27/05/2027 2:45,1.5
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Effect Accounting (1 of 2),ELearning,28/05/2027 2:45,1.5
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Chat GPT - Using Generative AI as a Business Tool,ELearning,29/05/2027 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Major Developments in Tax Administration,ELearning,30/05/2027 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Land Subdivisions,ELearning,31/05/2027 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Introduction to International Tax - Australians Going Abroad & Structures,ELearning,1/06/2027 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,Division 7A - Where are we now?,ELearning,2/06/2027 2:45,1
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements,ELearning,3/06/2027 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,4/06/2027 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,5/06/2027 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,6/06/2027 2:45,1
+Ashton Miller,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - September 2025,ELearning,7/06/2027 2:45,1
+Olivia Parker,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - July & August 2025,ELearning,8/06/2027 2:45,1
+Mason Grant,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - June 2025,ELearning,9/06/2027 2:45,1
+Isabella Chen,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - April 2025,ELearning,10/06/2027 2:45,1
+Liam West,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,11/06/2027 2:45,1
+Aria Thompson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,12/06/2027 2:45,1
+Noah Briggs,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,13/06/2027 2:45,1
+Harper Lane,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,14/06/2027 2:45,1
+Ethan Cole,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,15/06/2027 2:45,1
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,16/06/2027 2:45,1
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,17/06/2027 2:45,1
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,18/06/2027 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,19/06/2027 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Land Subdivisions,ELearning,20/06/2027 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Navigating Market Valuations in SMSFs,ELearning,21/06/2027 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,FBT 2025 - Festive Fun and Record Keeping,ELearning,22/06/2027 2:45,1.5
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - March 2025,ELearning,23/06/2027 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,Property and Income Tax,ELearning,24/06/2027 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements,ELearning,25/06/2027 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Division 7A Advanced - Navigating the Complexities,ELearning,26/06/2027 2:45,1
+Ashton Miller,No Data,No Data,No Data,No Data,No Data,CCH Learning,Changing a Business Structure: Rollovers and Concessions,ELearning,27/06/2027 2:45,1
+Olivia Parker,No Data,No Data,No Data,No Data,No Data,CCH Learning,Accounting for Climate-related and other Uncertainties in Financial Statements ,ELearning,28/06/2027 2:45,1
+Mason Grant,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,29/06/2027 2:45,1
+Isabella Chen,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,30/06/2027 2:45,1
+Liam West,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Issues for Deceased Estates – What Practitioners need to know,ELearning,1/07/2027 2:45,1
+Aria Thompson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Ethical Issues in Dealing with Clients,ELearning,2/07/2027 2:45,1
+Noah Briggs,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,3/07/2027 2:45,1
+Harper Lane,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,4/07/2027 2:45,1
+Ethan Cole,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,5/07/2027 2:45,1
+Mila Rodriguez,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,6/07/2027 2:45,1
+Lucas Bennett,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,7/07/2027 2:45,1
+Savannah Clarke,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,8/07/2027 2:45,1
+Oliver Reid,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,9/07/2027 2:45,1
+Chloe Mitchell,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,10/07/2027 2:45,1
+Henry Lawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,11/07/2027 2:45,1
+Zoe Harrington,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,12/07/2027 2:45,1
+Xavier Brooks,No Data,No Data,No Data,No Data,No Data,CCH Learning,Let’s have a look at SMSFs for 2025 and plan for 2026!,ELearning,13/07/2027 2:45,1
+Layla Summers,No Data,No Data,No Data,No Data,No Data,CCH Learning,All things SMSF Investment Strategy!,ELearning,14/07/2027 2:45,1
+Caleb Foster,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - December 2025,ELearning,15/07/2027 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - November 2025,ELearning,16/07/2027 2:45,1
+Ruby Dawson,No Data,No Data,No Data,No Data,No Data,CCH Learning,Tax Technical Update - November 2025,ELearning,17/07/2027 2:45,1
