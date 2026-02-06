@@ -508,31 +508,30 @@ function renderLeaderboard() {
         }
     });
 
-    const maxCompletions = Math.max(...courseStats.values);
+    const maxCompletions = courseStats.values[0] || 1;
 
-    let html = `<div class="leaderboard-modern">`;
+    let html = `<div class="leaderboard-grid">`;
 
     courseStats.labels.forEach((course, index) => {
+        const completions = courseStats.values[index];
         const platform = platformMap[course] || 'N/A';
         const platformClass = platform.toLowerCase().includes('cch') ? 'platform-cch' : 'platform-365';
-        const completions = courseStats.values[index];
         const progressWidth = (completions / maxCompletions) * 100;
+        const isTop = index < 3;
 
         html += `
-            <div class="leaderboard-item">
-                <div class="leader-rank">${index + 1}</div>
-                <div class="leader-content">
-                    <div class="leader-top">
-                        <span class="leader-name">${course}</span>
-                        <div class="leader-stats">
-                             <span class="badge ${platformClass}">${platform}</span>
-                             <span class="leader-count">${completions}</span>
-                        </div>
+            <div class="leaderboard-card">
+                <div class="rank-pill ${isTop ? 'rank-top' : ''}">${index + 1}</div>
+                <div class="course-info">
+                    <div class="course-header">
+                        <span class="course-name">${course}</span>
+                        <span class="badge ${platformClass}">${platform}</span>
                     </div>
-                    <div class="leader-progress-bg">
-                        <div class="leader-progress-bar" style="width: ${progressWidth}%"></div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: ${progressWidth}%"></div>
                     </div>
                 </div>
+                <div class="completion-count">${completions}</div>
             </div>
         `;
     });
