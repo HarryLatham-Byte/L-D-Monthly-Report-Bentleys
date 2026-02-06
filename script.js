@@ -73,6 +73,7 @@ const COLORS = {
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
     initUI();
+    loadFiltersFromURL();
     setupEventListeners();
     loadLocalData();
 });
@@ -87,13 +88,13 @@ function initUI() {
 function setupEventListeners() {
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
-    // Select Filters
+    // Filter Listeners
     const filterIds = ['officeFilter', 'departmentFilter', 'trainingTypeFilter', 'platformFilter'];
     filterIds.forEach(id => {
         document.getElementById(id).addEventListener('change', (e) => {
             const filterKey = id.replace('Filter', '').toLowerCase();
             state.filters[id === 'trainingTypeFilter' ? 'type' : filterKey] = e.target.value;
-            applyFilters();
+            applyFilters(true);
         });
     });
 
@@ -101,9 +102,8 @@ function setupEventListeners() {
     const nameSearch = document.getElementById('nameSearch');
     nameSearch.addEventListener('input', (e) => {
         state.filters.name = e.target.value.trim().toLowerCase();
-        applyFilters();
+        applyFilters(true);
     });
-    // Help the dropdown appear on focus
     nameSearch.addEventListener('focus', () => {
         nameSearch.setAttribute('placeholder', 'Type to search...');
     });
@@ -112,8 +112,22 @@ function setupEventListeners() {
     ['startDate', 'endDate'].forEach(id => {
         document.getElementById(id).addEventListener('change', (e) => {
             state.filters[id] = e.target.value;
-            applyFilters();
+            applyFilters(true);
         });
+    });
+
+    // Export & Action Buttons
+    document.getElementById('exportExcel')?.addEventListener('click', () => exportToExcel(state.filteredData, 'LD_Dashboard_Filtered'));
+    document.getElementById('exportPDF')?.addEventListener('click', () => window.print());
+    document.getElementById('copyShareLink')?.addEventListener('click', copyShareLink);
+
+    // Modal Close
+    document.getElementById('closeModal')?.addEventListener('click', closeModal);
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal-overlay')) closeModal();
+    });
+    document.getElementById('modalExportExcel')?.addEventListener('click', () => {
+        if (state.lastDrillDownData) exportToExcel(state.lastDrillDownData, 'DrillDown_Details');
     });
 }
 
@@ -222,7 +236,7 @@ function updateSelectOptions(id, options, defaultLabel) {
     });
 }
 
-function applyFilters() {
+function applyFilters(syncURL = false) {
     const nameKey = state.nameKey || 'Name';
     state.filteredData = state.rawData.filter(row => {
         const matchOffice = state.filters.office === 'all' || row.Office === state.filters.office;
@@ -257,7 +271,38 @@ function applyFilters() {
         return matchOffice && matchDept && matchType && matchPlatform && matchName && matchDate;
     });
 
+    if (syncURL) syncFiltersToURL();
     renderDashboard();
+}
+
+/**
+ * Persist filters to URL hash for shareable links
+ */
+function syncFiltersToURL() {
+    const params = new URLSearchParams();
+    Object.entries(state.filters).forEach(([key, val]) => {
+        if (val && val !== 'all') params.set(key, val);
+    });
+    window.location.hash = params.toString();
+}
+
+function loadFiltersFromURL() {
+    const hash = window.location.hash.substring(1);
+    if (!hash) return;
+    const params = new URLSearchParams(hash);
+    params.forEach((val, key) => {
+        if (state.filters.hasOwnProperty(key)) {
+            state.filters[key] = val;
+            // Update UI elements
+            const el = document.getElementById(key === 'type' ? 'trainingTypeFilter' :
+                (key === 'name' ? 'nameSearch' :
+                    (key.endsWith('Filter') ? key : key + 'Filter')));
+            if (el) el.value = val;
+            if (key === 'name' && document.getElementById('nameSearch')) {
+                document.getElementById('nameSearch').value = val;
+            }
+        }
+    });
 }
 
 /**
@@ -321,16 +366,78 @@ function renderKPIs() {
     });
 }
 
+// --- Utilities ---
+function aggregateData(data, key, limit = 0) {
+    const counts = {};
+    data.forEach(row => {
+        const val = row[key] || 'N/A';
+        counts[val] = (counts[val] || 0) + 1;
+    });
+
+    let sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+    if (limit > 0) sorted = sorted.slice(0, limit);
+
+    return {
+        labels: sorted.map(i => i[0]),
+        values: sorted.map(i => i[1])
+    };
+}
+
+function aggregateSum(data, key, sumKey) {
+    const sums = {};
+    data.forEach(row => {
+        const val = row[key] || 'N/A';
+        const num = parseFloat(row[sumKey]) || 0;
+        sums[val] = (sums[val] || 0) + num;
+    });
+
+    const sorted = Object.entries(sums).sort((a, b) => b[1] - a[1]);
+    return {
+        labels: sorted.map(i => i[0]),
+        values: sorted.map(i => i[1].toFixed(1))
+    };
+}
+
+function aggregateTrend(data) {
+    const trend = {};
+    data.forEach(row => {
+        const dateVal = row['Completion Date'];
+        if (!dateVal) return;
+        const date = parseDateValue(dateVal);
+        if (date) {
+            const year = date.getFullYear();
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const key = `${year}-${month}`;
+            trend[key] = (trend[key] || 0) + 1;
+        }
+    });
+
+    const sortedLabels = Object.keys(trend).sort();
+    // Prettier labels for display
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const displayLabels = sortedLabels.map(label => {
+        const [y, m] = label.split('-');
+        return `${months[parseInt(m) - 1]} ${y}`;
+    });
+
+    return {
+        keys: sortedLabels, // Used for internal matching
+        labels: displayLabels,
+        values: sortedLabels.map(l => trend[l])
+    };
+}
+
 function renderCharts() {
-    // 1. Monthly Trend (Now AT THE TOP)
+    // 1. Monthly Trend
     const monthlyTrend = aggregateTrend(state.filteredData);
     createChart('monthlyTrendChart', 'line', {
         labels: monthlyTrend.labels,
+        keys: monthlyTrend.keys, // Custom property for click handling
         datasets: [{
             label: 'Completions',
             data: monthlyTrend.values,
-            borderColor: COLORS.primary,
-            backgroundColor: 'rgba(247, 148, 29, 0.1)',
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
             fill: true,
             tension: 0.4
         }]
@@ -342,28 +449,45 @@ function renderCharts() {
     const typeCounts = aggregateData(state.filteredData, 'Training Type');
     createChart('trainingTypeChart', 'doughnut', {
         labels: typeCounts.labels,
-        datasets: [{ data: typeCounts.values, backgroundColor: COLORS.backgrounds }]
+        datasets: [{
+            data: typeCounts.values,
+            backgroundColor: getVibrantColors(typeCounts.labels.length)
+        }]
+    }, {
+        plugins: { legend: { position: 'bottom' } }
     });
 
     // 3. Top Job Titles
     const titleCounts = aggregateData(state.filteredData, 'Learner Job Title', 10);
     createChart('jobTitleChart', 'bar', {
         labels: titleCounts.labels,
-        datasets: [{ label: 'Completions', data: titleCounts.values, backgroundColor: COLORS.secondary }]
+        datasets: [{
+            label: 'Completions',
+            data: titleCounts.values,
+            backgroundColor: getVibrantColors(titleCounts.labels.length)
+        }]
     }, { indexAxis: 'y' });
 
     // 4. CPD Hours by Department
     const deptHours = aggregateSum(state.filteredData, 'Department', 'CPD Hours');
     createChart('departmentHoursChart', 'bar', {
         labels: deptHours.labels,
-        datasets: [{ label: 'Hours', data: deptHours.values, backgroundColor: COLORS.backgrounds }]
+        datasets: [{
+            label: 'Hours',
+            data: deptHours.values,
+            backgroundColor: getVibrantColors(deptHours.labels.length)
+        }]
     });
 
-    // 5. Completions by Office (Now AT THE BOTTOM)
+    // 5. Completions by Office
     const officeCounts = aggregateData(state.filteredData, 'Office');
     createChart('officeCompletionsChart', 'bar', {
         labels: officeCounts.labels,
-        datasets: [{ label: 'Completions', data: officeCounts.values, backgroundColor: COLORS.primary }]
+        datasets: [{
+            label: 'Completions',
+            data: officeCounts.values,
+            backgroundColor: getVibrantColors(officeCounts.labels.length)
+        }]
     });
 
     updateChartThemes();
@@ -419,79 +543,71 @@ function renderLeaderboard() {
     container.innerHTML = html;
 }
 
-// --- Utilities ---
-function aggregateData(data, key, limit = 0) {
-    const counts = {};
-    data.forEach(row => {
-        const val = row[key] || 'N/A';
-        counts[val] = (counts[val] || 0) + 1;
-    });
-
-    let sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-    if (limit > 0) sorted = sorted.slice(0, limit);
-
-    return {
-        labels: sorted.map(i => i[0]),
-        values: sorted.map(i => i[1])
-    };
+// --- Export & Sharing ---
+function exportToExcel(data, baseName) {
+    if (!data || data.length === 0) return alert("No data to export");
+    const ws = XLSX.utils.json_to_sheet(data);
+    const wb = XLSX.utils.book_new();
+    XLSX.book_append_sheet(wb, ws, "Data");
+    const fileName = `${baseName}_${new Date().toISOString().slice(0, 10)}.xlsx`;
+    XLSX.writeFile(wb, fileName);
 }
 
-function aggregateSum(data, key, sumKey) {
-    const sums = {};
-    data.forEach(row => {
-        const val = row[key] || 'N/A';
-        const num = parseFloat(row[sumKey]) || 0;
-        sums[val] = (sums[val] || 0) + num;
+function copyShareLink() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        const btn = document.getElementById('copyShareLink');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span>Copied!</span>';
+        setTimeout(() => btn.innerHTML = originalText, 2000);
     });
-
-    const sorted = Object.entries(sums).sort((a, b) => b[1] - a[1]);
-    return {
-        labels: sorted.map(i => i[0]),
-        values: sorted.map(i => i[1].toFixed(1))
-    };
 }
 
-function aggregateTrend(data) {
-    const trend = {};
+// --- Modal & Drill-Down ---
+function openModal(title, data, columns) {
+    const modal = document.getElementById('detailModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+
+    if (!modal || !modalBody) return;
+
+    state.lastDrillDownData = data;
+    modalTitle.textContent = title;
+
+    let html = `<table class="detail-table"><thead><tr>`;
+    columns.forEach(col => html += `<th>${col}</th>`);
+    html += `</tr></thead><tbody>`;
+
     data.forEach(row => {
-        try {
-            let dateVal = row['Completion Date'];
-            if (!dateVal) return;
-
-            let monthYear = '';
-
-            // Robust check for Date object
-            if (dateVal instanceof Date || (dateVal && typeof dateVal.getMonth === 'function')) {
-                const year = dateVal.getFullYear();
-                const month = (dateVal.getMonth() + 1).toString().padStart(2, '0');
-                monthYear = `${year}-${month}`;
-            } else {
-                // Defensive string conversion
-                const dateStr = String(dateVal);
-                if (typeof dateStr.split === 'function') {
-                    const firstPart = dateStr.split(' ')[0];
-                    if (firstPart) {
-                        const parts = firstPart.split('/');
-                        if (parts.length >= 3) {
-                            monthYear = `${parts[2]}-${parts[1]}`; // YYYY-MM
-                        }
-                    }
-                }
-            }
-
-            if (monthYear) {
-                trend[monthYear] = (trend[monthYear] || 0) + 1;
-            }
-        } catch (e) {
-            console.warn("Skipping row due to date parse error:", e);
-        }
+        html += `<tr>`;
+        columns.forEach(col => html += `<td>${row[col] || ''}</td>`);
+        html += `</tr>`;
     });
 
-    const sortedMonths = Object.keys(trend).sort();
-    return {
-        labels: sortedMonths,
-        values: sortedMonths.map(m => trend[m])
-    };
+    html += `</tbody></table>`;
+    modalBody.innerHTML = html;
+    modal.style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('detailModal').style.display = 'none';
+}
+
+// --- Colors Diversified ---
+function getVibrantColors(count) {
+    const palette = [
+        '#3b82f6', // Blue
+        '#10b981', // Emerald
+        '#f59e0b', // Amber
+        '#a855f7', // Purple
+        '#ef4444', // Red
+        '#06b6d4', // Cyan
+        '#ec4899', // Pink
+        '#6366f1', // Indigo
+        '#84cc16'  // Lime
+    ];
+    // Cycle or return slice
+    return palette.slice(0, count);
 }
 
 function createChart(id, type, data, options = {}) {
@@ -502,12 +618,20 @@ function createChart(id, type, data, options = {}) {
         state.charts[id].destroy();
     }
     const ctx = canvas.getContext('2d');
+
     const defaultOptions = {
         responsive: true,
         maintainAspectRatio: false,
+        onClick: (e, elements) => {
+            if (elements.length > 0) {
+                const index = elements[0].index;
+                const label = data.labels[index];
+                handleChartClick(id, label);
+            }
+        },
         plugins: {
             legend: {
-                display: type !== 'bar',
+                display: type !== 'bar' && type !== 'line',
                 position: 'top',
                 labels: { font: { family: 'Inter', size: 11 } }
             }
@@ -521,8 +645,39 @@ function createChart(id, type, data, options = {}) {
     state.charts[id] = new Chart(ctx, {
         type: type,
         data: data,
-        options: JSON.parse(JSON.stringify(Object.assign(defaultOptions, options)))
+        options: Object.assign(defaultOptions, options)
     });
+}
+
+function handleChartClick(chartId, label) {
+    const nameKey = state.nameKey || 'Name';
+    let drillData = [];
+    let title = "";
+    let cols = [nameKey, 'Training Name', 'Completion Date', 'Office', 'Department'];
+
+    if (chartId === 'monthlyTrendChart') {
+        const chart = state.charts[chartId];
+        const index = chart.data.labels.indexOf(label);
+        const key = chart.data.keys[index]; // Use the YYYY-MM key
+
+        drillData = state.filteredData.filter(row => {
+            const date = parseDateValue(row['Completion Date']);
+            if (!date) return false;
+            const monthYear = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}`;
+            return monthYear === key;
+        });
+        title = `Completions in ${label}`;
+    } else if (chartId === 'jobTitleChart') {
+        drillData = state.filteredData.filter(row => row['Learner Job Title'] === label);
+        title = `Training for ${label}`;
+    } else if (chartId === 'trainingTypeChart') {
+        drillData = state.filteredData.filter(row => row['Training Type'] === label);
+        title = `${label} Completions`;
+    }
+
+    if (drillData.length > 0) {
+        openModal(title, drillData, cols);
+    }
 }
 
 function updatePreparedDate() {

@@ -2,24 +2,34 @@
     /* Light Theme (Default) */
     --bg-color: #f8f9fa;
     --card-bg: #ffffff;
-    --text-primary: #1a1f36;
-    --text-secondary: #4f566b;
-    --border-color: #e3e8ee;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
     --accent-color: #f7941d;
-    /* Corporate Orange */
-    --accent-hover: #e68512;
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --radius: 12px;
+    --border-color: #e2e8f0;
+    --radius: 16px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    /* Vibrant Diversified Palette */
+    --vibrant-blue: #3b82f6;
+    --vibrant-indigo: #6366f1;
+    --vibrant-purple: #a855f7;
+    --vibrant-teal: #14b8a6;
+    --vibrant-emerald: #10b981;
+    --vibrant-orange: #f59e0b;
+    --vibrant-pink: #ec4899;
     --header-bg: #ffffff;
+    /* Keep header-bg for light mode */
     --section-divider: #e3e8ee;
+    /* Keep section-divider for light mode */
     --cch-accent: #00897b;
+    /* Keep cch-accent */
 }
 
 body.dark-mode {
     --bg-color: #0f172a;
     --card-bg: #1e293b;
-    --text-primary: #f8fafc;
+    --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
     --border-color: #334155;
     --accent-color: #f7941d;
@@ -401,95 +411,231 @@ body {
     text-align: center;
 }
 
-/* Leaderboard Table */
-.leaderboard-container {
-    overflow-x: auto;
-}
+/* --- Advanced UI Components --- */
 
-.leaderboard-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 0.5rem;
-}
-
-.leaderboard-table th,
-.leaderboard-table td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.leaderboard-table th {
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+/* Help Trigger & Tooltip-like effect */
+.help-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background-color: var(--border-color);
     color: var(--text-secondary);
+    font-size: 0.7rem;
+    border-radius: 50%;
+    cursor: help;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+    transition: all 0.2s;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.help-trigger:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.help-trigger::after {
+    content: attr(data-help);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    width: 200px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.help-trigger:hover::after {
+    opacity: 1;
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(8px);
+    display: none;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.modal-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--bg-color);
 }
 
-.leaderboard-table tr:last-child td {
-    border-bottom: none;
-}
-
-.leaderboard-table tr:hover {
-    background-color: rgba(247, 148, 29, 0.03);
-}
-
-.rank-cell {
-    width: 60px;
+.modal-header h2 {
+    font-size: 1.25rem;
     font-weight: 700;
-    color: var(--text-secondary);
-}
-
-.course-cell {
-    font-weight: 500;
     color: var(--text-primary);
 }
 
-.platform-cell {
-    width: 150px;
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.2s;
 }
 
-.badge {
-    padding: 0.25rem 0.6rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.platform-365 {
-    background-color: rgba(247, 148, 29, 0.1);
-    color: #f7941d;
-    border: 1px solid rgba(247, 148, 29, 0.2);
-}
-
-.platform-cch {
-    background-color: rgba(54, 179, 126, 0.1);
-    color: #36b37e;
-    border: 1px solid rgba(54, 179, 126, 0.2);
-}
-
-.count-cell {
-    width: 120px;
-    text-align: right !important;
-    font-weight: 600;
+.close-btn:hover {
     color: var(--accent-color);
 }
 
-/* Empty State */
-.empty-state {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 4rem;
-    background: var(--card-bg);
-    border: 2px dashed var(--border-color);
-    border-radius: var(--radius);
+.modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 1.25rem 2rem;
+    border-top: 1px solid var(--border-color);
+    text-align: right;
+    background-color: var(--bg-color);
+}
+
+/* Multi-color dataset classes */
+.color-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+
+/* Buttons and Action Items */
+.action-area {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.export-tools {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.btn-secondary {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-color);
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-accent {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px -3px rgba(247, 148, 29, 0.3);
+}
+
+/* Icon button refined */
+.icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    border-color: var(--accent-color);
+    background-color: var(--bg-color);
+}
+
+/* Table styles for detail modal */
+.detail-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.detail-table th {
+    text-align: left;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--text-secondary);
 }
 
-/* Responsive */
+.detail-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+/* Responsive Grid Improvements */
+.dashboard-row.multi-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+}
+
 @media (max-width: 1024px) {
     .dashboard-row.multi-col {
         grid-template-columns: 1fr;
@@ -497,14 +643,15 @@ body {
 }
 
 @media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
+    .dashboard-container {
+        padding: 0 1rem;
     }
 
-    .action-area {
-        width: 100%;
-        justify-content: space-between;
+    .export-tools span {
+        display: none;
+    }
+
+    .kpi-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     }
 }
