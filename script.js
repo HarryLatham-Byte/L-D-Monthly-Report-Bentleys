@@ -12,7 +12,10 @@ const state = {
         office: 'all',
         department: 'all',
         type: 'all',
-        platform: 'all'
+        platform: 'all',
+        name: '',
+        startDate: '',
+        endDate: ''
     },
     charts: {}
 };
@@ -84,12 +87,26 @@ function initUI() {
 function setupEventListeners() {
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
-    // Filter Listeners
+    // Select Filters
     const filterIds = ['officeFilter', 'departmentFilter', 'trainingTypeFilter', 'platformFilter'];
     filterIds.forEach(id => {
         document.getElementById(id).addEventListener('change', (e) => {
             const filterKey = id.replace('Filter', '').toLowerCase();
             state.filters[id === 'trainingTypeFilter' ? 'type' : filterKey] = e.target.value;
+            applyFilters();
+        });
+    });
+
+    // Name Search
+    document.getElementById('nameSearch').addEventListener('input', (e) => {
+        state.filters.name = e.target.value.trim().toLowerCase();
+        applyFilters();
+    });
+
+    // Date Filters
+    ['startDate', 'endDate'].forEach(id => {
+        document.getElementById(id).addEventListener('change', (e) => {
+            state.filters[id] = e.target.value;
             applyFilters();
         });
     });
@@ -136,6 +153,38 @@ function populateFilters() {
     updateSelectOptions('departmentFilter', departments, 'All Departments');
     updateSelectOptions('trainingTypeFilter', types, 'All Types');
     updateSelectOptions('platformFilter', platforms, 'All Platforms');
+
+    initDateRangeInputs();
+}
+
+/**
+ * Find the full range of dates in the data and set the input constraints
+ */
+function initDateRangeInputs() {
+    const dates = state.rawData
+        .map(row => parseDateValue(row['Completion Date']))
+        .filter(d => d instanceof Date && !isNaN(d.getTime()));
+
+    if (dates.length === 0) return;
+
+    const minDate = new Date(Math.min(...dates));
+    const maxDate = new Date(Math.max(...dates));
+
+    const toISODate = (d) => d.toISOString().split('T')[0];
+
+    const startInput = document.getElementById('startDate');
+    const endInput = document.getElementById('endDate');
+
+    if (startInput && endInput) {
+        startInput.min = toISODate(minDate);
+        startInput.max = toISODate(maxDate);
+        endInput.min = toISODate(minDate);
+        endInput.max = toISODate(maxDate);
+
+        // Optional: Pre-fill with the full range
+        // startInput.value = toISODate(minDate);
+        // endInput.value = toISODate(maxDate);
+    }
 }
 
 function updateSelectOptions(id, options, defaultLabel) {
@@ -155,10 +204,55 @@ function applyFilters() {
         const matchDept = state.filters.department === 'all' || row.Department === state.filters.department;
         const matchType = state.filters.type === 'all' || row['Training Type'] === state.filters.type;
         const matchPlatform = state.filters.platform === 'all' || row.Platform === state.filters.platform;
-        return matchOffice && matchDept && matchType && matchPlatform;
+
+        // Name search (case insensitive)
+        const matchName = !state.filters.name || (row.Name && row.Name.toLowerCase().includes(state.filters.name));
+
+        // Date range filtering
+        let matchDate = true;
+        if (state.filters.startDate || state.filters.endDate) {
+            const rowDate = parseDateValue(row['Completion Date']);
+            if (rowDate) {
+                if (state.filters.startDate) {
+                    const start = new Date(state.filters.startDate);
+                    start.setHours(0, 0, 0, 0);
+                    if (rowDate < start) matchDate = false;
+                }
+                if (state.filters.endDate) {
+                    const end = new Date(state.filters.endDate);
+                    end.setHours(23, 59, 59, 999);
+                    if (rowDate > end) matchDate = false;
+                }
+            } else {
+                // If date is missing/invalid and user is filtering by date, exclude
+                matchDate = false;
+            }
+        }
+
+        return matchOffice && matchDept && matchType && matchPlatform && matchName && matchDate;
     });
 
     renderDashboard();
+}
+
+/**
+ * Helper to turn any CSV date value into a JS Date object
+ */
+function parseDateValue(val) {
+    if (!val) return null;
+    if (val instanceof Date) return val;
+
+    // Handle "DD/MM/YYYY HH:mm"
+    const str = String(val).split(' ')[0];
+    const parts = str.split('/');
+    if (parts.length === 3) {
+        // DD/MM/YYYY -> YYYY, MM-1, DD
+        return new Date(parts[2], parts[1] - 1, parts[0]);
+    }
+
+    // Fallback to standard parser
+    const d = new Date(val);
+    return isNaN(d.getTime()) ? null : d;
 }
 
 // --- Rendering ---

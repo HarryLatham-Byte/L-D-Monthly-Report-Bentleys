@@ -52,8 +52,11 @@
     </header>
 
     <main class="dashboard-container">
-        <!-- Filter Bar -->
         <section class="filter-bar">
+            <div class="filter-group search-group">
+                <label for="nameSearch">Search Name</label>
+                <input type="text" id="nameSearch" placeholder="Type a name...">
+            </div>
             <div class="filter-group">
                 <label for="officeFilter">Office</label>
                 <select id="officeFilter">
@@ -77,6 +80,14 @@
                 <select id="platformFilter">
                     <option value="all">All Platforms</option>
                 </select>
+            </div>
+            <div class="filter-group date-group">
+                <label for="startDate">From</label>
+                <input type="date" id="startDate">
+            </div>
+            <div class="filter-group date-group">
+                <label for="endDate">To</label>
+                <input type="date" id="endDate">
             </div>
         </section>
 
