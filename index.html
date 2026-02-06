@@ -59,43 +59,28 @@
                 <datalist id="nameOptions"></datalist>
             </div>
             <div class="filter-group">
-                <label for="periodFilter">Time Period</label>
-                <select id="periodFilter">
-                    <option value="all">All Time</option>
-                    <option value="12months" selected>Last 12 Months</option>
-                    <option value="6months">Last 6 Months</option>
-                    <option value="quarter">Last Quarter</option>
-                    <option value="month">Last Month</option>
-                    <option value="week">Last Week</option>
-                    <option value="custom">Custom Range</option>
-                </select>
-            </div>
-            <div class="filter-group">
                 <label for="officeFilter">Office</label>
                 <select id="officeFilter">
                     <option value="all">All Offices</option>
                 </select>
             </div>
             <div class="filter-group">
-                <label>Department</label>
-                <div class="multi-select" id="deptMultiSelect" data-placeholder="All Departments">
-                    <div class="multi-select-trigger"><span class="trigger-text">All Departments</span></div>
-                    <div class="multi-select-options" id="deptOptionsList"></div>
-                </div>
+                <label for="departmentFilter">Department</label>
+                <select id="departmentFilter">
+                    <option value="all">All Departments</option>
+                </select>
             </div>
             <div class="filter-group">
-                <label>Training Type</label>
-                <div class="multi-select" id="typeMultiSelect" data-placeholder="All Types">
-                    <div class="multi-select-trigger"><span class="trigger-text">All Types</span></div>
-                    <div class="multi-select-options" id="typeOptionsList"></div>
-                </div>
+                <label for="trainingTypeFilter">Training Type</label>
+                <select id="trainingTypeFilter">
+                    <option value="all">All Types</option>
+                </select>
             </div>
             <div class="filter-group">
-                <label>Platform</label>
-                <div class="multi-select" id="platformMultiSelect" data-placeholder="All Platforms">
-                    <div class="multi-select-trigger"><span class="trigger-text">All Platforms</span></div>
-                    <div class="multi-select-options" id="platformOptionsList"></div>
-                </div>
+                <label for="platformFilter">Platform</label>
+                <select id="platformFilter">
+                    <option value="all">All Platforms</option>
+                </select>
             </div>
             <div class="filter-group date-group">
                 <label for="startDate">From</label>
@@ -169,7 +154,7 @@
 
     <div id="errorBanner" class="error-banner" style="display: none;"></div>
 
-    <script src="script.js?v=5"></script>
+    <script src="script.js?v=4"></script>
 </body>
 
 </html>

@@ -9,11 +9,10 @@ const state = {
     rawData: [],      // Complete array of rows from CSV
     filteredData: [], // Filtered subset based on current selections
     filters: {
-        period: '12months',
         office: 'all',
-        department: [],
-        type: [],
-        platform: [],
+        department: 'all',
+        type: 'all',
+        platform: 'all',
         name: '',
         startDate: '',
         endDate: ''
@@ -89,16 +88,13 @@ function setupEventListeners() {
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
     // Select Filters
-    document.getElementById('officeFilter').addEventListener('change', (e) => {
-        state.filters.office = e.target.value;
-        applyFilters();
-    });
-
-    // Period Filter
-    document.getElementById('periodFilter').addEventListener('change', (e) => {
-        state.filters.period = e.target.value;
-        handlePeriodChange();
-        applyFilters();
+    const filterIds = ['officeFilter', 'departmentFilter', 'trainingTypeFilter', 'platformFilter'];
+    filterIds.forEach(id => {
+        document.getElementById(id).addEventListener('change', (e) => {
+            const filterKey = id.replace('Filter', '').toLowerCase();
+            state.filters[id === 'trainingTypeFilter' ? 'type' : filterKey] = e.target.value;
+            applyFilters();
+        });
     });
 
     // Name Search
@@ -107,6 +103,7 @@ function setupEventListeners() {
         state.filters.name = e.target.value.trim().toLowerCase();
         applyFilters();
     });
+    // Help the dropdown appear on focus
     nameSearch.addEventListener('focus', () => {
         nameSearch.setAttribute('placeholder', 'Type to search...');
     });
@@ -115,32 +112,8 @@ function setupEventListeners() {
     ['startDate', 'endDate'].forEach(id => {
         document.getElementById(id).addEventListener('change', (e) => {
             state.filters[id] = e.target.value;
-            // When custom date changes, switch period to custom
-            if (state.filters.period !== 'custom') {
-                state.filters.period = 'custom';
-                document.getElementById('periodFilter').value = 'custom';
-            }
             applyFilters();
         });
-    });
-
-    // Multi-select Toggles
-    document.querySelectorAll('.multi-select-trigger').forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            const container = trigger.closest('.multi-select');
-            const isActive = container.classList.contains('active');
-
-            // Close others
-            document.querySelectorAll('.multi-select').forEach(ms => ms.classList.remove('active'));
-
-            if (!isActive) container.classList.add('active');
-            e.stopPropagation();
-        });
-    });
-
-    // Close multi-select on outside click
-    document.addEventListener('click', () => {
-        document.querySelectorAll('.multi-select').forEach(ms => ms.classList.remove('active'));
     });
 }
 
@@ -175,14 +148,13 @@ async function loadLocalData() {
 }
 
 // --- Filter Management ---
-// --- Filter Management ---
 function populateFilters() {
     if (state.rawData.length === 0) return;
 
     // Detect column name for "Name" (handle BOM or case variations)
     const sampleRow = state.rawData[0];
     const nameKey = Object.keys(sampleRow).find(k => k.toLowerCase().includes('name') && !k.toLowerCase().includes('manager')) || 'Name';
-    state.nameKey = nameKey;
+    state.nameKey = nameKey; // Store for later use
 
     const offices = [...new Set(state.rawData.map(row => row.Office))].filter(Boolean).sort();
     const departments = [...new Set(state.rawData.map(row => row.Department))].filter(Boolean).sort();
@@ -191,11 +163,9 @@ function populateFilters() {
     const names = [...new Set(state.rawData.map(row => row[nameKey]))].filter(Boolean).sort();
 
     updateSelectOptions('officeFilter', offices, 'All Offices');
-
-    // Init Multi-selects
-    initMultiSelect('deptMultiSelect', 'deptOptionsList', departments, 'department');
-    initMultiSelect('typeMultiSelect', 'typeOptionsList', types, 'type');
-    initMultiSelect('platformMultiSelect', 'platformOptionsList', platforms, 'platform');
+    updateSelectOptions('departmentFilter', departments, 'All Departments');
+    updateSelectOptions('trainingTypeFilter', types, 'All Types');
+    updateSelectOptions('platformFilter', platforms, 'All Platforms');
 
     // Populate name datalist
     const nameList = document.getElementById('nameOptions');
@@ -209,109 +179,6 @@ function populateFilters() {
     }
 
     initDateRangeInputs();
-
-    // Initial period application (defaults to Last 12 Months in state)
-    handlePeriodChange();
-}
-
-/**
- * Calculates start/end dates based on relative period selection
- */
-function handlePeriodChange() {
-    const period = state.filters.period;
-    if (period === 'all' || period === 'custom') return;
-
-    // Use the most recent date in the dataset as the reference point for "Relative" periods
-    // This ensures that "Last 12 Months" is always relevant to the data, even if data is old.
-    const allDates = state.rawData
-        .map(row => parseDateValue(row['Completion Date']))
-        .filter(d => d instanceof Date && !isNaN(d.getTime()));
-
-    const end = allDates.length > 0 ? new Date(Math.max(...allDates)) : new Date();
-    let start = new Date(end);
-
-    switch (period) {
-        case '12months': start.setFullYear(end.getFullYear() - 1); break;
-        case '6months': start.setMonth(end.getMonth() - 6); break;
-        case 'quarter': start.setMonth(end.getMonth() - 3); break;
-        case 'month': start.setMonth(end.getMonth() - 1); break;
-        case 'week': start.setDate(end.getDate() - 7); break;
-    }
-
-    const toISO = (d) => d.toISOString().split('T')[0];
-    state.filters.startDate = toISO(start);
-    state.filters.endDate = toISO(end);
-
-    document.getElementById('startDate').value = state.filters.startDate;
-    document.getElementById('endDate').value = state.filters.endDate;
-}
-
-/**
- * Helper to initialize custom multi-select checkbox dropdowns
- */
-function initMultiSelect(containerId, listId, options, filterKey) {
-    const list = document.getElementById(listId);
-    if (!list) return;
-
-    list.innerHTML = '';
-    options.forEach(opt => {
-        const div = document.createElement('div');
-        div.className = 'multi-select-option';
-
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.id = `${filterKey}_${opt.replace(/\s+/g, '_')}`;
-        checkbox.value = opt;
-
-        if (state.filters[filterKey].includes(opt)) checkbox.checked = true;
-
-        checkbox.addEventListener('change', () => {
-            if (checkbox.checked) {
-                if (!state.filters[filterKey].includes(opt)) state.filters[filterKey].push(opt);
-            } else {
-                state.filters[filterKey] = state.filters[filterKey].filter(i => i !== opt);
-            }
-            updateTriggerText(containerId, state.filters[filterKey]);
-            applyFilters();
-        });
-
-        const label = document.createElement('label');
-        label.htmlFor = checkbox.id;
-        label.textContent = opt;
-
-        div.appendChild(checkbox);
-        div.appendChild(label);
-
-        // Allow clicking the row to toggle
-        div.addEventListener('click', (e) => {
-            if (e.target !== checkbox && e.target !== label) {
-                checkbox.checked = !checkbox.checked;
-                checkbox.dispatchEvent(new Event('change'));
-            }
-        });
-
-        list.appendChild(div);
-    });
-
-    updateTriggerText(containerId, state.filters[filterKey]);
-}
-
-/**
- * Updates the summary text on the multi-select trigger button
- */
-function updateTriggerText(containerId, selectedArray) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    const triggerText = container.querySelector('.trigger-text');
-    const placeholder = container.getAttribute('data-placeholder');
-
-    if (selectedArray.length === 0) {
-        triggerText.textContent = placeholder;
-    } else if (selectedArray.length === 1) {
-        triggerText.textContent = selectedArray[0];
-    } else {
-        triggerText.textContent = `${selectedArray.length} Selected`;
-    }
 }
 
 /**
@@ -359,9 +226,9 @@ function applyFilters() {
     const nameKey = state.nameKey || 'Name';
     state.filteredData = state.rawData.filter(row => {
         const matchOffice = state.filters.office === 'all' || row.Office === state.filters.office;
-        const matchDept = state.filters.department.length === 0 || state.filters.department.includes(row.Department);
-        const matchType = state.filters.type.length === 0 || state.filters.type.includes(row['Training Type']);
-        const matchPlatform = state.filters.platform.length === 0 || state.filters.platform.includes(row.Platform);
+        const matchDept = state.filters.department === 'all' || row.Department === state.filters.department;
+        const matchType = state.filters.type === 'all' || row['Training Type'] === state.filters.type;
+        const matchPlatform = state.filters.platform === 'all' || row.Platform === state.filters.platform;
 
         // Name search (case insensitive)
         const rowName = row[nameKey] ? String(row[nameKey]).toLowerCase() : '';
@@ -369,7 +236,7 @@ function applyFilters() {
 
         // Date range filtering
         let matchDate = true;
-        if (state.filters.period !== 'all') {
+        if (state.filters.startDate || state.filters.endDate) {
             const rowDate = parseDateValue(row['Completion Date']);
             if (rowDate) {
                 if (state.filters.startDate) {
