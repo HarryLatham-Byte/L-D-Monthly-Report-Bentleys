@@ -275,12 +275,28 @@ function aggregateSum(data, key, sumKey) {
 function aggregateTrend(data) {
     const trend = {};
     data.forEach(row => {
-        if (!row['Completion Date']) return;
-        // Parse "19/12/2025 2:45"
-        const parts = row['Completion Date'].split(' ')[0].split('/');
-        if (parts.length < 3) return;
-        const monthYear = `${parts[2]}-${parts[1]}`; // YYYY-MM
-        trend[monthYear] = (trend[monthYear] || 0) + 1;
+        let dateVal = row['Completion Date'];
+        if (!dateVal) return;
+
+        let monthYear = '';
+
+        if (dateVal instanceof Date) {
+            // Handle Date object
+            const year = dateVal.getFullYear();
+            const month = (dateVal.getMonth() + 1).toString().padStart(2, '0');
+            monthYear = `${year}-${month}`;
+        } else {
+            // Ensure it's a string and parse "19/12/2025 ..."
+            const dateStr = String(dateVal);
+            const parts = dateStr.split(' ')[0].split('/');
+            if (parts.length >= 3) {
+                monthYear = `${parts[2]}-${parts[1]}`; // YYYY-MM
+            }
+        }
+
+        if (monthYear) {
+            trend[monthYear] = (trend[monthYear] || 0) + 1;
+        }
     });
 
     const sortedMonths = Object.keys(trend).sort();
