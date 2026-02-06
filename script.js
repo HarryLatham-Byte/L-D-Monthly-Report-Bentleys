@@ -163,25 +163,31 @@ function applyFilters() {
 
 // --- Rendering ---
 function renderDashboard() {
-    renderKPIs();
-    renderCharts();
-    renderLeaderboard();
+    try { renderKPIs(); } catch (e) { console.error("KPI Render Error:", e); }
+    try { renderCharts(); } catch (e) { console.error("Chart Render Error:", e); }
+    try { renderLeaderboard(); } catch (e) { console.error("Leaderboard Render Error:", e); }
 }
 
 function renderKPIs() {
     const grid = document.getElementById('kpi-grid');
+    if (!grid) return;
     grid.innerHTML = '';
 
     const totalCompletions = state.filteredData.length;
-    const totalHours = state.filteredData.reduce((sum, row) => sum + (parseFloat(row['CPD Hours']) || 0), 0).toFixed(1);
+    const totalHoursNum = state.filteredData.reduce((sum, row) => sum + (parseFloat(row['CPD Hours']) || 0), 0);
+    const totalHours = totalHoursNum.toFixed(1);
     const uniqueTrainings = new Set(state.filteredData.map(row => row['Training Name'])).size;
-    const uniqueLearners = new Set(state.filteredData.map(row => row['Line Manager Name'] + row['Learner Job Title'])).size;
+
+    // Improved unique learner detection (still approximate given CSV columns)
+    const uniqueLearners = new Set(state.filteredData.map(row => (row['Line Manager Name'] || '') + (row['Learner Job Title'] || ''))).size;
+    const avgHours = uniqueLearners > 0 ? (totalHoursNum / uniqueLearners).toFixed(1) : 0;
 
     const kpis = [
         { label: "Total Completions", value: totalCompletions },
         { label: "Total CPD Hours", value: totalHours },
         { label: "Unique Courses", value: uniqueTrainings },
-        { label: "Active Learners", value: uniqueLearners }
+        { label: "Unique Learners", value: uniqueLearners },
+        { label: "Avg. Hours / Learner", value: avgHours }
     ];
 
     kpis.forEach(kpi => {
