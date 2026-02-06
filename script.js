@@ -117,7 +117,6 @@ function setupEventListeners() {
     });
 
     // Export & Action Buttons
-    document.getElementById('exportExcel')?.addEventListener('click', () => exportToExcel(state.filteredData, 'LD_Dashboard_Filtered'));
     document.getElementById('exportPDF')?.addEventListener('click', () => window.print());
     document.getElementById('copyShareLink')?.addEventListener('click', copyShareLink);
 
@@ -125,9 +124,6 @@ function setupEventListeners() {
     document.getElementById('closeModal')?.addEventListener('click', closeModal);
     window.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal-overlay')) closeModal();
-    });
-    document.getElementById('modalExportExcel')?.addEventListener('click', () => {
-        if (state.lastDrillDownData) exportToExcel(state.lastDrillDownData, 'DrillDown_Details');
     });
 }
 
@@ -544,15 +540,6 @@ function renderLeaderboard() {
 }
 
 // --- Export & Sharing ---
-function exportToExcel(data, baseName) {
-    if (!data || data.length === 0) return alert("No data to export");
-    const ws = XLSX.utils.json_to_sheet(data);
-    const wb = XLSX.utils.book_new();
-    XLSX.book_append_sheet(wb, ws, "Data");
-    const fileName = `${baseName}_${new Date().toISOString().slice(0, 10)}.xlsx`;
-    XLSX.writeFile(wb, fileName);
-}
-
 function copyShareLink() {
     const url = window.location.href;
     navigator.clipboard.writeText(url).then(() => {
@@ -653,7 +640,8 @@ function handleChartClick(chartId, label) {
     const nameKey = state.nameKey || 'Name';
     let drillData = [];
     let title = "";
-    let cols = [nameKey, 'Training Name', 'Completion Date', 'Office', 'Department'];
+    // Transcript columns
+    let cols = [nameKey, 'Training Name', 'Completion Date', 'CPD Hours', 'Office', 'Department'];
 
     if (chartId === 'monthlyTrendChart') {
         const chart = state.charts[chartId];
@@ -673,6 +661,12 @@ function handleChartClick(chartId, label) {
     } else if (chartId === 'trainingTypeChart') {
         drillData = state.filteredData.filter(row => row['Training Type'] === label);
         title = `${label} Completions`;
+    } else if (chartId === 'departmentHoursChart') {
+        drillData = state.filteredData.filter(row => row['Department'] === label);
+        title = `Training for Department: ${label}`;
+    } else if (chartId === 'officeCompletionsChart') {
+        drillData = state.filteredData.filter(row => row['Office'] === label);
+        title = `Training for Office: ${label}`;
     }
 
     if (drillData.length > 0) {
