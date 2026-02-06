@@ -385,6 +385,59 @@ body {
     text-align: center;
 }
 
+/* Leaderboard Table */
+.leaderboard-container {
+    overflow-x: auto;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.leaderboard-table th {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    background-color: var(--bg-color);
+}
+
+.leaderboard-table tr:last-child td {
+    border-bottom: none;
+}
+
+.leaderboard-table tr:hover {
+    background-color: rgba(247, 148, 29, 0.03);
+}
+
+.rank-cell {
+    width: 60px;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.course-cell {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.count-cell {
+    width: 120px;
+    text-align: right !important;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
 /* Empty State */
 .empty-state {
     grid-column: 1 / -1;

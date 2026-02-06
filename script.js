@@ -165,6 +165,7 @@ function applyFilters() {
 function renderDashboard() {
     renderKPIs();
     renderCharts();
+    renderLeaderboard();
 }
 
 function renderKPIs() {
@@ -174,7 +175,7 @@ function renderKPIs() {
     const totalCompletions = state.filteredData.length;
     const totalHours = state.filteredData.reduce((sum, row) => sum + (parseFloat(row['CPD Hours']) || 0), 0).toFixed(1);
     const uniqueTrainings = new Set(state.filteredData.map(row => row['Training Name'])).size;
-    const uniqueLearners = new Set(state.filteredData.map(row => row['Line Manager Name'] + row['Learner Job Title'])).size; // Approximate
+    const uniqueLearners = new Set(state.filteredData.map(row => row['Line Manager Name'] + row['Learner Job Title'])).size;
 
     const kpis = [
         { label: "Total Completions", value: totalCompletions },
@@ -195,11 +196,20 @@ function renderKPIs() {
 }
 
 function renderCharts() {
-    // 1. Completions by Office
-    const officeCounts = aggregateData(state.filteredData, 'Office');
-    createChart('officeCompletionsChart', 'bar', {
-        labels: officeCounts.labels,
-        datasets: [{ label: 'Completions', data: officeCounts.values, backgroundColor: COLORS.primary }]
+    // 1. Monthly Trend (Now AT THE TOP)
+    const monthlyTrend = aggregateTrend(state.filteredData);
+    createChart('monthlyTrendChart', 'line', {
+        labels: monthlyTrend.labels,
+        datasets: [{
+            label: 'Completions',
+            data: monthlyTrend.values,
+            borderColor: COLORS.primary,
+            backgroundColor: 'rgba(247, 148, 29, 0.1)',
+            fill: true,
+            tension: 0.4
+        }]
+    }, {
+        plugins: { legend: { display: false } }
     });
 
     // 2. Training Type Distribution
@@ -223,21 +233,51 @@ function renderCharts() {
         datasets: [{ label: 'Hours', data: deptHours.values, backgroundColor: COLORS.backgrounds }]
     });
 
-    // 5. Monthly Trend
-    const monthlyTrend = aggregateTrend(state.filteredData);
-    createChart('monthlyTrendChart', 'line', {
-        labels: monthlyTrend.labels,
-        datasets: [{
-            label: 'Completions',
-            data: monthlyTrend.values,
-            borderColor: COLORS.primary,
-            backgroundColor: 'rgba(247, 148, 29, 0.1)',
-            fill: true,
-            tension: 0.4
-        }]
+    // 5. Completions by Office (Now AT THE BOTTOM)
+    const officeCounts = aggregateData(state.filteredData, 'Office');
+    createChart('officeCompletionsChart', 'bar', {
+        labels: officeCounts.labels,
+        datasets: [{ label: 'Completions', data: officeCounts.values, backgroundColor: COLORS.primary }]
     });
 
     updateChartThemes();
+}
+
+function renderLeaderboard() {
+    const container = document.getElementById('courseLeaderboard');
+    if (!container) return;
+
+    const courseStats = aggregateData(state.filteredData, 'Training Name', 20);
+
+    if (courseStats.labels.length === 0) {
+        container.innerHTML = '<p class="empty-state">No training data found for the current filters.</p>';
+        return;
+    }
+
+    let html = `
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th class="rank-cell">Rank</th>
+                    <th class="course-cell">Course Name</th>
+                    <th class="count-cell">Completions</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    courseStats.labels.forEach((course, index) => {
+        html += `
+            <tr>
+                <td class="rank-cell">#${index + 1}</td>
+                <td class="course-cell">${course}</td>
+                <td class="count-cell">${courseStats.values[index]}</td>
+            </tr>
+        `;
+    });
+
+    html += '</tbody></table>';
+    container.innerHTML = html;
 }
 
 // --- Utilities ---
@@ -275,27 +315,36 @@ function aggregateSum(data, key, sumKey) {
 function aggregateTrend(data) {
     const trend = {};
     data.forEach(row => {
-        let dateVal = row['Completion Date'];
-        if (!dateVal) return;
+        try {
+            let dateVal = row['Completion Date'];
+            if (!dateVal) return;
 
-        let monthYear = '';
+            let monthYear = '';
 
-        if (dateVal instanceof Date) {
-            // Handle Date object
-            const year = dateVal.getFullYear();
-            const month = (dateVal.getMonth() + 1).toString().padStart(2, '0');
-            monthYear = `${year}-${month}`;
-        } else {
-            // Ensure it's a string and parse "19/12/2025 ..."
-            const dateStr = String(dateVal);
-            const parts = dateStr.split(' ')[0].split('/');
-            if (parts.length >= 3) {
-                monthYear = `${parts[2]}-${parts[1]}`; // YYYY-MM
+            // Robust check for Date object
+            if (dateVal instanceof Date || (dateVal && typeof dateVal.getMonth === 'function')) {
+                const year = dateVal.getFullYear();
+                const month = (dateVal.getMonth() + 1).toString().padStart(2, '0');
+                monthYear = `${year}-${month}`;
+            } else {
+                // Defensive string conversion
+                const dateStr = String(dateVal);
+                if (typeof dateStr.split === 'function') {
+                    const firstPart = dateStr.split(' ')[0];
+                    if (firstPart) {
+                        const parts = firstPart.split('/');
+                        if (parts.length >= 3) {
+                            monthYear = `${parts[2]}-${parts[1]}`; // YYYY-MM
+                        }
+                    }
+                }
             }
-        }
 
-        if (monthYear) {
-            trend[monthYear] = (trend[monthYear] || 0) + 1;
+            if (monthYear) {
+                trend[monthYear] = (trend[monthYear] || 0) + 1;
+            }
+        } catch (e) {
+            console.warn("Skipping row due to date parse error:", e);
         }
     });
 
@@ -325,7 +374,7 @@ function createChart(id, type, data, options = {}) {
             }
         },
         scales: type === 'doughnut' ? {} : {
-            y: { beginAtZero: true, grid: { color: '#e3e8ee' } },
+            y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
             x: { grid: { display: false } }
         }
     };
@@ -333,7 +382,7 @@ function createChart(id, type, data, options = {}) {
     state.charts[id] = new Chart(ctx, {
         type: type,
         data: data,
-        options: Object.assign(defaultOptions, options)
+        options: JSON.parse(JSON.stringify(Object.assign(defaultOptions, options)))
     });
 }
 

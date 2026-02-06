@@ -85,15 +85,15 @@
             <div class="empty-state">Loading data insights...</div>
         </section>
 
-        <!-- Training InsightsSection -->
+        <!-- Training Activity Analysis -->
         <section class="section-group">
             <h2 class="section-title">Training Activity Analysis</h2>
 
             <div class="dashboard-row">
                 <div class="card full-width">
-                    <h3>Completions by Office</h3>
+                    <h3>Monthly Completion Trend</h3>
                     <div class="chart-container tall">
-                        <canvas id="officeCompletionsChart"></canvas>
+                        <canvas id="monthlyTrendChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -121,10 +121,20 @@
                     </div>
                 </div>
                 <div class="card">
-                    <h3>Monthly Completion Trend</h3>
+                    <h3>Completions by Office</h3>
                     <div class="chart-container">
-                        <canvas id="monthlyTrendChart"></canvas>
+                        <canvas id="officeCompletionsChart"></canvas>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Leaderboard Section -->
+        <section class="section-group">
+            <h2 class="section-title">Top 20 Courses – Leaderboard</h2>
+            <div class="card full-width">
+                <div id="courseLeaderboard" class="leaderboard-container">
+                    <p class="empty-state">Loading leaderboard...</p>
                 </div>
             </div>
         </section>
