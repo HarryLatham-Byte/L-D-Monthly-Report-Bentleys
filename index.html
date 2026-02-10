@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Chart.js and SheetJS (XLSX) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 
@@ -159,6 +160,14 @@
                     </h3>
                     <div class="chart-container">
                         <canvas id="jobTitleChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Completions by Team <span class="help-trigger"
+                            data-help="Breakdown of completions by team.">?</span>
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="teamsChart"></canvas>
                     </div>
                 </div>
             </div>

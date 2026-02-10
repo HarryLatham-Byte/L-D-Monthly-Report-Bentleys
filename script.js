@@ -20,6 +20,9 @@ const state = {
     charts: {}
 };
 
+// Register Chart.js DataLabels plugin
+Chart.register(ChartDataLabels);
+
 // --- Theme Handling ---
 function toggleTheme() {
     state.theme = state.theme === 'light' ? 'dark' : 'light';
@@ -49,6 +52,9 @@ function updateChartThemes() {
         }
         if (chart.options.plugins && chart.options.plugins.legend) {
             chart.options.plugins.legend.labels.color = textColor;
+        }
+        if (chart.options.plugins && chart.options.plugins.datalabels) {
+            chart.options.plugins.datalabels.color = textColor;
         }
         chart.update();
     });
@@ -541,6 +547,18 @@ function renderCharts() {
         }]
     });
 
+    // 6. Completions by Team
+    const teamCounts = aggregateData(state.filteredData, 'Team');
+    createChart('teamsChart', 'doughnut', {
+        labels: teamCounts.labels,
+        datasets: [{
+            data: teamCounts.values,
+            backgroundColor: getVibrantColors(teamCounts.labels.length)
+        }]
+    }, {
+        plugins: { legend: { position: 'bottom' } }
+    });
+
     updateChartThemes();
 }
 
@@ -677,6 +695,19 @@ function createChart(id, type, data, options = {}) {
                 display: type !== 'bar' && type !== 'line',
                 position: 'top',
                 labels: { font: { family: 'Inter', size: 11 } }
+            },
+            datalabels: {
+                color: state.theme === 'dark' ? '#94a3b8' : '#4f566b',
+                anchor: 'end',
+                align: 'top',
+                offset: -4,
+                font: { family: 'Inter', weight: 'bold', size: 10 },
+                formatter: (value) => value > 0 ? value : '', // Don't show zero labels
+                display: (context) => {
+                    // Hide labels if there are too many items to avoid clutter, or for line charts
+                    if (type === 'line') return false;
+                    return context.dataset.data.length < 15;
+                }
             }
         },
         scales: type === 'doughnut' ? {} : {
@@ -684,6 +715,14 @@ function createChart(id, type, data, options = {}) {
             x: { grid: { display: false } }
         }
     };
+
+    // Style adjustments for doughnut labels
+    if (type === 'doughnut') {
+        defaultOptions.plugins.datalabels.anchor = 'center';
+        defaultOptions.plugins.datalabels.align = 'center';
+        defaultOptions.plugins.datalabels.color = '#fff'; // White labels on dark segments
+        defaultOptions.plugins.datalabels.display = true;
+    }
 
     state.charts[id] = new Chart(ctx, {
         type: type,
@@ -724,6 +763,9 @@ function handleChartClick(chartId, label) {
     } else if (chartId === 'officeCompletionsChart') {
         drillData = state.filteredData.filter(row => row['Office'] === label);
         title = `Training for Office: ${label}`;
+    } else if (chartId === 'teamsChart') {
+        drillData = state.filteredData.filter(row => row['Team'] === label);
+        title = `Training for Team: ${label}`;
     } else if (chartId === 'courseLeaderboard') {
         drillData = state.filteredData.filter(row => row['Training Name'] === label);
         title = `Transcript: ${label}`;
