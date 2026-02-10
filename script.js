@@ -229,8 +229,8 @@ function populateFilters() {
     const platforms = [...new Set(state.rawData.map(row => row.Platform))].filter(Boolean).sort();
     const names = [...new Set(state.rawData.map(row => row[nameKey]))].filter(Boolean).sort();
 
-    // Detect column name for "Completion Date" (could be "Completion" or "Completion Date")
-    const dateKey = Object.keys(sampleRow).find(k => k.toLowerCase() === 'completion date' || k.toLowerCase() === 'completion') || 'Completion Date';
+    // Detect column name for "Completion" (handle BOM or case variations)
+    const dateKey = Object.keys(sampleRow).find(k => k.trim().toLowerCase() === 'completion' || k.trim().toLowerCase() === 'completion date') || 'Completion';
     state.dateKey = dateKey;
 
     updateSelectOptions('officeFilter', offices, 'All Offices');
@@ -258,8 +258,8 @@ function populateFilters() {
  */
 function initDateRangeInputs() {
     const dates = state.rawData
-        .map(row => parseDateValue(row[state.dateKey || 'Completion Date']))
-        .filter(d => d instanceof Date && !isNaN(d.getTime()));
+        .map(row => parseDateValue(row[state.dateKey]))
+        .filter(Boolean);
 
     if (dates.length === 0) return;
 
@@ -281,10 +281,6 @@ function initDateRangeInputs() {
         startInput.max = toLocalISODate(maxDate);
         endInput.min = toLocalISODate(minDate);
         endInput.max = toLocalISODate(maxDate);
-
-        // Optional: Pre-fill with the full range
-        // startInput.value = toLocalISODate(minDate);
-        // endInput.value = toLocalISODate(maxDate);
     }
 }
 
@@ -315,16 +311,16 @@ function applyFilters(syncURL = false) {
         // Date range filtering
         let matchDate = true;
         if (state.filters.startDate || state.filters.endDate) {
-            const rowDate = parseDateValue(row[state.dateKey || 'Completion Date']);
+            const rowDate = parseDateValue(row[state.dateKey]);
             if (rowDate) {
                 if (state.filters.startDate) {
-                    const start = new Date(state.filters.startDate);
-                    start.setHours(0, 0, 0, 0);
+                    const startParts = state.filters.startDate.split('-');
+                    const start = new Date(startParts[0], startParts[1] - 1, startParts[2], 0, 0, 0);
                     if (rowDate < start) matchDate = false;
                 }
                 if (state.filters.endDate) {
-                    const end = new Date(state.filters.endDate);
-                    end.setHours(23, 59, 59, 999);
+                    const endParts = state.filters.endDate.split('-');
+                    const end = new Date(endParts[0], endParts[1] - 1, endParts[2], 23, 59, 59);
                     if (rowDate > end) matchDate = false;
                 }
             } else {
@@ -376,16 +372,33 @@ function parseDateValue(val) {
     if (!val) return null;
     if (val instanceof Date) return val;
 
-    // Handle "DD/MM/YYYY HH:mm"
-    const str = String(val).split(' ')[0];
-    const parts = str.split('/');
+    const str = String(val).trim();
+    if (!str) return null;
+
+    // Handle DD/MM/YYYY or D/M/YYYY (with or without time)
+    const datePart = str.split(' ')[0];
+    const parts = datePart.split('/');
     if (parts.length === 3) {
-        // DD/MM/YYYY -> YYYY, MM-1, DD
-        return new Date(parts[2], parts[1] - 1, parts[0]);
+        const d = parseInt(parts[0], 10);
+        const m = parseInt(parts[1], 10);
+        const y = parseInt(parts[2], 10);
+        // Ensure 4-digit year
+        const fullYear = y < 100 ? 2000 + y : y;
+        const date = new Date(fullYear, m - 1, d);
+        return isNaN(date.getTime()) ? null : date;
+    }
+
+    // Handle YYYY-MM-DD
+    if (datePart.includes('-')) {
+        const partsYMD = datePart.split('-');
+        if (partsYMD.length === 3) {
+            const date = new Date(partsYMD[0], partsYMD[1] - 1, partsYMD[2]);
+            return isNaN(date.getTime()) ? null : date;
+        }
     }
 
     // Fallback to standard parser
-    const d = new Date(val);
+    const d = new Date(str);
     return isNaN(d.getTime()) ? null : d;
 }
 
@@ -463,46 +476,56 @@ function aggregateSum(data, key, sumKey) {
 }
 
 function aggregateTrend(data) {
-    const years = [];
-    const currentYear = new Date().getFullYear();
-    for (let i = 0; i < 4; i++) {
-        years.push(currentYear - i);
+    // Determine the date range for the trend (last 12 months)
+    let maxDate;
+    if (data.length > 0) {
+        const dates = data.map(row => parseDateValue(row[state.dateKey])).filter(Boolean);
+        maxDate = dates.length > 0 ? new Date(Math.max(...dates)) : new Date();
+    } else {
+        maxDate = new Date();
     }
-    years.sort(); // Previous 3 years + current year
 
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const trend = {}; // { 2023: [0,0,0...], 2024: [0,0,0...] }
+    // Go back to the 1st of the month 11 months ago
+    const startMonth = new Date(maxDate.getFullYear(), maxDate.getMonth() - 11, 1);
 
-    years.forEach(y => trend[y] = new Array(12).fill(0));
+    // Generate the 12 months
+    const monthLabels = [];
+    const monthKeys = []; // YYYY-MM
+    const counts = new Array(12).fill(0);
+    const monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+    for (let i = 0; i < 12; i++) {
+        const d = new Date(startMonth.getFullYear(), startMonth.getMonth() + i, 1);
+        const y = d.getFullYear();
+        const m = d.getMonth();
+        monthLabels.push(`${monthsShort[m]} ${y}`);
+        monthKeys.push(`${y}-${String(m + 1).padStart(2, '0')}`);
+    }
+
+    // Populate counts
     data.forEach(row => {
-        const dateVal = row[state.dateKey || 'Completion Date'];
-        if (!dateVal) return;
-        const date = parseDateValue(dateVal);
-        if (date) {
-            const y = date.getFullYear();
-            const m = date.getMonth(); // 0-11
-            if (trend[y]) {
-                trend[y][m]++;
-            }
+        const d = parseDateValue(row[state.dateKey]);
+        if (d) {
+            const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+            const idx = monthKeys.indexOf(key);
+            if (idx !== -1) counts[idx]++;
         }
     });
 
     return {
-        years: years,
-        labels: months,
-        datasets: years.map((y, index) => {
-            const palette = ['#cbd5e1', '#94a3b8', '#64748b', '#f7941d']; // 3 greys for past, brand orange for current-ish
-            return {
-                label: y.toString(),
-                data: trend[y],
-                borderColor: palette[index] || getVibrantColors(9)[index % 9],
-                backgroundColor: 'transparent',
-                borderWidth: y === currentYear ? 3 : 2,
-                pointRadius: 3,
-                tension: 0.3
-            };
-        })
+        labels: monthLabels,
+        monthKeys: monthKeys,
+        datasets: [{
+            label: 'Completions',
+            data: counts,
+            borderColor: '#f7941d',
+            backgroundColor: 'rgba(247, 148, 29, 0.1)',
+            borderWidth: 3,
+            fill: true,
+            tension: 0.4,
+            pointRadius: 4,
+            pointHoverRadius: 6
+        }]
     };
 }
 
@@ -511,14 +534,11 @@ function renderCharts() {
     const monthlyTrend = aggregateTrend(state.filteredData);
     createChart('monthlyTrendChart', 'line', {
         labels: monthlyTrend.labels,
-        datasets: monthlyTrend.datasets
+        datasets: monthlyTrend.datasets,
+        monthKeys: monthlyTrend.monthKeys
     }, {
         plugins: {
-            legend: {
-                display: true,
-                position: 'top',
-                labels: { usePointStyle: true, boxWidth: 6 }
-            }
+            legend: { display: false }
         },
         interaction: {
             mode: 'index',
@@ -760,17 +780,17 @@ function handleChartClick(chartId, label) {
 
     if (chartId === 'monthlyTrendChart') {
         const chart = state.charts[chartId];
-        const datasetIndex = elements[0].datasetIndex;
-        const year = chart.data.datasets[datasetIndex].label;
         const monthIndex = elements[0].index;
-        const monthName = chart.data.labels[monthIndex];
+        const monthKey = chart.data.monthKeys[monthIndex];
+        const titleLabel = chart.data.labels[monthIndex];
 
         drillData = state.filteredData.filter(row => {
-            const date = parseDateValue(row[state.dateKey || 'Completion Date']);
+            const date = parseDateValue(row[state.dateKey]);
             if (!date) return false;
-            return date.getFullYear().toString() === year && date.getMonth() === monthIndex;
+            const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+            return key === monthKey;
         });
-        title = `Completions in ${monthName} ${year}`;
+        title = `Completions in ${titleLabel}`;
     } else if (chartId === 'jobTitleChart') {
         drillData = state.filteredData.filter(row => row['Learner Job Title'] === label);
         title = `Training for ${label}`;
