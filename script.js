@@ -282,14 +282,13 @@ function initDateRangeInputs() {
         endInput.min = toLocalISODate(minDate);
         endInput.max = toLocalISODate(maxDate);
 
-        // Default to last 12 months
-        const defaultStart = new Date(maxDate.getFullYear(), maxDate.getMonth() - 11, 1);
-        startInput.value = toLocalISODate(defaultStart < minDate ? minDate : defaultStart);
-        endInput.value = toLocalISODate(maxDate);
+        // Reset to empty by default as requested
+        startInput.value = '';
+        endInput.value = '';
 
-        // Sync state
-        state.filters.startDate = startInput.value;
-        state.filters.endDate = endInput.value;
+        // Sync state to empty
+        state.filters.startDate = '';
+        state.filters.endDate = '';
     }
 }
 
@@ -381,6 +380,13 @@ function parseDateValue(val) {
     if (!val) return null;
     if (val instanceof Date) return val;
 
+    // Handle numeric Excel Serial Dates (e.g., 45321)
+    const num = Number(val);
+    if (!isNaN(num) && num > 40000 && num < 60000) {
+        // Excel base date: Dec 30, 1899
+        return new Date((num - 25569) * 86400 * 1000);
+    }
+
     const str = String(val).trim();
     if (!str) return null;
 
@@ -391,8 +397,8 @@ function parseDateValue(val) {
         const d = parseInt(parts[0], 10);
         const m = parseInt(parts[1], 10);
         const y = parseInt(parts[2], 10);
-        // Ensure 4-digit year
-        const fullYear = y < 100 ? 2000 + y : y;
+        // Ensure 4-digit year and prevent year 46356 etc.
+        const fullYear = y < 100 ? 2000 + y : (y > 3000 ? 2000 + (y % 100) : y);
         const date = new Date(fullYear, m - 1, d);
         return isNaN(date.getTime()) ? null : date;
     }
@@ -401,7 +407,11 @@ function parseDateValue(val) {
     if (datePart.includes('-')) {
         const partsYMD = datePart.split('-');
         if (partsYMD.length === 3) {
-            const date = new Date(partsYMD[0], partsYMD[1] - 1, partsYMD[2]);
+            const y = parseInt(partsYMD[0], 10);
+            const m = parseInt(partsYMD[1], 10);
+            const d = parseInt(partsYMD[2], 10);
+            const fullYear = y > 3000 ? 2000 + (y % 100) : y;
+            const date = new Date(fullYear, m - 1, d);
             return isNaN(date.getTime()) ? null : date;
         }
     }
