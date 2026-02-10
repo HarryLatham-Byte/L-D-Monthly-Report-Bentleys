@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
     loadFiltersFromURL();
     setupEventListeners();
     setupHelpTriggers();
-    loadLocalData();
+    // No longer loading local data automatically
+    // loadLocalData(); 
 });
 
 function initUI() {
@@ -124,9 +125,16 @@ function setupEventListeners() {
         });
     });
 
+    // File Upload
+    const uploadBtn = document.getElementById('uploadBtn');
+    const excelUpload = document.getElementById('excelUpload');
+    if (uploadBtn && excelUpload) {
+        uploadBtn.addEventListener('click', () => excelUpload.click());
+        excelUpload.addEventListener('change', handleFileUpload);
+    }
+
     // Export & Action Buttons
     document.getElementById('exportPDF')?.addEventListener('click', () => window.print());
-    document.getElementById('copyShareLink')?.addEventListener('click', copyShareLink);
     document.getElementById('resetFilters')?.addEventListener('click', resetFilters);
 
     // Modal Close
@@ -181,33 +189,50 @@ function resetFilters() {
 }
 
 // --- Data Loading ---
-async function loadLocalData() {
-    const fileName = 'report_data.csv';
-    try {
-        const response = await fetch(fileName, { cache: 'no-cache' });
-        if (!response.ok) {
-            throw new Error(`Failed to load '${fileName}'. Status: ${response.status}`);
-        }
+function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
 
-        const csvText = await response.text();
-        const workbook = XLSX.read(csvText, { type: 'string' });
-        const sheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[sheetName];
-        const json = XLSX.utils.sheet_to_json(worksheet);
+    showError("Reading file...");
+    const reader = new FileReader();
 
-        state.rawData = json;
-        populateFilters();
-        applyFilters();
-        updatePreparedDate();
-        hideError();
-    } catch (err) {
-        console.error("Data load error:", err);
-        let message = err.message;
-        if (window.location.protocol === 'file:') {
-            message = "Browser security blocks local file reading. Please use a local web server (e.g., Live Server).";
+    reader.onload = function (e) {
+        try {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, { type: 'array', cellDates: true });
+            const firstSheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[firstSheetName];
+
+            // Convert to JSON with empty rows handled
+            const json = XLSX.utils.sheet_to_json(worksheet, { defval: "" });
+
+            if (json.length === 0) {
+                throw new Error("The uploaded file appears to be empty.");
+            }
+
+            state.rawData = json;
+            populateFilters();
+            applyFilters();
+            updatePreparedDate();
+            hideError();
+
+            // Visual feedback
+            const uploadBtn = document.getElementById('uploadBtn');
+            if (uploadBtn) {
+                uploadBtn.innerHTML = `<span>Change Report</span>`;
+                uploadBtn.classList.add('btn-success');
+            }
+        } catch (err) {
+            console.error("File processing error:", err);
+            showError("Error processing file: " + err.message);
         }
-        showError(message);
-    }
+    };
+
+    reader.onerror = function () {
+        showError("Failed to read file.");
+    };
+
+    reader.readAsArrayBuffer(file);
 }
 
 // --- Filter Management ---
@@ -388,7 +413,7 @@ function parseDateValue(val) {
     }
 
     const str = String(val).trim();
-    if (!str) return null;
+    if (!str || str.startsWith('#VALUE')) return null;
 
     // Handle DD/MM/YYYY or D/M/YYYY (with or without time)
     const datePart = str.split(' ')[0];
@@ -396,10 +421,13 @@ function parseDateValue(val) {
     if (parts.length === 3) {
         const d = parseInt(parts[0], 10);
         const m = parseInt(parts[1], 10);
-        const y = parseInt(parts[2], 10);
-        // Ensure 4-digit year and prevent year 46356 etc.
-        const fullYear = y < 100 ? 2000 + y : (y > 3000 ? 2000 + (y % 100) : y);
-        const date = new Date(fullYear, m - 1, d);
+        let y = parseInt(parts[2], 10);
+
+        // Handle 2-digit years and deep sanity check
+        if (y < 100) y += 2000;
+        if (y > 3000) y = 2000 + (y % 100);
+
+        const date = new Date(y, m - 1, d);
         return isNaN(date.getTime()) ? null : date;
     }
 
@@ -407,11 +435,13 @@ function parseDateValue(val) {
     if (datePart.includes('-')) {
         const partsYMD = datePart.split('-');
         if (partsYMD.length === 3) {
-            const y = parseInt(partsYMD[0], 10);
+            let y = parseInt(partsYMD[0], 10);
             const m = parseInt(partsYMD[1], 10);
             const d = parseInt(partsYMD[2], 10);
-            const fullYear = y > 3000 ? 2000 + (y % 100) : y;
-            const date = new Date(fullYear, m - 1, d);
+
+            if (y > 3000) y = 2000 + (y % 100);
+
+            const date = new Date(y, m - 1, d);
             return isNaN(date.getTime()) ? null : date;
         }
     }
@@ -665,15 +695,6 @@ function renderLeaderboard() {
 }
 
 // --- Export & Sharing ---
-function copyShareLink() {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-        const btn = document.getElementById('copyShareLink');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<span>Copied!</span>';
-        setTimeout(() => btn.innerHTML = originalText, 2000);
-    });
-}
 
 // --- Modal & Drill-Down ---
 function openModal(title, data, columns) {
