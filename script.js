@@ -281,6 +281,15 @@ function initDateRangeInputs() {
         startInput.max = toLocalISODate(maxDate);
         endInput.min = toLocalISODate(minDate);
         endInput.max = toLocalISODate(maxDate);
+
+        // Default to last 12 months
+        const defaultStart = new Date(maxDate.getFullYear(), maxDate.getMonth() - 11, 1);
+        startInput.value = toLocalISODate(defaultStart < minDate ? minDate : defaultStart);
+        endInput.value = toLocalISODate(maxDate);
+
+        // Sync state
+        state.filters.startDate = startInput.value;
+        state.filters.endDate = endInput.value;
     }
 }
 
@@ -476,56 +485,59 @@ function aggregateSum(data, key, sumKey) {
 }
 
 function aggregateTrend(data) {
-    // Determine the date range for the trend (last 12 months)
-    let maxDate;
-    if (data.length > 0) {
-        const dates = data.map(row => parseDateValue(row[state.dateKey])).filter(Boolean);
-        maxDate = dates.length > 0 ? new Date(Math.max(...dates)) : new Date();
-    } else {
-        maxDate = new Date();
-    }
+    const dates = state.rawData.map(row => parseDateValue(row[state.dateKey])).filter(Boolean);
+    if (dates.length === 0) return { labels: [], datasets: [] };
 
-    // Go back to the 1st of the month 11 months ago
-    const startMonth = new Date(maxDate.getFullYear(), maxDate.getMonth() - 11, 1);
+    const maxDate = new Date(Math.max(...dates));
+    const currentYearEnd = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate());
+    const currentYearStart = new Date(maxDate.getFullYear(), maxDate.getMonth() - 11, 1);
+    const prevYearStart = new Date(maxDate.getFullYear(), maxDate.getMonth() - 23, 1);
 
-    // Generate the 12 months
-    const monthLabels = [];
-    const monthKeys = []; // YYYY-MM
-    const counts = new Array(12).fill(0);
-    const monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const currentCounts = new Array(12).fill(0);
+    const prevCounts = new Array(12).fill(0);
 
-    for (let i = 0; i < 12; i++) {
-        const d = new Date(startMonth.getFullYear(), startMonth.getMonth() + i, 1);
-        const y = d.getFullYear();
-        const m = d.getMonth();
-        monthLabels.push(`${monthsShort[m]} ${y}`);
-        monthKeys.push(`${y}-${String(m + 1).padStart(2, '0')}`);
-    }
-
-    // Populate counts
-    data.forEach(row => {
+    state.rawData.forEach(row => {
         const d = parseDateValue(row[state.dateKey]);
-        if (d) {
-            const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
-            const idx = monthKeys.indexOf(key);
-            if (idx !== -1) counts[idx]++;
+        if (!d) return;
+
+        const mIdx = d.getMonth(); // 0-11
+
+        if (d >= currentYearStart && d <= currentYearEnd) {
+            currentCounts[mIdx]++;
+        } else if (d >= prevYearStart && d < currentYearStart) {
+            prevCounts[mIdx]++;
         }
     });
 
+    // Create dynamic labels for legend (e.g., "Feb 24 - Jan 25")
+    const fmt = (d) => `${months[d.getMonth()]} ${d.getFullYear().toString().slice(-2)}`;
+    const currentLabel = `${fmt(currentYearStart)} - ${fmt(currentYearEnd)}`;
+    const prevLabel = `${fmt(prevYearStart)} - ${fmt(new Date(currentYearStart.getTime() - 86400000))}`;
+
     return {
-        labels: monthLabels,
-        monthKeys: monthKeys,
-        datasets: [{
-            label: 'Completions',
-            data: counts,
-            borderColor: '#f7941d',
-            backgroundColor: 'rgba(247, 148, 29, 0.1)',
-            borderWidth: 3,
-            fill: true,
-            tension: 0.4,
-            pointRadius: 4,
-            pointHoverRadius: 6
-        }]
+        labels: months,
+        datasets: [
+            {
+                label: currentLabel,
+                data: currentCounts,
+                borderColor: '#f7941d', // Orange
+                backgroundColor: 'transparent',
+                borderWidth: 3,
+                tension: 0.3,
+                pointRadius: 4
+            },
+            {
+                label: prevLabel,
+                data: prevCounts,
+                borderColor: '#3b82f6', // Blue
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                tension: 0.3,
+                pointRadius: 3,
+                borderDash: [5, 5]
+            }
+        ]
     };
 }
 
@@ -534,11 +546,14 @@ function renderCharts() {
     const monthlyTrend = aggregateTrend(state.filteredData);
     createChart('monthlyTrendChart', 'line', {
         labels: monthlyTrend.labels,
-        datasets: monthlyTrend.datasets,
-        monthKeys: monthlyTrend.monthKeys
+        datasets: monthlyTrend.datasets
     }, {
         plugins: {
-            legend: { display: false }
+            legend: {
+                display: true,
+                position: 'top',
+                labels: { usePointStyle: true, boxWidth: 6, font: { family: 'Inter', size: 10 } }
+            }
         },
         interaction: {
             mode: 'index',
@@ -780,17 +795,32 @@ function handleChartClick(chartId, label) {
 
     if (chartId === 'monthlyTrendChart') {
         const chart = state.charts[chartId];
+        const datasetIndex = elements[0].datasetIndex;
         const monthIndex = elements[0].index;
-        const monthKey = chart.data.monthKeys[monthIndex];
-        const titleLabel = chart.data.labels[monthIndex];
+        const periodLabel = chart.data.datasets[datasetIndex].label; // e.g. "Feb 24 - Jan 25"
+        const monthName = chart.data.labels[monthIndex];
 
-        drillData = state.filteredData.filter(row => {
-            const date = parseDateValue(row[state.dateKey]);
-            if (!date) return false;
-            const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
-            return key === monthKey;
+        // Extract year from periodLabel based on monthIndex
+        // This is a bit tricky since labels cover 2 years. 
+        // We'll filter all records in state.rawData that match monthName and are within the 24 month window
+        drillData = state.rawData.filter(row => {
+            const d = parseDateValue(row[state.dateKey]);
+            if (!d) return false;
+            if (d.getMonth() !== monthIndex) return false;
+
+            // Is it the orange line or blue line?
+            const dates = state.rawData.map(r => parseDateValue(r[state.dateKey])).filter(Boolean);
+            const maxDate = new Date(Math.max(...dates));
+            const currentYearStart = new Date(maxDate.getFullYear(), maxDate.getMonth() - 11, 1);
+            const prevYearStart = new Date(maxDate.getFullYear(), maxDate.getMonth() - 23, 1);
+
+            if (datasetIndex === 0) { // Orange (Current)
+                return d >= currentYearStart;
+            } else { // Blue (Prev)
+                return d >= prevYearStart && d < currentYearStart;
+            }
         });
-        title = `Completions in ${titleLabel}`;
+        title = `Completions in ${monthName} (${periodLabel})`;
     } else if (chartId === 'jobTitleChart') {
         drillData = state.filteredData.filter(row => row['Learner Job Title'] === label);
         title = `Training for ${label}`;
