@@ -206,6 +206,10 @@ function populateFilters() {
     const platforms = [...new Set(state.rawData.map(row => row.Platform))].filter(Boolean).sort();
     const names = [...new Set(state.rawData.map(row => row[nameKey]))].filter(Boolean).sort();
 
+    // Detect column name for "Completion Date" (could be "Completion" or "Completion Date")
+    const dateKey = Object.keys(sampleRow).find(k => k.toLowerCase() === 'completion date' || k.toLowerCase() === 'completion') || 'Completion Date';
+    state.dateKey = dateKey;
+
     updateSelectOptions('officeFilter', offices, 'All Offices');
     updateSelectOptions('departmentFilter', departments, 'All Departments');
     updateSelectOptions('trainingTypeFilter', types, 'All Types');
@@ -230,7 +234,7 @@ function populateFilters() {
  */
 function initDateRangeInputs() {
     const dates = state.rawData
-        .map(row => parseDateValue(row['Completion Date']))
+        .map(row => parseDateValue(row[state.dateKey || 'Completion Date']))
         .filter(d => d instanceof Date && !isNaN(d.getTime()));
 
     if (dates.length === 0) return;
@@ -281,7 +285,7 @@ function applyFilters(syncURL = false) {
         // Date range filtering
         let matchDate = true;
         if (state.filters.startDate || state.filters.endDate) {
-            const rowDate = parseDateValue(row['Completion Date']);
+            const rowDate = parseDateValue(row[state.dateKey || 'Completion Date']);
             if (rowDate) {
                 if (state.filters.startDate) {
                     const start = new Date(state.filters.startDate);
@@ -429,31 +433,46 @@ function aggregateSum(data, key, sumKey) {
 }
 
 function aggregateTrend(data) {
-    const trend = {};
+    const years = [];
+    const currentYear = new Date().getFullYear();
+    for (let i = 0; i < 4; i++) {
+        years.push(currentYear - i);
+    }
+    years.sort(); // Previous 3 years + current year
+
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const trend = {}; // { 2023: [0,0,0...], 2024: [0,0,0...] }
+
+    years.forEach(y => trend[y] = new Array(12).fill(0));
+
     data.forEach(row => {
-        const dateVal = row['Completion Date'];
+        const dateVal = row[state.dateKey || 'Completion Date'];
         if (!dateVal) return;
         const date = parseDateValue(dateVal);
         if (date) {
-            const year = date.getFullYear();
-            const month = (date.getMonth() + 1).toString().padStart(2, '0');
-            const key = `${year}-${month}`;
-            trend[key] = (trend[key] || 0) + 1;
+            const y = date.getFullYear();
+            const m = date.getMonth(); // 0-11
+            if (trend[y]) {
+                trend[y][m]++;
+            }
         }
     });
 
-    const sortedLabels = Object.keys(trend).sort();
-    // Prettier labels for display
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const displayLabels = sortedLabels.map(label => {
-        const [y, m] = label.split('-');
-        return `${months[parseInt(m) - 1]} ${y}`;
-    });
-
     return {
-        keys: sortedLabels, // Used for internal matching
-        labels: displayLabels,
-        values: sortedLabels.map(l => trend[l])
+        years: years,
+        labels: months,
+        datasets: years.map((y, index) => {
+            const palette = ['#cbd5e1', '#94a3b8', '#64748b', '#f7941d']; // 3 greys for past, brand orange for current-ish
+            return {
+                label: y.toString(),
+                data: trend[y],
+                borderColor: palette[index] || getVibrantColors(9)[index % 9],
+                backgroundColor: 'transparent',
+                borderWidth: y === currentYear ? 3 : 2,
+                pointRadius: 3,
+                tension: 0.3
+            };
+        })
     };
 }
 
@@ -462,17 +481,19 @@ function renderCharts() {
     const monthlyTrend = aggregateTrend(state.filteredData);
     createChart('monthlyTrendChart', 'line', {
         labels: monthlyTrend.labels,
-        keys: monthlyTrend.keys, // Custom property for click handling
-        datasets: [{
-            label: 'Completions',
-            data: monthlyTrend.values,
-            borderColor: '#3b82f6',
-            backgroundColor: 'rgba(59, 130, 246, 0.1)',
-            fill: true,
-            tension: 0.4
-        }]
+        datasets: monthlyTrend.datasets
     }, {
-        plugins: { legend: { display: false } }
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top',
+                labels: { usePointStyle: true, boxWidth: 6 }
+            }
+        },
+        interaction: {
+            mode: 'index',
+            intersect: false
+        }
     });
 
     // 2. Training Type Distribution
@@ -680,16 +701,17 @@ function handleChartClick(chartId, label) {
 
     if (chartId === 'monthlyTrendChart') {
         const chart = state.charts[chartId];
-        const index = chart.data.labels.indexOf(label);
-        const key = chart.data.keys[index]; // Use the YYYY-MM key
+        const datasetIndex = elements[0].datasetIndex;
+        const year = chart.data.datasets[datasetIndex].label;
+        const monthIndex = elements[0].index;
+        const monthName = chart.data.labels[monthIndex];
 
         drillData = state.filteredData.filter(row => {
-            const date = parseDateValue(row['Completion Date']);
+            const date = parseDateValue(row[state.dateKey || 'Completion Date']);
             if (!date) return false;
-            const monthYear = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}`;
-            return monthYear === key;
+            return date.getFullYear().toString() === year && date.getMonth() === monthIndex;
         });
-        title = `Completions in ${label}`;
+        title = `Completions in ${monthName} ${year}`;
     } else if (chartId === 'jobTitleChart') {
         drillData = state.filteredData.filter(row => row['Learner Job Title'] === label);
         title = `Training for ${label}`;
