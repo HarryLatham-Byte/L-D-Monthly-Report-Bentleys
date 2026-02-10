@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initUI();
     loadFiltersFromURL();
     setupEventListeners();
+    setupHelpTriggers();
     loadLocalData();
 });
 
@@ -132,6 +133,16 @@ function setupEventListeners() {
     document.getElementById('closeModal')?.addEventListener('click', closeModal);
     window.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal-overlay')) closeModal();
+    });
+}
+
+function setupHelpTriggers() {
+    document.querySelectorAll('.help-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const msg = trigger.getAttribute('data-help');
+            alert(msg); // Simple alert for now, can be styled further
+        });
     });
 }
 
@@ -208,9 +219,12 @@ function populateFilters() {
     const nameKey = Object.keys(sampleRow).find(k => k.toLowerCase().includes('name') && !k.toLowerCase().includes('manager')) || 'Name';
     state.nameKey = nameKey; // Store for later use
 
+    const teamKey = Object.keys(sampleRow).find(k => k.toLowerCase() === 'team') || 'Team';
+    state.teamKey = teamKey;
+
     const offices = [...new Set(state.rawData.map(row => row.Office))].filter(Boolean).sort();
     const departments = [...new Set(state.rawData.map(row => row.Department))].filter(Boolean).sort();
-    const teams = [...new Set(state.rawData.map(row => row.Team))].filter(Boolean).sort();
+    const teams = [...new Set(state.rawData.map(row => row[teamKey]))].filter(Boolean).sort();
     const types = [...new Set(state.rawData.map(row => row['Training Type']))].filter(Boolean).sort();
     const platforms = [...new Set(state.rawData.map(row => row.Platform))].filter(Boolean).sort();
     const names = [...new Set(state.rawData.map(row => row[nameKey]))].filter(Boolean).sort();
@@ -290,7 +304,7 @@ function applyFilters(syncURL = false) {
     state.filteredData = state.rawData.filter(row => {
         const matchOffice = state.filters.office === 'all' || row.Office === state.filters.office;
         const matchDept = state.filters.department === 'all' || row.Department === state.filters.department;
-        const matchTeam = state.filters.team === 'all' || row.Team === state.filters.team;
+        const matchTeam = state.filters.team === 'all' || row[state.teamKey || 'Team'] === state.filters.team;
         const matchType = state.filters.type === 'all' || row['Training Type'] === state.filters.type;
         const matchPlatform = state.filters.platform === 'all' || row.Platform === state.filters.platform;
 
@@ -548,13 +562,14 @@ function renderCharts() {
 
     // 5. Completions by Office
     const officeCounts = aggregateData(state.filteredData, 'Office');
-    createChart('officeCompletionsChart', 'bar', {
+    createChart('officeCompletionsChart', 'doughnut', {
         labels: officeCounts.labels,
         datasets: [{
-            label: 'Completions',
             data: officeCounts.values,
             backgroundColor: getVibrantColors(officeCounts.labels.length)
         }]
+    }, {
+        plugins: { legend: { position: 'bottom' } }
     });
 
     // 6. Completions by Team
@@ -769,7 +784,7 @@ function handleChartClick(chartId, label) {
         drillData = state.filteredData.filter(row => row['Office'] === label);
         title = `Training for Office: ${label}`;
     } else if (chartId === 'teamsChart') {
-        drillData = state.filteredData.filter(row => row['Team'] === label);
+        drillData = state.filteredData.filter(row => row[state.teamKey || 'Team'] === label);
         title = `Training for Team: ${label}`;
     } else if (chartId === 'courseLeaderboard') {
         drillData = state.filteredData.filter(row => row['Training Name'] === label);
