@@ -136,70 +136,122 @@
             <div class="empty-state">Loading data insights...</div>
         </section>
 
-        <!-- Training Activity Analysis -->
-        <section class="section-group">
-            <h2 class="section-title">Training Activity Analysis</h2>
-
-            <div class="dashboard-row">
-                <div class="card full-width">
-                    <h3>Monthly Completion Trend <span class="help-trigger"
-                            data-help="Total number of training sessions completed each month. Click any month for details.">?</span>
-                    </h3>
-                    <div class="chart-container tall">
-                        <canvas id="monthlyTrendChart"></canvas>
-                    </div>
+        <!-- Interval KPIs Row -->
+        <div class="dashboard-row kpi-grid">
+            <div class="card kpi-card">
+                <div class="kpi-icon orange">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div class="kpi-info">
+                    <p class="kpi-label">Last 7 Days</p>
+                    <h3 id="last7d">0</h3>
                 </div>
             </div>
-
-            <div class="dashboard-row multi-col">
-                <div class="card">
-                    <h3>Training Type Distribution <span class="help-trigger"
-                            data-help="Breakdown of how training was delivered (e.g., ELearning vs Classroom).">?</span>
-                    </h3>
-                    <div class="chart-container">
-                        <canvas id="trainingTypeChart"></canvas>
-                    </div>
+            <div class="card kpi-card">
+                <div class="kpi-icon blue">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
                 </div>
-                <div class="card">
-                    <h3>Completions by Office <span class="help-trigger"
-                            data-help="Geographic distribution of training achievement.">?</span></h3>
-                    <div class="chart-container">
-                        <canvas id="officeCompletionsChart"></canvas>
-                    </div>
+                <div class="kpi-info">
+                    <p class="kpi-label">Last 30 Days</p>
+                    <h3 id="last30d">0</h3>
                 </div>
             </div>
-
-            <div class="dashboard-row">
-                <div class="card full-width">
-                    <h3>Top Job Titles by Training <span class="help-trigger"
-                            data-help="Job roles with the highest number of completions. Click a bar to see specific courses.">?</span>
-                    </h3>
-                    <div class="chart-container">
-                        <canvas id="jobTitleChart"></canvas>
-                    </div>
+            <div class="card kpi-card">
+                <div class="kpi-icon purple">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                        </path>
+                    </svg>
+                </div>
+                <div class="kpi-info">
+                    <p class="kpi-label">Last 90 Days</p>
+                    <h3 id="last90d">0</h3>
                 </div>
             </div>
-
-            <div class="dashboard-row">
-                <div class="card full-width">
-                    <h3>Completions by Team <span class="help-trigger"
-                            data-help="Breakdown of completions by team.">?</span>
-                    </h3>
-                    <div class="chart-container">
-                        <canvas id="teamsChart"></canvas>
-                    </div>
+            <div class="card kpi-card">
+                <div class="kpi-icon green">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="kpi-info">
+                    <p class="kpi-label">Last 6 Months</p>
+                    <h3 id="last6m">0</h3>
                 </div>
             </div>
-
-            <div class="dashboard-row">
-                <div class="card full-width">
-                    <h3>CPD Hours by Department <span class="help-trigger"
-                            data-help="Investment in professional development hours per department.">?</span></h3>
-                    <div class="chart-container">
-                        <canvas id="departmentHoursChart"></canvas>
-                    </div>
+            <div class="card kpi-card">
+                <div class="kpi-icon red">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <div class="kpi-info">
+                    <p class="kpi-label">Last 1 Year</p>
+                    <h3 id="last1y">0</h3>
                 </div>
             </div>
+        </div>
+
+        <!-- Row 2: Distribution Charts -->
+        <div class="dashboard-row multi-col">
+            <div class="card">
+                <h3>Training Type Distribution <span class="help-trigger"
+                        data-help="Breakdown of how training was delivered (e.g., ELearning vs Classroom).">?</span>
+                </h3>
+                <div class="chart-container">
+                    <canvas id="trainingTypeChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Completions by Office <span class="help-trigger"
+                        data-help="Geographic distribution of training achievement.">?</span></h3>
+                <div class="chart-container">
+                    <canvas id="officeCompletionsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-row">
+            <div class="card full-width">
+                <h3>Top Job Titles by Training <span class="help-trigger"
+                        data-help="Job roles with the highest number of completions. Click a bar to see specific courses.">?</span>
+                </h3>
+                <div class="chart-container">
+                    <canvas id="jobTitleChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-row">
+            <div class="card full-width">
+                <h3>Completions by Team <span class="help-trigger"
+                        data-help="Breakdown of completions by team.">?</span>
+                </h3>
+                <div class="chart-container">
+                    <canvas id="teamsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-row">
+            <div class="card full-width">
+                <h3>CPD Hours by Department <span class="help-trigger"
+                        data-help="Investment in professional development hours per department.">?</span></h3>
+                <div class="chart-container">
+                    <canvas id="departmentHoursChart"></canvas>
+                </div>
+            </div>
+        </div>
         </section>
 
         <!-- Course Leaderboard Section -->

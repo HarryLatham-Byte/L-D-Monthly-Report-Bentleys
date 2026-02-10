@@ -414,6 +414,7 @@ function parseDateValue(val) {
 // --- Rendering ---
 function renderDashboard() {
     try { renderKPIs(); } catch (e) { console.error("KPI Render Error:", e); }
+    try { renderIntervalKPIs(); } catch (e) { console.error("Interval KPI Render Error:", e); }
     try { renderCharts(); } catch (e) { console.error("Chart Render Error:", e); }
     try { renderLeaderboard(); } catch (e) { console.error("Leaderboard Render Error:", e); }
 }
@@ -452,6 +453,63 @@ function renderKPIs() {
     });
 }
 
+function renderIntervalKPIs() {
+    const dates = state.rawData.map(row => parseDateValue(row[state.dateKey])).filter(Boolean);
+    if (dates.length === 0) return;
+
+    const maxDate = new Date(Math.max(...dates));
+
+    // Define intervals relative to maxDate
+    const last7dLimit = new Date(maxDate.getTime() - 7 * 86400000);
+    const last30dLimit = new Date(maxDate.getTime() - 30 * 86400000);
+    const last90dLimit = new Date(maxDate.getTime() - 90 * 86400000);
+    const last6mLimit = new Date(maxDate.getFullYear(), maxDate.getMonth() - 6, maxDate.getDate());
+    const last1yLimit = new Date(maxDate.getFullYear() - 1, maxDate.getMonth(), maxDate.getDate());
+
+    // Respect current filters (Office, Team, etc.) but IGNORE the Date filters
+    const baseData = state.rawData.filter(row => {
+        const matchOffice = state.filters.office === 'all' || row.Office === state.filters.office;
+        const matchDept = state.filters.department === 'all' || row.Department === state.filters.department;
+        const matchTeam = state.filters.team === 'all' || row[state.teamKey || 'Team'] === state.filters.team;
+        const matchType = state.filters.type === 'all' || row['Training Type'] === state.filters.type;
+        const matchPlatform = state.filters.platform === 'all' || row.Platform === state.filters.platform;
+        const rowName = row[state.nameKey || 'Name'] ? String(row[state.nameKey || 'Name']).toLowerCase() : '';
+        const matchName = !state.filters.name || rowName.includes(state.filters.name);
+
+        return matchOffice && matchDept && matchTeam && matchType && matchPlatform && matchName;
+    });
+
+    const counts = {
+        last7d: 0,
+        last30d: 0,
+        last90d: 0,
+        last6m: 0,
+        last1y: 0
+    };
+
+    baseData.forEach(row => {
+        const d = parseDateValue(row[state.dateKey]);
+        if (!d) return;
+        if (d >= last7dLimit) counts.last7d++;
+        if (d >= last30dLimit) counts.last30d++;
+        if (d >= last90dLimit) counts.last90d++;
+        if (d >= last6mLimit) counts.last6m++;
+        if (d >= last1yLimit) counts.last1y++;
+    });
+
+    // Update UI
+    const setVal = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val.toLocaleString();
+    };
+
+    setVal('last7d', counts.last7d);
+    setVal('last30d', counts.last30d);
+    setVal('last90d', counts.last90d);
+    setVal('last6m', counts.last6m);
+    setVal('last1y', counts.last1y);
+}
+
 // --- Utilities ---
 function aggregateData(data, key, limit = 0) {
     const counts = {};
@@ -484,84 +542,8 @@ function aggregateSum(data, key, sumKey) {
     };
 }
 
-function aggregateTrend(data) {
-    const dates = state.rawData.map(row => parseDateValue(row[state.dateKey])).filter(Boolean);
-    if (dates.length === 0) return { labels: [], datasets: [] };
-
-    const maxDate = new Date(Math.max(...dates));
-    const currentYearEnd = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate());
-    const currentYearStart = new Date(maxDate.getFullYear(), maxDate.getMonth() - 11, 1);
-    const prevYearStart = new Date(maxDate.getFullYear(), maxDate.getMonth() - 23, 1);
-
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    const currentCounts = new Array(12).fill(0);
-    const prevCounts = new Array(12).fill(0);
-
-    state.rawData.forEach(row => {
-        const d = parseDateValue(row[state.dateKey]);
-        if (!d) return;
-
-        const mIdx = d.getMonth(); // 0-11
-
-        if (d >= currentYearStart && d <= currentYearEnd) {
-            currentCounts[mIdx]++;
-        } else if (d >= prevYearStart && d < currentYearStart) {
-            prevCounts[mIdx]++;
-        }
-    });
-
-    // Create dynamic labels for legend (e.g., "Feb 24 - Jan 25")
-    const fmt = (d) => `${months[d.getMonth()]} ${d.getFullYear().toString().slice(-2)}`;
-    const currentLabel = `${fmt(currentYearStart)} - ${fmt(currentYearEnd)}`;
-    const prevLabel = `${fmt(prevYearStart)} - ${fmt(new Date(currentYearStart.getTime() - 86400000))}`;
-
-    return {
-        labels: months,
-        datasets: [
-            {
-                label: currentLabel,
-                data: currentCounts,
-                borderColor: '#f7941d', // Orange
-                backgroundColor: 'transparent',
-                borderWidth: 3,
-                tension: 0.3,
-                pointRadius: 4
-            },
-            {
-                label: prevLabel,
-                data: prevCounts,
-                borderColor: '#3b82f6', // Blue
-                backgroundColor: 'transparent',
-                borderWidth: 2,
-                tension: 0.3,
-                pointRadius: 3,
-                borderDash: [5, 5]
-            }
-        ]
-    };
-}
-
 function renderCharts() {
-    // 1. Monthly Trend
-    const monthlyTrend = aggregateTrend(state.filteredData);
-    createChart('monthlyTrendChart', 'line', {
-        labels: monthlyTrend.labels,
-        datasets: monthlyTrend.datasets
-    }, {
-        plugins: {
-            legend: {
-                display: true,
-                position: 'top',
-                labels: { usePointStyle: true, boxWidth: 6, font: { family: 'Inter', size: 10 } }
-            }
-        },
-        interaction: {
-            mode: 'index',
-            intersect: false
-        }
-    });
-
-    // 2. Training Type Distribution
+    // 1. Training Type Distribution
     const typeCounts = aggregateData(state.filteredData, 'Training Type');
     createChart('trainingTypeChart', 'doughnut', {
         labels: typeCounts.labels,
@@ -793,35 +775,7 @@ function handleChartClick(chartId, label) {
     // Transcript columns
     let cols = [nameKey, 'Training Name', 'Completion Date', 'CPD Hours', 'Office', 'Department'];
 
-    if (chartId === 'monthlyTrendChart') {
-        const chart = state.charts[chartId];
-        const datasetIndex = elements[0].datasetIndex;
-        const monthIndex = elements[0].index;
-        const periodLabel = chart.data.datasets[datasetIndex].label; // e.g. "Feb 24 - Jan 25"
-        const monthName = chart.data.labels[monthIndex];
-
-        // Extract year from periodLabel based on monthIndex
-        // This is a bit tricky since labels cover 2 years. 
-        // We'll filter all records in state.rawData that match monthName and are within the 24 month window
-        drillData = state.rawData.filter(row => {
-            const d = parseDateValue(row[state.dateKey]);
-            if (!d) return false;
-            if (d.getMonth() !== monthIndex) return false;
-
-            // Is it the orange line or blue line?
-            const dates = state.rawData.map(r => parseDateValue(r[state.dateKey])).filter(Boolean);
-            const maxDate = new Date(Math.max(...dates));
-            const currentYearStart = new Date(maxDate.getFullYear(), maxDate.getMonth() - 11, 1);
-            const prevYearStart = new Date(maxDate.getFullYear(), maxDate.getMonth() - 23, 1);
-
-            if (datasetIndex === 0) { // Orange (Current)
-                return d >= currentYearStart;
-            } else { // Blue (Prev)
-                return d >= prevYearStart && d < currentYearStart;
-            }
-        });
-        title = `Completions in ${monthName} (${periodLabel})`;
-    } else if (chartId === 'jobTitleChart') {
+    if (chartId === 'jobTitleChart') {
         drillData = state.filteredData.filter(row => row['Learner Job Title'] === label);
         title = `Training for ${label}`;
     } else if (chartId === 'trainingTypeChart') {
