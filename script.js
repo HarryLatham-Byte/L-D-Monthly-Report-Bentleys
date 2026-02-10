@@ -13,6 +13,7 @@ const state = {
         department: 'all',
         type: 'all',
         platform: 'all',
+        team: 'all',
         name: '',
         startDate: '',
         endDate: ''
@@ -95,7 +96,7 @@ function setupEventListeners() {
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
     // Filter Listeners
-    const filterIds = ['officeFilter', 'departmentFilter', 'trainingTypeFilter', 'platformFilter'];
+    const filterIds = ['officeFilter', 'departmentFilter', 'trainingTypeFilter', 'platformFilter', 'teamFilter'];
     filterIds.forEach(id => {
         document.getElementById(id).addEventListener('change', (e) => {
             const filterKey = id.replace('Filter', '').toLowerCase();
@@ -140,13 +141,14 @@ function resetFilters() {
         department: 'all',
         type: 'all',
         platform: 'all',
+        team: 'all',
         name: '',
         startDate: '',
         endDate: ''
     };
 
     // Reset UI elements
-    const filterIds = ['officeFilter', 'departmentFilter', 'trainingTypeFilter', 'platformFilter'];
+    const filterIds = ['officeFilter', 'departmentFilter', 'trainingTypeFilter', 'platformFilter', 'teamFilter'];
     filterIds.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = 'all';
@@ -208,6 +210,7 @@ function populateFilters() {
 
     const offices = [...new Set(state.rawData.map(row => row.Office))].filter(Boolean).sort();
     const departments = [...new Set(state.rawData.map(row => row.Department))].filter(Boolean).sort();
+    const teams = [...new Set(state.rawData.map(row => row.Team))].filter(Boolean).sort();
     const types = [...new Set(state.rawData.map(row => row['Training Type']))].filter(Boolean).sort();
     const platforms = [...new Set(state.rawData.map(row => row.Platform))].filter(Boolean).sort();
     const names = [...new Set(state.rawData.map(row => row[nameKey]))].filter(Boolean).sort();
@@ -218,6 +221,7 @@ function populateFilters() {
 
     updateSelectOptions('officeFilter', offices, 'All Offices');
     updateSelectOptions('departmentFilter', departments, 'All Departments');
+    updateSelectOptions('teamFilter', teams, 'All Teams');
     updateSelectOptions('trainingTypeFilter', types, 'All Types');
     updateSelectOptions('platformFilter', platforms, 'All Platforms');
 
@@ -248,20 +252,25 @@ function initDateRangeInputs() {
     const minDate = new Date(Math.min(...dates));
     const maxDate = new Date(Math.max(...dates));
 
-    const toISODate = (d) => d.toISOString().split('T')[0];
+    const toLocalISODate = (d) => {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${day}`;
+    };
 
     const startInput = document.getElementById('startDate');
     const endInput = document.getElementById('endDate');
 
     if (startInput && endInput) {
-        startInput.min = toISODate(minDate);
-        startInput.max = toISODate(maxDate);
-        endInput.min = toISODate(minDate);
-        endInput.max = toISODate(maxDate);
+        startInput.min = toLocalISODate(minDate);
+        startInput.max = toLocalISODate(maxDate);
+        endInput.min = toLocalISODate(minDate);
+        endInput.max = toLocalISODate(maxDate);
 
         // Optional: Pre-fill with the full range
-        // startInput.value = toISODate(minDate);
-        // endInput.value = toISODate(maxDate);
+        // startInput.value = toLocalISODate(minDate);
+        // endInput.value = toLocalISODate(maxDate);
     }
 }
 
@@ -281,6 +290,7 @@ function applyFilters(syncURL = false) {
     state.filteredData = state.rawData.filter(row => {
         const matchOffice = state.filters.office === 'all' || row.Office === state.filters.office;
         const matchDept = state.filters.department === 'all' || row.Department === state.filters.department;
+        const matchTeam = state.filters.team === 'all' || row.Team === state.filters.team;
         const matchType = state.filters.type === 'all' || row['Training Type'] === state.filters.type;
         const matchPlatform = state.filters.platform === 'all' || row.Platform === state.filters.platform;
 
@@ -308,7 +318,7 @@ function applyFilters(syncURL = false) {
             }
         }
 
-        return matchOffice && matchDept && matchType && matchPlatform && matchName && matchDate;
+        return matchOffice && matchDept && matchTeam && matchType && matchPlatform && matchName && matchDate;
     });
 
     if (syncURL) syncFiltersToURL();
@@ -549,14 +559,13 @@ function renderCharts() {
 
     // 6. Completions by Team
     const teamCounts = aggregateData(state.filteredData, 'Team');
-    createChart('teamsChart', 'doughnut', {
+    createChart('teamsChart', 'bar', {
         labels: teamCounts.labels,
         datasets: [{
+            label: 'Completions',
             data: teamCounts.values,
             backgroundColor: getVibrantColors(teamCounts.labels.length)
         }]
-    }, {
-        plugins: { legend: { position: 'bottom' } }
     });
 
     updateChartThemes();
@@ -699,15 +708,11 @@ function createChart(id, type, data, options = {}) {
             datalabels: {
                 color: state.theme === 'dark' ? '#94a3b8' : '#4f566b',
                 anchor: 'end',
-                align: 'top',
-                offset: -4,
+                align: type === 'bar' && options.indexAxis === 'y' ? 'right' : 'top',
+                offset: type === 'bar' && options.indexAxis === 'y' ? 4 : -4,
                 font: { family: 'Inter', weight: 'bold', size: 10 },
                 formatter: (value) => value > 0 ? value : '', // Don't show zero labels
-                display: (context) => {
-                    // Hide labels if there are too many items to avoid clutter, or for line charts
-                    if (type === 'line') return false;
-                    return context.dataset.data.length < 15;
-                }
+                display: (context) => type !== 'line' // Show for everything except line trend
             }
         },
         scales: type === 'doughnut' ? {} : {

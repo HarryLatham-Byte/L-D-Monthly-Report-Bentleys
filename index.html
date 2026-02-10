@@ -104,6 +104,12 @@
                     <option value="all">All Platforms</option>
                 </select>
             </div>
+            <div class="filter-group">
+                <label for="teamFilter">Team</label>
+                <select id="teamFilter">
+                    <option value="all">All Teams</option>
+                </select>
+            </div>
             <div class="filter-group date-group">
                 <label for="startDate">From</label>
                 <input type="date" id="startDate">
@@ -155,6 +161,16 @@
                     </div>
                 </div>
                 <div class="card">
+                    <h3>Completions by Office <span class="help-trigger"
+                            data-help="Geographic distribution of training achievement.">?</span></h3>
+                    <div class="chart-container">
+                        <canvas id="officeCompletionsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-row">
+                <div class="card full-width">
                     <h3>Top Job Titles by Training <span class="help-trigger"
                             data-help="Job roles with the highest number of completions. Click a bar to see specific courses.">?</span>
                     </h3>
@@ -162,7 +178,10 @@
                         <canvas id="jobTitleChart"></canvas>
                     </div>
                 </div>
-                <div class="card">
+            </div>
+
+            <div class="dashboard-row">
+                <div class="card full-width">
                     <h3>Completions by Team <span class="help-trigger"
                             data-help="Breakdown of completions by team.">?</span>
                     </h3>
@@ -172,19 +191,12 @@
                 </div>
             </div>
 
-            <div class="dashboard-row multi-col">
-                <div class="card">
+            <div class="dashboard-row">
+                <div class="card full-width">
                     <h3>CPD Hours by Department <span class="help-trigger"
                             data-help="Investment in professional development hours per department.">?</span></h3>
                     <div class="chart-container">
                         <canvas id="departmentHoursChart"></canvas>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>Completions by Office <span class="help-trigger"
-                            data-help="Geographic distribution of training achievement.">?</span></h3>
-                    <div class="chart-container">
-                        <canvas id="officeCompletionsChart"></canvas>
                     </div>
                 </div>
             </div>
